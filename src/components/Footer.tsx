@@ -113,7 +113,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeveloperProfile }) => {
           </div>
 
           <p className="text-slate-500">
-            Al-Bayan v2.0 &bull; Didedikasikan untuk kemaslahatan dakwah Islam & penuntut ilmu.
+            Al-Bayan v2.1.0 &bull; Didedikasikan untuk kemaslahatan dakwah Islam & penuntut ilmu.
           </p>
         </div>
       </div>

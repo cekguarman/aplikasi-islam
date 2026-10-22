@@ -212,7 +212,7 @@ export const DeveloperProfileModal: React.FC<DeveloperProfileModalProps> = ({ is
         {/* Modal Footer */}
         <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-3">
           <span className="text-xs text-slate-500">
-            Aplikasi Al-Bayan dikembangkan oleh <strong>Armansyah</strong>
+            Aplikasi Al-Bayan v2.1.0 dikembangkan oleh <strong>Armansyah</strong>
           </span>
           <div className="flex items-center gap-3">
             <a

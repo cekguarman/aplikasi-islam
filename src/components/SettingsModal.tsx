@@ -57,7 +57,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, o
               Aplikasi Tetap Berfungsi Offline & Tanpa API Key
             </div>
             <p className="text-slate-600 text-justify-custom text-[11px] leading-relaxed">
-              Al-Bayan telah dilengkapi dengan basis data lokal ribuan dalil, ayat, hadits 9 imam, fiqih 4 mazhab Mawsu'ah Kuwaitiyyah, dan katalog buku Arsip Armansyah. Menambahkan Google Gemini API Key (Gemini 3.8 Flash) akan mengaktifkan kemampuan analisis teks AI yang lebih luas, terjemahan instan, dan jelajah jurnal ilmiah dunia secara langsung.
+              Al-Bayan telah dilengkapi dengan basis data lokal ribuan dalil, ayat, hadits 9 imam, fiqih 4 mazhab Mawsu'ah Kuwaitiyyah, dan katalog buku Arsip Armansyah. Menambahkan Google Gemini API Key gratis (menggunakan model resmi Gemini 2.5 Flash berkecepatan tinggi) akan mengaktifkan eksplorasi cerdas secara instan, terjemahan kilat, dan analisis teks mendalam yang padat dan detil.
             </p>
           </div>
 

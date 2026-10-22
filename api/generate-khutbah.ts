@@ -2,13 +2,45 @@ import { GoogleGenAI } from '@google/genai';
 import { PEMBUKAAN_OPTIONS } from '../src/data/pembukaanData';
 import { generateLocalKhutbah } from '../src/data/khutbahGeneratorLogic';
 
-export default async function handler(req: any, res: any) {
-  try {
-    if (req.method !== 'POST') {
-      return res.status(405).json({ error: 'Method not allowed' });
-    }
+async function generateWithGeminiFast(aiClient: GoogleGenAI, prompt: string, timeoutMs: number = 12000): Promise<string> {
+  const models = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash'];
+  let lastErr: any = null;
 
-    const { topic, type, durationMinutes, openingId, additionalNotes } = req.body || {};
+  const runModels = async () => {
+    for (const model of models) {
+      try {
+        const response = await aiClient.models.generateContent({
+          model,
+          contents: prompt,
+          config: {
+            responseMimeType: 'application/json'
+          }
+        });
+        if (response && response.text) {
+          return response.text;
+        }
+      } catch (err: any) {
+        lastErr = err;
+        console.warn(`[Speed Engine Khutbah] Model ${model} failed:`, err?.message || err);
+      }
+    }
+    throw lastErr || new Error('All fast Gemini models failed');
+  };
+
+  const timer = new Promise<never>((_, reject) =>
+    setTimeout(() => reject(new Error('Khutbah Gemini API timeout (12s)')), timeoutMs)
+  );
+
+  return Promise.race([runModels(), timer]);
+}
+
+export default async function handler(req: any, res: any) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const { topic, type, durationMinutes, openingId, additionalNotes } = req.body;
     const clientApiKey = req.headers?.['x-gemini-key'] as string | undefined;
 
     const opening = PEMBUKAAN_OPTIONS.find(p => p.id === Number(openingId)) ||
@@ -26,25 +58,25 @@ Susun naskah lengkap, utuh, dan berbobot untuk ${formatLabel}.
 
 SPESIFIKASI NASKAH:
 - Tema / Topik: "${topic}"
-- Durasi Bicara: ${durationMinutes} Menit (Target panjang naskah: ~${targetWords} kata agar pas dengan tempo berbicara ~130 kata/menit).
+- Durasi Bicara: ${durationMinutes} Menit (Target panjang naskah: ~${targetWords} kata).
 - Teks Pembuka Terpilih:
   Arab: ${opening.arabicText}
   Transliterasi: ${opening.transliteration}
   Terjemah: ${opening.indonesianTranslation}
 
-RUJUKAN ILMIAH & FIQIH YANG HARUS DISERTAKAN:
-- Al-Qur'anul Karim (tafsir mengacu https://tafsirweb.com/ dan https://quranweb.id/)
-- Hadits Nabawi 9 Imam (mengacu https://www.carihadits.id/imam dan https://hadits.tazkia.ac.id/)
-- Fiqih 4 Mazhab (mengacu https://shamela.ws/book/23604 - Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah)
-- Tulisan dan riset hukum Islam dari Arsip Armansyah (https://arsiparmansyah.wordpress.com/) bila relevan dengan topik
-- Panduan praktis Ustadz Muhamad Basuki (https://muhamadbasuki.web.id/)
+RUJUKAN ILMIAH & FIQIH:
+- Al-Qur'anul Karim (tafsirweb.com & quranweb.id)
+- Hadits Nabawi 9 Imam (carihadits.id/imam & hadits.tazkia.ac.id)
+- Fiqih 4 Mazhab (shamela.ws/book/23604 - Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah)
+- Repositori dan riset Arsip Armansyah (arsiparmansyah.wordpress.com) bila relevan
+- Panduan praktis Ustadz Muhamad Basuki (muhamadbasuki.web.id)
 
-KETENTUAN KHUSUS KHUTBAH JUMAT (HARUS MEMENUHI 5 RUKUN FIQIH):
+KETENTUAN KHUTBAH JUMAT (5 RUKUN FIQIH LENGKAP):
 1. KHUTBAH PERTAMA:
    - Mukaddimah pilihan di atas.
-   - Wasiat Taqwa (dengan ayat taqwa QS. Ali 'Imran: 102 teks Arab berharakat sempurna + terjemah).
-   - Pembacaan ayat Al-Qur'an utama dengan harakat lengkap.
-   - Uraian isi khutbah berbobot (${durationMinutes} menit), terbagi 3-4 poin dalil hadits Arab + arti.
+   - Wasiat Taqwa (QS. Ali 'Imran: 102 Arab berharakat + terjemah).
+   - Ayat Al-Qur'an utama dengan harakat lengkap.
+   - Uraian isi khutbah berbobot (${durationMinutes} menit) dengan dalil hadits Arab + arti.
    - Nasihat penutup Khutbah Pertama (Barakallahu li walakum... Fastaghfiruh).
 2. DUDUK ANTARA DUA KHUTBAH: Petunjuk istirahat khatib & doa istighfar.
 3. KHUTBAH KEDUA:
@@ -54,10 +86,7 @@ KETENTUAN KHUSUS KHUTBAH JUMAT (HARUS MEMENUHI 5 RUKUN FIQIH):
    - Doa sapu jagad dunia akhirat.
    - Penutup khutbah (Ibadallah... Aqimish sholah).
 
-FORMAT PARAGRAF: Naskah teks narasi dibuat mengalir dan tertata rapi sehingga saat dicetak dalam format justify terlihat indah dan elegan.
-Teks Arab HARUS berharakat lengkap, jelas, dan akurat!
-
-Sediakan juga versi terjemahan bahasa Inggris (English translation) lengkap.
+FORMAT PARAGRAF: Rapi mengalir, siap dicetak dalam format justify. Teks Arab HARUS berharakat lengkap, jelas, dan akurat.
 
 KEMBALIKAN DALAM FORMAT JSON BERIKUT:
 {
@@ -68,22 +97,16 @@ KEMBALIKAN DALAM FORMAT JSON BERIKUT:
   "wordCount": ${targetWords},
   "fullMarkdown": "Isi lengkap naskah khutbah/ceramah dalam format Markdown dengan teks Arab berharakat rapi",
   "englishTranslation": "Complete English translation of the lecture or sermon"
-}
-Hanya keluarkan JSON valid tanpa kutip markdown.`;
+}`;
 
-        const interaction = await aiClient.interactions.create({
-          model: 'gemini-3.8-flash',
-          input: prompt,
-        });
-
-        const outputText = interaction.output_text || '';
-        const cleaned = outputText.replace(/```json/g, '').replace(/```/g, '').trim();
+        const rawJson = await generateWithGeminiFast(aiClient, prompt, 12000);
+        const cleaned = rawJson.replace(/```json/g, '').replace(/```/g, '').trim();
         const parsed = JSON.parse(cleaned);
         parsed.openingSelected = opening;
 
         return res.status(200).json({ result: parsed, source: 'gemini' });
-      } catch (aiErr) {
-        console.warn('Gemini generation error, falling back to local generator:', aiErr);
+      } catch (aiErr: any) {
+        console.warn('Gemini khutbah fast generation error or timeout, falling back to local generator:', aiErr?.message || aiErr);
       }
     }
 
@@ -98,7 +121,7 @@ Hanya keluarkan JSON valid tanpa kutip markdown.`;
 
     res.status(200).json({ result: localResult, source: 'local' });
   } catch (error) {
-    console.error('Khutbah generator error:', error);
+    console.error('Khutbah error:', error);
     res.status(500).json({ error: 'Gagal membuat naskah khutbah' });
   }
 }

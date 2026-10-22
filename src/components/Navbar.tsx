@@ -28,8 +28,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="font-bold text-2xl tracking-tight text-white flex items-center gap-2">
                   Al-Bayan <span className="font-arabic text-amber-300 text-xl font-normal">البيان</span>
                 </span>
-                <span className="bg-amber-500/20 text-amber-300 text-xs px-2 py-0.5 rounded-full border border-amber-400/30 font-medium">
-                  v2.0
+                <span className="bg-amber-500/20 text-amber-300 text-xs px-2.5 py-0.5 rounded-full border border-amber-400/30 font-bold">
+                  v2.1.0
                 </span>
               </div>
             </div>

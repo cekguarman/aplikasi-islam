@@ -16,11 +16,11 @@ export function saveStoredApiKey(key: string): void {
   localStorage.setItem(API_KEY_STORAGE, key.trim());
 }
 
-export async function searchIslamicContent(query: string): Promise<SearchResponse> {
+export async function searchIslamicContent(query: string, category: string = 'all'): Promise<SearchResponse> {
   const apiKey = getStoredApiKey();
 
   try {
-    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}`, {
       headers: {
         'x-gemini-key': apiKey
       }
@@ -35,7 +35,7 @@ export async function searchIslamicContent(query: string): Promise<SearchRespons
   }
 
   // Client-side fallback with smart search, synthesis and complete in-depth rujukan list
-  return executeComprehensiveSearch(query);
+  return executeComprehensiveSearch(query, category);
 }
 
 export async function generateKhutbahApi(params: KhutbahGenerationParams): Promise<{ result: KhutbahResult; source: string }> {

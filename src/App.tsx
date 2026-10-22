@@ -25,6 +25,7 @@ export const App: React.FC = () => {
 
   // Active Sermon for Generator
   const [selectedSermonForEdit, setSelectedSermonForEdit] = useState<SavedSermon | KhutbahResult | null>(null);
+  const [searchParam, setSearchParam] = useState<{ query: string; category: string } | null>(null);
 
   const handleSelectOpeningForKhutbah = (openingId: number) => {
     setActiveTab('khutbah');
@@ -33,6 +34,11 @@ export const App: React.FC = () => {
   const handleSelectSavedSermon = (sermon: SavedSermon) => {
     setSelectedSermonForEdit(sermon);
     setActiveTab('khutbah');
+  };
+
+  const handleSelectSearch = (query: string, category: string) => {
+    setSearchParam({ query, category });
+    setActiveTab('search');
   };
 
   return (
@@ -59,7 +65,12 @@ export const App: React.FC = () => {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === 'search' && <SearchSection />}
+        {activeTab === 'search' && (
+          <SearchSection
+            initialQuery={searchParam?.query}
+            initialCategory={searchParam?.category}
+          />
+        )}
 
         {activeTab === 'khutbah' && (
           <KhutbahGenerator
@@ -92,6 +103,7 @@ export const App: React.FC = () => {
         isOpen={isHistoryOpen}
         onClose={() => setIsHistoryOpen(false)}
         onSelectSermon={handleSelectSavedSermon}
+        onSelectSearch={handleSelectSearch}
       />
 
       <TeleprompterModal

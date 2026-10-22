@@ -1,7 +1,7 @@
 {
   "name": "aplikasi-islam",
-  "version": "1.0.0",
-  "description": "Portal Riset Islam 6 Rujukan & Studio Khutbah Jumat - Dikembangkan oleh Armansyah",
+  "version": "2.1.0",
+  "description": "Al-Bayan: Portal Studi Islam, Al-Qur'an, Hadits, Fiqih 4 Mazhab, Arsip Armansyah & Studio Generator Khutbah Jumat - Dikembangkan oleh Armansyah",
   "type": "module",
   "scripts": {
     "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,emerald\" \"npm run server\" \"npm run dev\"",
