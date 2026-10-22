@@ -4,10 +4,11 @@
   "description": "Portal Riset Islam 6 Rujukan & Studio Khutbah Jumat - Dikembangkan oleh Armansyah",
   "type": "module",
   "scripts": {
+    "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,emerald\" \"npm run server\" \"npm run dev\"",
     "dev": "vite",
+    "server": "tsx server/index.ts",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "server": "tsx server/index.ts"
+    "preview": "vite preview"
   },
   "keywords": [
     "islam",
@@ -39,6 +40,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^9.1.2",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "^5.7.0",
