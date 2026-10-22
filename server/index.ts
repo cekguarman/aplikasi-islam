@@ -66,6 +66,7 @@ app.get('/api/status', (req: Request, res: Response) => {
     developerBlog: "https://arsiparmansyah.wordpress.com/",
     developerBooksUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
     sources: [
+      { name: "Pustaka Tsirwah (Pusat Studi Islam)", url: "https://tsirwah.com/pustaka/", category: "fiqh" },
       { name: "Arsip Armansyah (Kajian & Buku)", url: "https://arsiparmansyah.wordpress.com/", category: "artikel" },
       { name: "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah", url: "https://shamela.ws/book/23604", category: "fiqh" },
       { name: "Hadits Tazkia", url: "https://hadits.tazkia.ac.id/", category: "hadith" },
@@ -99,7 +100,7 @@ app.get('/api/search', async (req: Request, res: Response) => {
         } else if (category === 'hadith') {
           focusInstruction = "FOKUS KHUSUS: HADITS 9 IMAM, TAKHRIJ SANAD, DERAJAT KESAHIHAN & SYARAH ULAMA (Fathul Bari & Syarah Shahih Muslim).";
         } else if (category === 'fiqh') {
-          focusInstruction = "FOKUS KHUSUS: ENSIKLOPEDIA FIQIH 4 MAZHAB (AL-MAWSU'AH AL-FIQHIYYAH AL-KUWAITIYYAH 45 JILID: HANAFI, MALIKI, SYAFI'I, HANBALI).";
+          focusInstruction = "FOKUS KHUSUS: ENSIKLOPEDIA FIQIH 4 MAZHAB (AL-MAWSU'AH AL-FIQHIYYAH AL-KUWAITIYYAH 45 JILID: HANAFI, MALIKI, SYAFI'I, HANBALI) & PUSTAKA TSIRWAH.";
         } else if (category === 'artikel') {
           focusInstruction = "FOKUS KHUSUS: REPOSITORI RISET BUKU ARSIP ARMANSYAH (arsiparmansyah.wordpress.com: kristologi Isa Al-Masih, kecerdasan syahadat, eskatologi, sains Israk Mikraj, hukum anjing).";
         }
@@ -109,30 +110,21 @@ app.get('/api/search', async (req: Request, res: Response) => {
 Kueri pencarian pengguna: "${query}".
 Fokus Pencarian: ${focusInstruction}.
 
-SUMBER RUJUKAN RESMI YANG DIJELAJAHI:
-1. https://arsiparmansyah.wordpress.com/ (Blog pribadi Armansyah - riset buku & kajian kritis: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk Mikraj Tinjauan Sains, Dan Tuhan Ciptakan Anjing, kristologi & dialektika teologis).
-2. https://shamela.ws/book/23604 (Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah - 45 jilid ensiklopedia fiqih 4 mazhab).
-3. https://hadits.tazkia.ac.id/ & https://www.carihadits.id/imam (Hadits 9 Imam: Shahih Bukhari, Muslim, Abu Daud, Tirmidzi, Nasa'i, Ibnu Majah, Musnad Ahmad, dll).
-4. https://quranweb.id/ & https://tafsirweb.com/ (Tafsir Ibnu Katsir, Thabari, Al-Qurthubi, As-Sa'di, Kemenag).
-5. Jurnal ilmiah studi Islam kredibel & fatwa ulama otoritatif.
+SITUS UTAMA YANG WAJIB DIBEDAH SECARA DETIL & MENDALAM:
+1. https://tsirwah.com & https://tsirwah.com/pustaka/ (Pusat Studi Islam Tsirwah: Bedah pustaka kitab turats seperti Hasyiyah Al-Bajuri, Jami'us Shaghir, Qawa'idul 'Ilal, Safinatun Naja, Risalah Aswaja KH Hasyim Asy'ari, ilmu tafsir ushuluhu wa manajihuhu, dan kajian fiqih tematik).
+2. https://arsiparmansyah.wordpress.com/ & https://arsiparmansyah.wordpress.com/daftar-buku-arman/ (Blog pribadi Armansyah - bedah mendalam karya buku & artikel riset: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk Mikraj Tinjauan Sains, Dan Tuhan Ciptakan Anjing, telaah kritis naskah apokrif & sains modern).
+3. https://shamela.ws/book/23604 (Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah - 45 jilid ensiklopedia komparasi fiqih 4 mazhab: Hanafi, Maliki, Syafi'i, Hanbali).
+4. https://www.carihadits.id/ (Ensiklopedia 9 Imam Hadits: eksplorasi /imam/1 Bukhari, /imam/2 Muslim, /imam/3 Abu Daud, /imam/4 Tirmidzi, /imam/5 Nasa'i, /imam/6 Ibnu Majah, /imam/7 Ahmad, /imam/8 Malik, /imam/9 Ad-Darimi, serta /perawi/statistik, /perawi, dan /eksplorasi).
+5. https://quranweb.id/ (Mushaf Rasm Utsmani per surah /1 dst) & https://tafsirweb.com/ (Tafsir Muktamad Ibnu Katsir, Thabari, Al-Qurthubi, As-Sa'di).
+6. https://muhamadbasuki.web.id/hadis/#gsc.tab=0 (Indeks Hadits Tematik) & https://muhamadbasuki.web.id/kutub-al-turats/#gsc.tab=0 (Digitalisasi Kutub At-Turats).
 
-MANDAT UTAMA PENELITIAN ILMIAH SECARA JUJUR, PANJANG & KOMPREHENSIF:
-Pengguna menuntut kajian ilmiah berkualitas tinggi yang BUKAN sekadar retorika normatif/positif saja, melainkan:
-1. BENANG MERAH ILMIAH (Titik Temu Konsensus):
-   - Rangkum secara jelas prinsip pokok, ijma', atau substansi fundamental yang disepakati oleh seluruh pihak, mufassir, dan fuqaha tanpa silang pendapat.
-2. PETA PERBEDAAN PANDANGAN & IKHTILAF SECARA JUJUR & TRANSPARAN:
-   - Paparkan secara objektif, jujur, dan berimbang titik-titik perselisihan (ikhtilaf).
-   - Perbedaan penafsiran ayat/hadits (misalnya penafsiran tekstual vs rasional/kontekstual/alegoris; bil ma'tsur vs bir ra'yi).
-   - Perbedaan ragam terjemahan atau leksikal bahasa Arab (perbedaan makna mufradat kata).
-   - Perbedaan hukum dan metodologi istinbath antara 4 mazhab (Hanafi, Maliki, Syafi'i, Hanbali) hingga pandangan ulama kontemporer.
-   - Dialektika kritis (khususnya kritik dari buku-buku dan artikel Arsip Armansyah terkait fakta sejarah, rekonstruksi Isa Al-Masih, isu sains, takhrij hadits polemik, dan hukum anjing).
-   - Jangan menyensor atau menyembunyikan perbedaan atau pandangan kontra; hadirkan argumen masing-masing kubu dengan dalil pendukungnya.
-3. STANDAR AKADEMIS TINGGI:
-   - Teks Arab WAJIB BERHARAKAT LENGKAP & SEMPURNA.
-   - Uraian 'tafsir', 'benangMerah', dan 'perbedaanPandangan' wajib panjang, detil, kaya rujukan literatur, dan berformat multi-paragraf yang mendalam.
-   - Tautkan 'rujukanList' yang presisi dengan URL aktif.
+ATURAN KRUSIAL:
+- ISOLASI HASIL (JANGAN DIGABUNG DENGAN TOPIK LAIN): Hasil dalam 'results' HANYA boleh berisi pembahasan yang relevan dengan topik "${query}". DILARANG memasukkan topik lain yang tidak berhubungan!
+- BEDAH SITUS UTAMA: Berikan rincian eksplorasi spesifik per situs di 'sourceAnalyses' (termasuk Tsirwah Pustaka, Muhamad Basuki, CariHadits 9 Imam, Arsip Armansyah, Al-Mawsu'ah Shamela, QuranWeb/TafsirWeb).
+- BENANG MERAH & IKHTILAF SECARA JUJUR: Tampilkan titik temu konsensus (benangMerah) dan peta perbedaan pendapat secara jujur dan berimbang (titikPerbedaan/perbedaanPandangan), mencakup perbedaan tafsir, variasi terjemahan, dan komparasi 4 mazhab.
+- Teks Arab WAJIB BERHARAKAT LENGKAP & SEMPURNA.
 
-KEMBALIKAN HANYA FORMAT JSON VALID BERIKUT:
+KEMBALIKAN HANYA FORMAT JSON VALID:
 {
   "synthesis": {
     "topic": "${query}",
@@ -143,16 +135,74 @@ KEMBALIKAN HANYA FORMAT JSON VALID BERIKUT:
     "tinjauanMazhab": "Komparasi fiqih 4 mazhab dari Al-Mawsu'ah al-Kuwaitiyyah...",
     "catatanKritisArmansyah": "Telaah kritis dan kontekstual dari repositori buku Arsip Armansyah...",
     "rujukanPrimer": [
+      { "name": "Pustaka Tsirwah", "url": "https://tsirwah.com/pustaka/", "note": "Kitab Turats & Studi Islam Tematik" },
+      { "name": "Muhamad Basuki Hadis & Turats", "url": "https://muhamadbasuki.web.id/hadis/#gsc.tab=0", "note": "Indeks Hadits & Kutub Al-Turats" },
+      { "name": "CariHadits.id 9 Imam", "url": "https://www.carihadits.id/eksplorasi", "note": "Kutubus Sittah & 9 Imam Hadits" },
       { "name": "Arsip Armansyah", "url": "https://arsiparmansyah.wordpress.com/", "note": "Kajian Kritis & Komparasi Agama" },
       { "name": "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah", "url": "https://shamela.ws/book/23604", "note": "Ensiklopedia 45 Jilid Fiqih 4 Mazhab" },
-      { "name": "Hadits 9 Imam & CariHadits.id", "url": "https://www.carihadits.id/imam", "note": "Kutubus Sittah & Musnad Ahmad" },
       { "name": "QuranWeb & TafsirWeb", "url": "https://quranweb.id/", "note": "Mushaf Utsmani & Tafsir Muktamad" }
     ]
   },
+  "sourceAnalyses": [
+    {
+      "siteName": "Pustaka Tsirwah",
+      "siteUrl": "https://tsirwah.com",
+      "specificPathUrl": "https://tsirwah.com/pustaka/",
+      "subTopicsFound": ["Kitab Turats & Fiqih", "Kajian Tematik"],
+      "findingsSummary": "Uraian temuan dari penelusuran pustaka Tsirwah terkait topik ini...",
+      "dalilOrQuotes": "Kutipan atau kaidah dari khazanah pustaka Tsirwah...",
+      "status": "verified"
+    },
+    {
+      "siteName": "Muhamad Basuki - Indeks Hadis & Kutub At-Turats",
+      "siteUrl": "https://muhamadbasuki.web.id",
+      "specificPathUrl": "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
+      "subTopicsFound": ["Indeks Hadis Tematik", "Kutub Al-Turats"],
+      "findingsSummary": "Pemetaan tema hadits dan katalog kutub at-turats...",
+      "dalilOrQuotes": "Takhrij sanad atau matan dari naskah turats...",
+      "status": "verified"
+    },
+    {
+      "siteName": "CariHadits.id - Ensiklopedia 9 Kitab Imam",
+      "siteUrl": "https://www.carihadits.id",
+      "specificPathUrl": "https://www.carihadits.id/eksplorasi",
+      "subTopicsFound": ["9 Imam Hadits (/imam/1 s.d. /9)", "Statistik Perawi (/perawi/statistik)"],
+      "findingsSummary": "Riwayat dan takhrij derajat kesahihan dari 9 imam...",
+      "dalilOrQuotes": "Matan hadits berharakat...",
+      "status": "verified"
+    },
+    {
+      "siteName": "Arsip Armansyah",
+      "siteUrl": "https://arsiparmansyah.wordpress.com/",
+      "specificPathUrl": "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+      "subTopicsFound": ["Riset Buku", "Kritik Historis & Perbandingan Agama"],
+      "findingsSummary": "Analisis dari buku atau artikel Arsip Armansyah...",
+      "dalilOrQuotes": "Catatan kritis / kutipan buku Armansyah...",
+      "status": "verified"
+    },
+    {
+      "siteName": "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah",
+      "siteUrl": "https://shamela.ws/book/23604",
+      "specificPathUrl": "https://shamela.ws/book/23604",
+      "subTopicsFound": ["Muqaranah 4 Mazhab"],
+      "findingsSummary": "Peta komparasi 4 mazhab Hanafi, Maliki, Syafi'i, Hanbali...",
+      "dalilOrQuotes": "Kaidah ushul atau nash fatwa...",
+      "status": "verified"
+    },
+    {
+      "siteName": "QuranWeb & TafsirWeb",
+      "siteUrl": "https://quranweb.id/",
+      "specificPathUrl": "https://tafsirweb.com/",
+      "subTopicsFound": ["Ayat Al-Qur'an (quranweb.id/1 dst)", "Tafsir Muktamad (tafsirweb.com)"],
+      "findingsSummary": "Kajian tafsir Ibnu Katsir, Thabari, Qurthubi...",
+      "dalilOrQuotes": "Ayat suci Al-Qur'an...",
+      "status": "verified"
+    }
+  ],
   "results": [
     {
       "id": "ai-res-1",
-      "title": "Judul Kajian Akademis",
+      "title": "Judul Kajian Akademis Khusus Topik Ini",
       "sourceCategory": "${category === 'all' ? 'quran' : category}",
       "sourceName": "Nama Sumber Kitab / Rujukan",
       "sourceUrl": "URL Rujukan Terkait",
@@ -181,7 +231,8 @@ KEMBALIKAN HANYA FORMAT JSON VALID BERIKUT:
         return res.json({
           results: parsed.results || [],
           source: 'gemini',
-          synthesis: parsed.synthesis || null
+          synthesis: parsed.synthesis || null,
+          sourceAnalyses: parsed.sourceAnalyses || []
         });
       } catch (geminiError: any) {
         console.warn('Gemini search fast failed or timed out, instant fallback to scholarly database:', geminiError?.message || geminiError);

@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { X, BookOpen, Clock, Calendar, Trash2, Edit3, Download, Printer, Search, FileText } from 'lucide-react';
-import { SavedSermon, SavedSearchHistory } from '../types';
-import { getSavedSermons, deleteSermon, getSavedSearchHistory, clearSearchHistory } from '../services/storage';
+import { X, BookOpen, Clock, Calendar, Trash2, Edit3, Download, Printer, Search, FileText, Compass, ExternalLink, Layers } from 'lucide-react';
+import { SavedSermon, SavedSearchHistory, SavedExploration } from '../types';
+import {
+  getSavedSermons,
+  deleteSermon,
+  getSavedSearchHistory,
+  clearSearchHistory,
+  getSavedExplorations,
+  deleteExploration
+} from '../services/storage';
 
 interface SavedSermonsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectSermon: (sermon: SavedSermon) => void;
   onSelectSearch?: (query: string, category: string) => void;
+  onSelectExploration?: (exploration: SavedExploration) => void;
 }
 
 export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
   isOpen,
   onClose,
   onSelectSermon,
-  onSelectSearch
+  onSelectSearch,
+  onSelectExploration
 }) => {
-  const [activeTab, setActiveTab] = useState<'sermons' | 'searches'>('sermons');
+  const [activeTab, setActiveTab] = useState<'explorations' | 'sermons' | 'searches'>('explorations');
   const [sermons, setSermons] = useState<SavedSermon[]>([]);
   const [searches, setSearches] = useState<SavedSearchHistory[]>([]);
+  const [explorations, setExplorations] = useState<SavedExploration[]>([]);
 
   useEffect(() => {
     if (isOpen) {
       setSermons(getSavedSermons());
       setSearches(getSavedSearchHistory());
+      setExplorations(getSavedExplorations());
     }
   }, [isOpen]);
 
@@ -34,6 +45,14 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
     if (confirm('Hapus naskah ini dari riwayat tersimpan?')) {
       const updated = deleteSermon(id);
       setSermons(updated);
+    }
+  };
+
+  const handleDeleteExploration = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (confirm('Hapus paparan eksplorasi riset ini?')) {
+      const updated = deleteExploration(id);
+      setExplorations(updated);
     }
   };
 
@@ -51,17 +70,17 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
         <div className="p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
           <div>
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <FileText className="w-5 h-5 text-amber-400" />
-              Riwayat Naskah & Pencarian Tersimpan
+              <Compass className="w-5 h-5 text-amber-400" />
+              Riwayat Riset, Naskah & Paparan Tersimpan
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Buka kembali, edit naskah, atau unduh ulang apa yang pernah Anda buat dan cari sebelumnya.
+              Buka kembali paparan eksplorasi riset tersimpan (lengkap dengan catatan waktu perekaman tanpa perubahan), edit naskah, atau cari ulang.
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition"
+            className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -70,8 +89,23 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
         {/* Tab Controls */}
         <div className="flex border-b border-slate-200 px-6 pt-3 bg-slate-50 gap-4">
           <button
+            onClick={() => setActiveTab('explorations')}
+            className={`pb-3 text-xs sm:text-sm font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
+              activeTab === 'explorations'
+                ? 'border-emerald-700 text-emerald-800'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
+            }`}
+          >
+            <Compass className="w-4 h-4 text-emerald-700" />
+            <span>Paparan Riset Tersimpan</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 font-bold">
+              {explorations.length}
+            </span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('sermons')}
-            className={`pb-3 text-xs sm:text-sm font-bold border-b-2 transition flex items-center gap-2 ${
+            className={`pb-3 text-xs sm:text-sm font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeTab === 'sermons'
                 ? 'border-emerald-700 text-emerald-800'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
@@ -85,13 +119,13 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
 
           <button
             onClick={() => setActiveTab('searches')}
-            className={`pb-3 text-xs sm:text-sm font-bold border-b-2 transition flex items-center gap-2 ${
+            className={`pb-3 text-xs sm:text-sm font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeTab === 'searches'
                 ? 'border-emerald-700 text-emerald-800'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <span>Riwayat Pencarian Dalil</span>
+            <span>Riwayat Kata Kunci</span>
             <span className="px-2 py-0.5 rounded-full text-[10px] bg-slate-200 text-slate-700">
               {searches.length}
             </span>
@@ -100,7 +134,100 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
 
         {/* Content Area */}
         <div className="p-6 overflow-y-auto flex-1">
-          {activeTab === 'sermons' ? (
+          {/* TAB 1: PAPARAN RISET TERSIMPAN (LAYAR KHUSUS SNAPSHOTS) */}
+          {activeTab === 'explorations' && (
+            explorations.length > 0 ? (
+              <div className="space-y-4">
+                <div className="text-xs text-slate-500 font-medium">
+                  Paparan riset yang disimpan akan ditampilkan ulang secara utuh tanpa ada perubahan beserta catatan waktu perekamannya:
+                </div>
+
+                {explorations.map((exp) => (
+                  <div
+                    key={exp.id}
+                    onClick={() => {
+                      if (onSelectExploration) {
+                        onSelectExploration(exp);
+                        onClose();
+                      }
+                    }}
+                    className="p-5 rounded-2xl border border-slate-200 hover:border-emerald-600 hover:shadow-md transition-all bg-white cursor-pointer group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                  >
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider bg-emerald-100 text-emerald-900 border border-emerald-300">
+                          {exp.category ? exp.category.toUpperCase() : 'SEMUA RUJUKAN'}
+                        </span>
+
+                        <span className="text-xs font-semibold text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-amber-600" />
+                          <span>Direkam: {exp.recordedAtDisplay}</span>
+                        </span>
+                      </div>
+
+                      <h3 className="font-extrabold text-slate-900 text-base group-hover:text-emerald-800 transition">
+                        {exp.topic}
+                      </h3>
+
+                      <p className="text-xs text-slate-600 line-clamp-2 text-justify-custom">
+                        {exp.synthesis?.kesimpulanUtama || 'Paparan eksplorasi riset studi Islam multidisipliner.'}
+                      </p>
+
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-500 pt-1">
+                        <span className="font-medium text-emerald-800">
+                          {exp.sourceAnalyses?.length || 6} Situs & Pustaka Dibedah
+                        </span>
+                        <span>&bull;</span>
+                        <span>{exp.results?.length || 0} Dalil Otoritatif</span>
+                        {exp.synthesis?.benangMerah && (
+                          <>
+                            <span>&bull;</span>
+                            <span className="text-slate-700 font-semibold">Tersedia Benang Merah & Ikhtilaf</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (onSelectExploration) {
+                            onSelectExploration(exp);
+                            onClose();
+                          }
+                        }}
+                        className="px-3.5 py-2 bg-emerald-800 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition cursor-pointer"
+                      >
+                        <Compass className="w-3.5 h-3.5" />
+                        <span>Buka Layar Khusus</span>
+                      </button>
+
+                      <button
+                        onClick={(e) => handleDeleteExploration(exp.id, e)}
+                        className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition cursor-pointer"
+                        title="Hapus Paparan Ini"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="py-16 text-center text-slate-500 space-y-3">
+                <Compass className="w-12 h-12 text-slate-300 mx-auto" />
+                <p className="font-bold text-slate-700 text-base">Belum Ada Paparan Riset yang Disimpan</p>
+                <p className="text-xs max-w-md mx-auto leading-relaxed">
+                  Lakukan pencarian topik apapun di menu Pencarian Dalil, lalu klik tombol <strong>"Simpan Paparan Riset"</strong> pada layar khusus untuk merekam hasilnya beserta catatan waktunya.
+                </p>
+              </div>
+            )
+          )}
+
+          {/* TAB 2: NASKAH KHUTBAH / CERAMAH */}
+          {activeTab === 'sermons' && (
             sermons.length > 0 ? (
               <div className="space-y-4">
                 {sermons.map((s) => (
@@ -151,7 +278,7 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
                           onSelectSermon(s);
                           onClose();
                         }}
-                        className="px-3 py-1.5 bg-emerald-800 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-xs transition"
+                        className="px-3 py-1.5 bg-emerald-800 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                         Buka & Edit
@@ -159,7 +286,7 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
 
                       <button
                         onClick={(e) => handleDeleteSermon(s.id, e)}
-                        className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
+                        className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition cursor-pointer"
                         title="Hapus"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -177,7 +304,10 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
                 </p>
               </div>
             )
-          ) : (
+          )}
+
+          {/* TAB 3: RIWAYAT PENCARIAN DALIL */}
+          {activeTab === 'searches' && (
             searches.length > 0 ? (
               <div className="space-y-3">
                 <div className="flex justify-between items-center mb-2">
@@ -186,7 +316,7 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
                   </span>
                   <button
                     onClick={handleClearSearches}
-                    className="text-xs text-rose-600 hover:underline"
+                    className="text-xs text-rose-600 hover:underline cursor-pointer"
                   >
                     Hapus Semua Riwayat
                   </button>
@@ -238,7 +368,7 @@ export const SavedSermonsModal: React.FC<SavedSermonsModalProps> = ({
         <div className="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-xs font-semibold transition"
+            className="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-xs font-semibold transition cursor-pointer"
           >
             Tutup
           </button>

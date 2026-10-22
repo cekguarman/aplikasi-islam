@@ -10,8 +10,8 @@ import { TeleprompterModal } from './components/TeleprompterModal';
 import { SavedSermonsModal } from './components/SavedSermonsModal';
 import { Footer } from './components/Footer';
 import { getStoredApiKey } from './services/api';
-import { KhutbahResult, SavedSermon } from './types';
-import { History, BookMarked } from 'lucide-react';
+import { KhutbahResult, SavedSermon, SavedExploration } from './types';
+import { History, BookMarked, Compass } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'search' | 'khutbah' | 'openings' | 'sources'>('search');
@@ -26,6 +26,7 @@ export const App: React.FC = () => {
   // Active Sermon for Generator
   const [selectedSermonForEdit, setSelectedSermonForEdit] = useState<SavedSermon | KhutbahResult | null>(null);
   const [searchParam, setSearchParam] = useState<{ query: string; category: string } | null>(null);
+  const [selectedExploration, setSelectedExploration] = useState<SavedExploration | null>(null);
 
   const handleSelectOpeningForKhutbah = (openingId: number) => {
     setActiveTab('khutbah');
@@ -37,9 +38,22 @@ export const App: React.FC = () => {
   };
 
   const handleSelectSearch = (query: string, category: string) => {
+    setSelectedExploration(null);
     setSearchParam({ query, category });
     setActiveTab('search');
   };
+
+  const handleSelectExploration = (exploration: SavedExploration) => {
+    setSelectedExploration(exploration);
+    setActiveTab('search');
+  };
+
+  const savedExplorationsCount = typeof window !== 'undefined' && localStorage.getItem('al_bayan_saved_explorations_v1')
+    ? (JSON.parse(localStorage.getItem('al_bayan_saved_explorations_v1') || '[]') as any[]).length
+    : 0;
+  const savedSermonsCount = typeof window !== 'undefined' && localStorage.getItem('al_bayan_saved_sermons_v1')
+    ? (JSON.parse(localStorage.getItem('al_bayan_saved_sermons_v1') || '[]') as any[]).length
+    : 0;
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
@@ -56,10 +70,10 @@ export const App: React.FC = () => {
         <button
           onClick={() => setIsHistoryOpen(true)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xl border border-slate-700 transition-all hover:scale-105 cursor-pointer"
-          title="Buka Riwayat Naskah & Pencarian Tersimpan"
+          title="Buka Riwayat Riset & Naskah Tersimpan"
         >
           <History className="w-4 h-4 text-amber-400" />
-          <span>Riwayat Naskah ({localStorage.getItem('al_bayan_saved_sermons_v1') ? JSON.parse(localStorage.getItem('al_bayan_saved_sermons_v1') || '[]').length : 0})</span>
+          <span>Riwayat & Riset ({savedExplorationsCount + savedSermonsCount})</span>
         </button>
       </div>
 
@@ -67,8 +81,12 @@ export const App: React.FC = () => {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'search' && (
           <SearchSection
+            key={selectedExploration ? selectedExploration.id : (searchParam ? `${searchParam.query}-${searchParam.category}` : 'default-search')}
             initialQuery={searchParam?.query}
             initialCategory={searchParam?.category}
+            selectedExploration={selectedExploration}
+            onClearSelectedExploration={() => setSelectedExploration(null)}
+            onOpenHistoryModal={() => setIsHistoryOpen(true)}
           />
         )}
 
@@ -104,6 +122,7 @@ export const App: React.FC = () => {
         onClose={() => setIsHistoryOpen(false)}
         onSelectSermon={handleSelectSavedSermon}
         onSelectSearch={handleSelectSearch}
+        onSelectExploration={handleSelectExploration}
       />
 
       <TeleprompterModal

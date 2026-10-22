@@ -37,10 +37,33 @@ export interface ResearchSynthesis {
   rujukanPrimer: Array<{ name: string; url: string; note: string }>;
 }
 
+export interface DeepSourceAnalysis {
+  siteName: string;
+  siteUrl: string;
+  specificPathUrl?: string; // e.g. https://tsirwah.com/pustaka/
+  subTopicsFound: string[];
+  findingsSummary: string;
+  dalilOrQuotes?: string;
+  status: 'verified' | 'explored';
+}
+
+export interface SavedExploration {
+  id: string;
+  topic: string;
+  category: string;
+  timestamp: string; // ISO string
+  recordedAtDisplay: string; // e.g. "Kamis, 22 Oktober 2026 pukul 18:15 WIB"
+  synthesis: ResearchSynthesis;
+  results: SearchResult[];
+  sourceAnalyses?: DeepSourceAnalysis[];
+  totalSourcesExplored: number;
+}
+
 export interface SearchResponse {
   results: SearchResult[];
   source: string;
   synthesis?: ResearchSynthesis;
+  sourceAnalyses?: DeepSourceAnalysis[];
 }
 
 export interface PembukaanOption {

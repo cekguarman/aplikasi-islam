@@ -1,7 +1,8 @@
-import { SavedSermon, SavedSearchHistory } from '../types';
+import { SavedSermon, SavedSearchHistory, SavedExploration } from '../types';
 
 const SERMONS_STORAGE_KEY = 'al_bayan_saved_sermons_v1';
 const SEARCH_HISTORY_KEY = 'al_bayan_search_history_v1';
+const EXPLORATIONS_STORAGE_KEY = 'al_bayan_saved_explorations_v1';
 
 export function getIndonesianDateTime(date = new Date()) {
   const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
@@ -108,3 +109,53 @@ export function clearSearchHistory(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(SEARCH_HISTORY_KEY);
 }
+
+// Exploration Snapshots Management
+export function getSavedExplorations(): SavedExploration[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(EXPLORATIONS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+    console.error('Failed reading saved explorations:', err);
+    return [];
+  }
+}
+
+export function saveExploration(exploration: SavedExploration): SavedExploration[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const list = getSavedExplorations();
+    const index = list.findIndex(e => e.id === exploration.id || e.topic.toLowerCase() === exploration.topic.toLowerCase());
+    let updated: SavedExploration[];
+    if (index >= 0) {
+      updated = [...list];
+      updated[index] = exploration;
+    } else {
+      updated = [exploration, ...list];
+    }
+    localStorage.setItem(EXPLORATIONS_STORAGE_KEY, JSON.stringify(updated));
+    return updated;
+  } catch (err) {
+    console.error('Failed saving exploration:', err);
+    return [];
+  }
+}
+
+export function deleteExploration(id: string): SavedExploration[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const list = getSavedExplorations().filter(e => e.id !== id);
+    localStorage.setItem(EXPLORATIONS_STORAGE_KEY, JSON.stringify(list));
+    return list;
+  } catch (err) {
+    console.error('Failed deleting exploration:', err);
+    return [];
+  }
+}
+
+export function getExplorationById(id: string): SavedExploration | undefined {
+  const list = getSavedExplorations();
+  return list.find(e => e.id === id);
+}
+
