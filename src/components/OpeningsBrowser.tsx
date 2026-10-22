@@ -12,7 +12,7 @@ export const OpeningsBrowser: React.FC<OpeningsBrowserProps> = ({ onSelectOpenin
   const [arabicSize, setArabicSize] = useState<number>(26);
 
   const handleCopy = (opt: PembukaanOption) => {
-    const text = `${opt.title}\n\n${opt.arabicText}\n\n${opt.transliteration}\n\nArtinya:\n"${opt.indonesianTranslation}"\n\nSumber: ${opt.source} (https://kalam.sindonews.com/read/1555911/786/10-contoh-teks-pembukaan-mc-innal-hamda-lillah-yang-bisa-dijadikan-referensi-1744797883)`;
+    const text = `${opt.title}\n\n${opt.arabicText}\n\n${opt.transliteration}\n\nArtinya:\n"${opt.indonesianTranslation}"\n\nSumber: ${opt.source}`;
     navigator.clipboard.writeText(text);
     setCopiedId(opt.id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -31,16 +31,7 @@ export const OpeningsBrowser: React.FC<OpeningsBrowserProps> = ({ onSelectOpenin
             10 Contoh Teks Pembukaan MC / Khutbah Innal Hamda Lillah
           </h1>
           <p className="text-sm sm:text-base text-emerald-200 leading-relaxed text-justify-custom">
-            Kumpulan teks pembukaan (mukaddimah) berbahasa Arab lengkap dengan harakat jelas, transliterasi Latin, dan terjemahan Indonesia berdasarkan referensi resmi{' '}
-            <a
-              href="https://kalam.sindonews.com/read/1555911/786/10-contoh-teks-pembukaan-mc-innal-hamda-lillah-yang-bisa-dijadikan-referensi-1744797883"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-300 underline underline-offset-4 inline-flex items-center gap-1"
-            >
-              SINDOnews Kalam <ExternalLink className="w-3 h-3" />
-            </a>
-            . Siap disalin atau digunakan langsung ke dalam studio generator khutbah.
+            Kumpulan teks pembukaan (mukaddimah) berbahasa Arab lengkap dengan harakat jelas, transliterasi Latin, dan terjemahan Indonesia. Siap disalin atau digunakan langsung ke dalam studio generator khutbah.
           </p>
         </div>
       </section>

@@ -1,5 +1,11 @@
 export type SourceCategory = 'quran' | 'hadith' | 'fiqh' | 'artikel';
 
+export interface RujukanItem {
+  name: string;
+  url: string;
+  detail?: string;
+}
+
 export interface SearchResult {
   id: string;
   title: string;
@@ -15,6 +21,22 @@ export interface SearchResult {
   authenticity?: string;
   madzhab?: string;
   topicTag: string;
+  rujukanList?: RujukanItem[];
+}
+
+export interface ResearchSynthesis {
+  topic: string;
+  kesimpulanUtama: string;
+  tinjauanDalil: string;
+  tinjauanMazhab: string;
+  catatanKritisArmansyah?: string;
+  rujukanPrimer: Array<{ name: string; url: string; note: string }>;
+}
+
+export interface SearchResponse {
+  results: SearchResult[];
+  source: string;
+  synthesis?: ResearchSynthesis;
 }
 
 export interface PembukaanOption {

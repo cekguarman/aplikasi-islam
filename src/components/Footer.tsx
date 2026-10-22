@@ -88,7 +88,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeveloperProfile }) => {
               <li>Teks Arab Berharakat Jelas & Terjemahan ID/EN</li>
               <li>Generator Khutbah Jumat 5 Rukun Fiqih</li>
               <li>Kultum & Ceramah Durasi Kustom (7, 15, 30, 40+ mnt)</li>
-              <li>10 Contoh Pembukaan MC Sindonews</li>
+              <li>10 Contoh Pembukaan MC & Khutbah Innal Hamda Lillah</li>
               <li>Format Siap Cetak A4 Justify Rapi & Bebas Scrollbar</li>
               <li>Mode Mimbar / Teleprompter dengan Countdown Timer</li>
             </ul>

@@ -231,7 +231,7 @@ export const KhutbahGenerator: React.FC<KhutbahGeneratorProps> = ({
               </div>
             </div>
 
-            {/* Mukaddimah / Opening Selection from 10 Sindonews options */}
+            {/* Mukaddimah / Opening Selection from 10 authentic options */}
             <div className="pt-2">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                 Pilih Teks Pembuka (Mukaddimah Innal Hamda Lillah)

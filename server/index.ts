@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
 import { INITIAL_KNOWLEDGE_BASE } from '../src/data/knowledgeBase';
+import { executeComprehensiveSearch } from '../src/data/islamicSearchEngine';
 import { PEMBUKAAN_OPTIONS } from '../src/data/pembukaanData';
 import { generateLocalKhutbah } from '../src/data/khutbahGeneratorLogic';
 import { SearchResult } from '../src/types';
@@ -47,60 +48,74 @@ app.get('/api/status', (req: Request, res: Response) => {
 app.get('/api/search', async (req: Request, res: Response) => {
   try {
     const query = String(req.query.q || '').trim();
-    const category = String(req.query.category || 'all').toLowerCase();
     const clientApiKey = req.headers['x-gemini-key'] as string | undefined;
 
     if (!query) {
-      let results = [...INITIAL_KNOWLEDGE_BASE];
-      if (category !== 'all') {
-        results = results.filter(r => r.sourceCategory === category);
-      }
-      return res.json({ results, source: 'local' });
+      const data = executeComprehensiveSearch('');
+      return res.json(data);
     }
 
-    // Try Gemini API if key exists
     const aiClient = getGenAIClient(clientApiKey);
     if (aiClient) {
       try {
-        const prompt = `Anda adalah asisten kecerdasan buatan pakar studi Islam multidisipliner, tafsir Al-Qur'an, takhrij hadits, fiqih 4 mazhab, perbandingan agama, dan analisis literatur ilmiah.
-Pencarian yang diminta pengguna: "${query}"
-Fokus kategori: "${category}" (pilihan: quran, hadith, fiqh, artikel, all).
+        const prompt = `Anda adalah asisten pakar studi Islam multidisipliner, tafsir Al-Qur'an, hadits 9 imam, fiqih 4 mazhab, dan perbandingan agama.
+Kueri pencarian pengguna: "${query}".
 
-SUMBER REFERENSI UTAMA & WAJIB DIJELAJAHI:
-1. https://arsiparmansyah.wordpress.com/ (Blog pribadi Armansyah berisi ratusan riset dan buku: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk & Mikraj Tinjauan Saintifik, Hukum Anjing dalam Islam, talfiq mazhab, dll. WAJIB cari dan sertakan artikel terkait dari blog ini bila relevan).
+SUMBER RUJUKAN UTAMA & WAJIB DIJELAJAHI:
+1. https://arsiparmansyah.wordpress.com/ (Blog pribadi Armansyah - riset buku: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk Mikraj Tinjauan Sains, Hukum Anjing dalam Islam. Wajib dieksplorasi jika relevan).
 2. https://shamela.ws/book/23604 (Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah - 45 jilid ensiklopedia fiqih 4 mazhab).
 3. https://hadits.tazkia.ac.id/
-4. https://www.carihadits.id/imam (Hadits 9 Imam: Bukhari, Muslim, Abu Daud, Tirmidzi, Nasa'i, Ibnu Majah, Ahmad, Malik, Darimi).
+4. https://www.carihadits.id/imam (Hadits 9 Imam)
 5. https://quranweb.id/
 6. https://tafsirweb.com/
 7. https://muhamadbasuki.web.id/
-8. Referensi jurnal ilmiah, artikel fatwa (MUI, Kemenag, Al-Azhar, Dar al-Ifta, Dorar.net, IslamQA) baik berbahasa Indonesia, Inggris, maupun Arab yang kredibel.
+8. Literatur jurnal ilmiah & fatwa otoritatif.
 
-ATURAN WAJIB & KETAT:
-- Teks Arab HARUS 100% akurat, tidak boleh ada salah tulis atau harakat terlewat/cacat (Gunakan rasm Utsmani dan imla'i yang sempurna).
-- Berikan terjemahan Bahasa Indonesia yang fasih dan tepat.
-- Sediakan juga terjemahan Bahasa Inggris (English translation).
-- Tautkan URL sumber spesifik yang dapat diklik langsung.
+ATURAN PALING KRUSIAL (PENTING SEKALI):
+- Pengguna menginginkan penjelasan yang LANGSUNG UTUH, MENDALAM, DAN KOMPREHENSIF (BUKAN SINGKAT-SINGKAT, BUKAN RINGKASAN SATU DUA KALIMAT, DAN BUKAN HANYA MENAMPILKAN LINK SAJA!).
+- Setiap entri pada 'results' WAJIB memuat 'tafsir' yang SANGAT UTUH (minimal 3 sampai 5 paragraf berbobot), membedah asbabun nuzul/wurud, syarah lafadz per kata, perbandingan 4 mazhab (Hanafi, Maliki, Syafi'i, Hanbali) dari Mawsu'ah Kuwaitiyyah, dan catatan riset kritis Arsip Armansyah jika terkait.
+- Bagian bawah setiap entri wajib memuat 'rujukanList' yang berisi daftar nama kitab/surah dan tautan URL asli rujukan yang bisa diklik.
+- Sertakan juga 'synthesis' (kesimpulan dan analisis cerdas dari seluruh rujukan).
+- Teks Arab HARUS 100% akurat dan BERHARAKAT LENGKAP & SEMPURNA.
 
-KEMBALIKAN HANYA SEBUAH ARRAY JSON VALID DENGAN FORMAT INI:
-[
-  {
-    "id": "ai-res-1",
-    "title": "Judul Pembahasan",
-    "sourceCategory": "quran" | "hadith" | "fiqh" | "artikel",
-    "sourceName": "Nama Sumber Rujukan",
-    "sourceUrl": "URL Rujukan Asli",
-    "reference": "Referensi Kitab/Surah/Buku (misal: 'Arsip Armansyah', 'QS. Al-Baqarah: 183', 'Shahih Bukhari No. 1', 'Mawsu'ah Fiqhiyyah Juz X')",
-    "topicTag": "Topik Terkait",
-    "arabicText": "Teks Arab Lengkap Berharakat Sempurna",
-    "latinTransliteration": "Transliterasi Latin",
-    "indonesianTranslation": "Terjemahan Bahasa Indonesia yang jelas",
-    "englishTranslation": "Complete English translation",
-    "tafsir": "Penjelasan/Tafsir/Syarah/Analisis Fiqih atau Perbandingan Agama",
-    "authenticity": "Derajat Dalil / Mazhab / Validitas Ilmiah"
-  }
-]
-Hanya keluarkan JSON valid tanpa kutip markdown.`;
+KEMBALIKAN FORMAT JSON VALID:
+{
+  "synthesis": {
+    "topic": "${query}",
+    "kesimpulanUtama": "Kesimpulan komprehensif dari penelusuran seluruh sumber",
+    "tinjauanDalil": "Intisari dalil Al-Qur'an dan Sunnah",
+    "tinjauanMazhab": "Peta perbandingan fatwa 4 mazhab",
+    "catatanKritisArmansyah": "Telaah kontekstual dan riset Arsip Armansyah jika ada",
+    "rujukanPrimer": [
+      { "name": "Arsip Armansyah", "url": "https://arsiparmansyah.wordpress.com/", "note": "Riset Buku & Kajian Kritis" },
+      { "name": "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah", "url": "https://shamela.ws/book/23604", "note": "Ensiklopedia Fiqih 4 Mazhab" },
+      { "name": "Hadits 9 Imam", "url": "https://www.carihadits.id/imam", "note": "Kutubus Sittah & 9 Imam" },
+      { "name": "QuranWeb & TafsirWeb", "url": "https://quranweb.id/", "note": "Tafsir Muktamad" }
+    ]
+  },
+  "results": [
+    {
+      "id": "ai-res-1",
+      "title": "Judul Pembahasan Lengkap",
+      "sourceCategory": "quran",
+      "sourceName": "Nama Sumber Rujukan",
+      "sourceUrl": "URL Sumber Asli",
+      "reference": "Referensi Kitab/Surah/Buku",
+      "topicTag": "Topik",
+      "arabicText": "Teks Arab Lengkap Berharakat Sempurna",
+      "latinTransliteration": "Transliterasi Latin",
+      "indonesianTranslation": "Terjemahan Bahasa Indonesia yang Utuh",
+      "englishTranslation": "Complete English Translation",
+      "tafsir": "Uraian Penjelasan Utuh, Panjang, dan Komprehensif (Multi-paragraf)",
+      "authenticity": "Derajat Dalil / Mazhab / Validitas Ilmiah",
+      "madzhab": "Keterangan Mazhab Fiqih jika ada",
+      "rujukanList": [
+        { "name": "Nama Sumber Rujukan", "url": "URL Rujukan", "detail": "Detail Rujukan" }
+      ]
+    }
+  ]
+}
+Hanya keluarkan JSON valid tanpa tanda kutip markdown (```json).`;
 
         const interaction = await aiClient.interactions.create({
           model: 'gemini-3.8-flash',
@@ -109,37 +124,25 @@ Hanya keluarkan JSON valid tanpa kutip markdown.`;
 
         const outputText = interaction.output_text || '';
         const cleaned = outputText.replace(/```json/g, '').replace(/```/g, '').trim();
-        const parsedResults: SearchResult[] = JSON.parse(cleaned);
+        const parsed = JSON.parse(cleaned);
 
-        return res.json({ results: parsedResults, source: 'gemini' });
+        return res.json({
+          results: parsed.results || [],
+          source: 'gemini',
+          synthesis: parsed.synthesis || null
+        });
       } catch (geminiError) {
         console.warn('Gemini search failed or fallback to local:', geminiError);
       }
     }
 
-    // Local Search Fallback
-    const lowerQ = query.toLowerCase();
-    let filtered = INITIAL_KNOWLEDGE_BASE.filter(item => {
-      const matchCat = category === 'all' || item.sourceCategory === category;
-      const matchText =
-        item.title.toLowerCase().includes(lowerQ) ||
-        item.indonesianTranslation.toLowerCase().includes(lowerQ) ||
-        item.topicTag.toLowerCase().includes(lowerQ) ||
-        item.reference.toLowerCase().includes(lowerQ) ||
-        (item.tafsir && item.tafsir.toLowerCase().includes(lowerQ)) ||
-        (item.sourceName && item.sourceName.toLowerCase().includes(lowerQ)) ||
-        (item.latinTransliteration && item.latinTransliteration.toLowerCase().includes(lowerQ));
-      return matchCat && matchText;
-    });
-
-    if (filtered.length === 0) {
-      filtered = INITIAL_KNOWLEDGE_BASE.filter(item => category === 'all' || item.sourceCategory === category);
-    }
-
-    res.json({ results: filtered, source: 'local' });
+    // Local Search fallback
+    const fallbackData = executeComprehensiveSearch(query);
+    res.json(fallbackData);
   } catch (error) {
     console.error('Search error:', error);
-    res.status(500).json({ error: 'Gagal melakukan pencarian', results: INITIAL_KNOWLEDGE_BASE });
+    const fallbackData = executeComprehensiveSearch('');
+    res.status(500).json(fallbackData);
   }
 });
 
@@ -271,8 +274,7 @@ app.post('/api/translate', async (req: Request, res: Response) => {
 // 5. Openings Reference API
 app.get('/api/openings', (req: Request, res: Response) => {
   res.json({
-    openings: PEMBUKAAN_OPTIONS,
-    sourceUrl: "https://kalam.sindonews.com/read/1555911/786/10-contoh-teks-pembukaan-mc-innal-hamda-lillah-yang-bisa-dijadikan-referensi-1744797883"
+    openings: PEMBUKAAN_OPTIONS
   });
 });
 

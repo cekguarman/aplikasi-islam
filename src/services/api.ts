@@ -1,5 +1,6 @@
-import { SearchResult, KhutbahGenerationParams, KhutbahResult, PembukaanOption } from '../types';
+import { SearchResult, SearchResponse, KhutbahGenerationParams, KhutbahResult, PembukaanOption } from '../types';
 import { INITIAL_KNOWLEDGE_BASE } from '../data/knowledgeBase';
+import { executeComprehensiveSearch } from '../data/islamicSearchEngine';
 import { PEMBUKAAN_OPTIONS } from '../data/pembukaanData';
 import { generateLocalKhutbah } from '../data/khutbahGeneratorLogic';
 
@@ -15,48 +16,26 @@ export function saveStoredApiKey(key: string): void {
   localStorage.setItem(API_KEY_STORAGE, key.trim());
 }
 
-export async function searchIslamicContent(query: string, category: string = 'all'): Promise<{ results: SearchResult[]; source: string }> {
+export async function searchIslamicContent(query: string): Promise<SearchResponse> {
   const apiKey = getStoredApiKey();
 
   try {
-    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}`, {
+    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
       headers: {
         'x-gemini-key': apiKey
       }
     });
 
     if (res.ok) {
-      const data = await res.json();
+      const data: SearchResponse = await res.json();
       return data;
     }
   } catch (err) {
     console.warn('Backend search unreachable, running client-side local search:', err);
   }
 
-  // Client-side fallback
-  const lowerQ = query.toLowerCase().trim();
-  if (!lowerQ) {
-    const res = category === 'all'
-      ? INITIAL_KNOWLEDGE_BASE
-      : INITIAL_KNOWLEDGE_BASE.filter(i => i.sourceCategory === category);
-    return { results: res, source: 'local' };
-  }
-
-  const filtered = INITIAL_KNOWLEDGE_BASE.filter(item => {
-    const matchCat = category === 'all' || item.sourceCategory === category;
-    const matchText =
-      item.title.toLowerCase().includes(lowerQ) ||
-      item.indonesianTranslation.toLowerCase().includes(lowerQ) ||
-      item.topicTag.toLowerCase().includes(lowerQ) ||
-      item.reference.toLowerCase().includes(lowerQ) ||
-      (item.tafsir && item.tafsir.toLowerCase().includes(lowerQ));
-    return matchCat && matchText;
-  });
-
-  return {
-    results: filtered.length > 0 ? filtered : INITIAL_KNOWLEDGE_BASE,
-    source: 'local'
-  };
+  // Client-side fallback with smart search, synthesis and complete in-depth rujukan list
+  return executeComprehensiveSearch(query);
 }
 
 export async function generateKhutbahApi(params: KhutbahGenerationParams): Promise<{ result: KhutbahResult; source: string }> {

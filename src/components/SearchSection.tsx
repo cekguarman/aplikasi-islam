@@ -1,44 +1,35 @@
 import React, { useState } from 'react';
-import { Search, Sparkles, Filter, X, BookOpen, Scroll, Scale, FileText, Globe } from 'lucide-react';
-import { SearchResult, SourceCategory } from '../types';
+import { Search, Sparkles, X, BookOpen, ExternalLink } from 'lucide-react';
+import { SearchResult, ResearchSynthesis } from '../types';
 import { searchIslamicContent } from '../services/api';
 import { saveSearchHistory } from '../services/storage';
 import { SearchResultCard } from './SearchResultCard';
 
 export const SearchSection: React.FC = () => {
   const [query, setQuery] = useState<string>('');
-  const [category, setCategory] = useState<string>('all');
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [synthesis, setSynthesis] = useState<ResearchSynthesis | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [searched, setSearched] = useState<boolean>(false);
   const [searchSource, setSearchSource] = useState<string>('local');
 
-  const popularKeywords = [
-    "Misteri Kecerdasan Syahadat",
-    "Rekonstruksi Isa Al-Masih",
-    "Hukum Anjing dalam Fiqih",
-    "Rukun Khutbah Jumat 4 Mazhab",
-    "Menjaga Lisan (Qawlan Sadida)",
-    "Adab dan Fiqih Berhutang",
-    "Niat Penentu Amal (Innamal A'mal)",
-    "Ramalan Imam Mahdi",
-    "Israk Mikraj Tinjauan Sains",
-    "Larangan Riba & Jual Beli Halal"
-  ];
-
-  const handleSearch = async (searchTerm?: string, selectedCat?: string) => {
+  const handleSearch = async (searchTerm?: string) => {
     const q = searchTerm !== undefined ? searchTerm : query;
-    const cat = selectedCat !== undefined ? selectedCat : category;
 
     setLoading(true);
     setSearched(true);
 
     try {
-      const data = await searchIslamicContent(q, cat);
+      const data = await searchIslamicContent(q);
       setResults(data.results);
       setSearchSource(data.source);
+      if (data.synthesis) {
+        setSynthesis(data.synthesis);
+      } else {
+        setSynthesis(null);
+      }
       if (q.trim()) {
-        saveSearchHistory(q, cat, data.results.length);
+        saveSearchHistory(q, 'all', data.results.length);
       }
     } catch (err) {
       console.error('Search failed:', err);
@@ -47,19 +38,9 @@ export const SearchSection: React.FC = () => {
     }
   };
 
-  const handleCategoryChange = (cat: string) => {
-    setCategory(cat);
-    handleSearch(query, cat);
-  };
-
-  const handleQuickKeyword = (kw: string) => {
-    setQuery(kw);
-    handleSearch(kw, category);
-  };
-
   // Initial load
   React.useEffect(() => {
-    handleSearch('', 'all');
+    handleSearch('');
   }, []);
 
   return (
@@ -80,7 +61,7 @@ export const SearchSection: React.FC = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-emerald-200 leading-relaxed text-justify-custom">
-            Telusuri ayat Al-Qur'an dan tafsir, hadits 9 imam, ensiklopedia fiqih 4 mazhab Al-Mawsu'ah al-Kuwaitiyyah, serta repositori riset Islam & perbandingan agama <strong>Arsip Armansyah</strong> dan literatur kredibel lainnya.
+            Telusuri ayat Al-Qur'an, tafsir dan hadits  serta ensiklopedia fiqih mazhab
           </p>
 
           {/* Search Input Box */}
@@ -109,7 +90,7 @@ export const SearchSection: React.FC = () => {
                   type="button"
                   onClick={() => {
                     setQuery('');
-                    handleSearch('', category);
+                    handleSearch('');
                   }}
                   className="p-2 text-slate-400 hover:text-slate-600 transition"
                 >
@@ -130,96 +111,125 @@ export const SearchSection: React.FC = () => {
               </button>
             </form>
           </div>
-
-          {/* Popular Tag Pills */}
-          <div className="pt-2 flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="text-emerald-300 font-semibold mr-1">Rekomendasi Topik:</span>
-            {popularKeywords.map((kw, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => handleQuickKeyword(kw)}
-                className="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-amber-400/20 text-emerald-100 hover:text-amber-200 border border-emerald-700/60 transition-all text-[11px]"
-              >
-                {kw}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
+      {/* Exploration Source Coverage Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 border-b border-slate-200/90 pb-3">
         <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => handleCategoryChange('all')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition ${
-              category === 'all'
-                ? 'bg-emerald-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            Semua Sumber
-          </button>
-
-          <button
-            onClick={() => handleCategoryChange('quran')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
-              category === 'quran'
-                ? 'bg-emerald-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            <BookOpen className="w-4 h-4 text-emerald-600" />
-            Al-Qur'an & Tafsir
-          </button>
-
-          <button
-            onClick={() => handleCategoryChange('hadith')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
-              category === 'hadith'
-                ? 'bg-emerald-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            <Scroll className="w-4 h-4 text-amber-600" />
-            Hadits 9 Imam
-          </button>
-
-          <button
-            onClick={() => handleCategoryChange('fiqh')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
-              category === 'fiqh'
-                ? 'bg-emerald-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            <Scale className="w-4 h-4 text-blue-600" />
-            Fiqih 4 Mazhab
-          </button>
-
-          <button
-            onClick={() => handleCategoryChange('artikel')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
-              category === 'artikel'
-                ? 'bg-emerald-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            <FileText className="w-4 h-4 text-purple-600" />
-            Kajian & Arsip Armansyah
-          </button>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-900 font-bold text-xs border border-emerald-300/70">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            Eksplorasi Lintas Sumber Otomatis
+          </span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="hidden sm:inline text-slate-600">Al-Qur'an & Tafsir</span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="hidden sm:inline text-slate-600">Hadits 9 Imam</span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="hidden sm:inline text-slate-600">Fiqih 4 Mazhab (Shamela)</span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="hidden sm:inline font-semibold text-amber-900">Arsip Armansyah</span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="hidden sm:inline text-slate-600">Jurnal & Fatwa Otoritatif</span>
         </div>
 
-        {/* Results Counter & Source Info */}
-        <div className="text-xs text-slate-500 font-medium flex items-center gap-2">
-          <span>Menampilkan <strong>{results.length}</strong> rujukan</span>
-          <span className="text-slate-300">&bull;</span>
-          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-            {searchSource === 'gemini' ? 'AI Grounded Search' : 'Basis Data Otoritatif'}
-          </span>
+        <div className="text-xs text-slate-500 font-medium">
+          Menampilkan <strong>{results.length}</strong> data hasil riset
         </div>
       </div>
+
+      {/* Kesimpulan & Sintesis Riset Cerdas (AI Multi-Source Research Intelligence) */}
+      {synthesis && (
+        <section className="bg-gradient-to-br from-emerald-900 via-teal-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-700/60 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-700/60 pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-amber-400 text-emerald-950 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✦
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block">
+                  Sintesis Cerdas Riset Islam Lintas Rujukan
+                </span>
+                <h2 className="text-lg sm:text-xl font-extrabold text-white">
+                  Kesimpulan & Analisis: {synthesis.topic}
+                </h2>
+              </div>
+            </div>
+
+            <span className="px-3 py-1 rounded-full bg-emerald-800/80 text-emerald-200 border border-emerald-600/40 text-xs font-medium">
+              Eksplorasi Otomatis Terpadu
+            </span>
+          </div>
+
+          {/* Grid Kesimpulan */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
+            {/* Kesimpulan Utama */}
+            <div className="bg-emerald-950/60 p-4 sm:p-5 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+                📌 Kesimpulan Utama:
+              </span>
+              <p className="text-emerald-100 leading-relaxed text-justify-custom text-xs sm:text-sm">
+                {synthesis.kesimpulanUtama}
+              </p>
+            </div>
+
+            {/* Landasan Dalil */}
+            <div className="bg-emerald-950/60 p-4 sm:p-5 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider block">
+                📖 Landasan Dalil Al-Qur'an & Sunnah:
+              </span>
+              <p className="text-emerald-100 leading-relaxed text-justify-custom text-xs sm:text-sm">
+                {synthesis.tinjauanDalil}
+              </p>
+            </div>
+
+            {/* Tinjauan 4 Mazhab */}
+            <div className="bg-emerald-950/60 p-4 sm:p-5 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block">
+                ⚖️ Tinjauan Fiqih 4 Mazhab (Al-Mawsu'ah al-Kuwaitiyyah):
+              </span>
+              <p className="text-emerald-100 leading-relaxed text-justify-custom text-xs sm:text-sm">
+                {synthesis.tinjauanMazhab}
+              </p>
+            </div>
+
+            {/* Catatan Kritis Arsip Armansyah */}
+            {synthesis.catatanKritisArmansyah && (
+              <div className="bg-emerald-950/60 p-4 sm:p-5 rounded-2xl border border-amber-600/40 space-y-2">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block flex items-center gap-1.5">
+                  ⭐ Riset & Catatan Kritis Arsip Armansyah:
+                </span>
+                <p className="text-emerald-100 leading-relaxed text-justify-custom text-xs sm:text-sm">
+                  {synthesis.catatanKritisArmansyah}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Rujukan Primer yang Dieksplorasi */}
+          <div className="border-t border-emerald-800/80 pt-4 space-y-2">
+            <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+              Sumber-Sumber Rujukan Primer yang Dieksplorasi Sistem:
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+              {synthesis.rujukanPrimer.map((r, i) => (
+                <a
+                  key={i}
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-xl bg-emerald-950/40 hover:bg-emerald-800/50 border border-emerald-800/60 transition flex items-center justify-between group"
+                >
+                  <span className="text-emerald-200 group-hover:text-amber-200 truncate font-medium">
+                    {r.name}
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-emerald-400 group-hover:text-amber-300 shrink-0 ml-1.5" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Results List */}
       <div className="space-y-6">
@@ -227,7 +237,7 @@ export const SearchSection: React.FC = () => {
           <div className="py-20 text-center space-y-3">
             <div className="w-10 h-10 border-3 border-emerald-800 border-t-amber-400 rounded-full animate-spin mx-auto" />
             <p className="text-sm font-semibold text-slate-700">
-              Menelusuri Al-Qur'an, Hadits, Fiqih 4 Mazhab, Arsip Armansyah & Jurnal Ilmiah...
+              Mengeksplorasi Al-Qur'an, Hadits 9 Imam, Fiqih 4 Mazhab, Arsip Armansyah & Jurnal Ilmiah...
             </p>
           </div>
         ) : results.length > 0 ? (
@@ -240,10 +250,10 @@ export const SearchSection: React.FC = () => {
           <div className="py-16 text-center bg-white rounded-2xl border border-slate-200 p-8 space-y-3">
             <div className="text-4xl">🔍</div>
             <h3 className="font-bold text-lg text-slate-800">
-              Tidak Ada Rujukan Langsung Ditemukan
+              Tidak Ada Rujukan Ditemukan
             </h3>
             <p className="text-xs text-slate-500 max-w-md mx-auto">
-              Coba gunakan kata kunci umum seperti "sholat", "taqwa", "syahadat", "puasa", "zakat", atau pilih kategori "Semua Sumber".
+              Ketikkan kata kunci apapun seperti "sholat", "anjing", "syahadat", "puasa", "zakat", atau topik hukum lainnya untuk eksplorasi instan.
             </p>
           </div>
         )}

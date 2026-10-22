@@ -29,7 +29,7 @@ Aplikasi cerdas untuk studi Islam komprehensif, pencarian dalil, ayat Al-Qur'an,
   - **Khutbah Jum'at Lengkap (2 Khutbah):** Memenuhi rukun fiqih (Hamdalah, Syahadatain, Shalawat, Wasiat Taqwa QS. Ali Imran: 102, Bacaan Ayat Al-Qur'an, Inti Khutbah berdalil Hadits, Doa Ampunan Kaum Muslimin & Muslimat, Doa Sapu Jagad, dan Ibadallah).
   - **Ceramah / Majelis Taklim / Kultum:** Salam pembuka, sapaan hormat hadirin, pembahasan tematik, kesimpulan, dan Doa Kafaratul Majelis.
 - **Durasi Kustom:** Tombol preset (Kultum 7 Menit, Ceramah Kilat 15 Menit, Khutbah Standar 30 Menit, Kajian Mendalam 40 Menit) serta input menit kustom (misal: 10, 20, 25, 45 menit) yang mengkalibrasi target jumlah kata (~130 kata/menit).
-- **10 Pilihan Pembuka (Mukaddimah) Sindonews:** Pilihan pembukaan resmi dari artikel SINDOnews Kalam, mencakup QS. Al-A'raf: 43, Khutbatul Hajah Sunnah, dan variasi lainnya lengkap dengan harakat, latin, dan terjemahan.
+- **10 Pilihan Pembuka (Mukaddimah) Otentik:** Pilihan pembukaan resmi sunnah nabawiyyah, mencakup QS. Al-A'raf: 43, Khutbatul Hajah Sunnah, dan variasi lainnya lengkap dengan harakat, latin, dan terjemahan.
 
 ### 3. Opsi Edit & Penyimpanan Riwayat Naskah
 - **Mode Edit Langsung:** Pengguna dapat mengedit kembali teks khutbah yang telah digenerate oleh AI sebelum dibawakan atau dicetak.

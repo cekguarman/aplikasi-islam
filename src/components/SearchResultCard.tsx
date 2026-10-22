@@ -59,6 +59,12 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({ result }) =>
                 {result.authenticity}
               </span>
             ) : null}
+
+            {result.madzhab ? (
+              <span className="text-[11px] px-2 py-0.5 rounded-md font-medium bg-blue-50 text-blue-800 border border-blue-200">
+                ⚖️ {result.madzhab}
+              </span>
+            ) : null}
           </div>
 
           {/* Arabic Font Zoom Controls */}
@@ -173,29 +179,76 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({ result }) =>
           </div>
         )}
 
-        {/* Tafsir / Analisis */}
+        {/* Uraian & Penjelasan Lengkap (Tafsir / Syarah / Fiqih) */}
         {result.tafsir && (
-          <div className="bg-emerald-50/50 border-l-3 border-emerald-600 p-3.5 rounded-r-xl text-xs text-slate-700 leading-relaxed text-justify-custom">
-            <span className="font-bold text-emerald-900 block mb-1">
-              Syarah / Tafsir / Ulasan:
-            </span>
-            {result.tafsir}
+          <div className="bg-emerald-50/40 border border-emerald-200/90 rounded-2xl p-5 sm:p-6 space-y-3 shadow-2xs">
+            <div className="flex items-center gap-2 text-emerald-950 font-bold text-sm sm:text-base border-b border-emerald-200/70 pb-2.5">
+              <BookOpen className="w-4 h-4 text-emerald-700 shrink-0" />
+              <span>Uraian & Penjelasan Lengkap (Tafsir / Syarah / Fiqih):</span>
+            </div>
+            <div className="text-sm sm:text-base text-slate-800 leading-relaxed text-justify-custom whitespace-pre-line space-y-2.5 font-normal">
+              {result.tafsir}
+            </div>
           </div>
         )}
       </div>
 
-      {/* Card Footer: Source Link & Copy Action */}
-      <div className="px-5 sm:px-6 py-3.5 bg-slate-50 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-3 text-xs">
-        <a
-          href={result.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-semibold text-emerald-800 hover:text-emerald-950 hover:underline"
-        >
-          <Globe className="w-3.5 h-3.5 text-emerald-600" />
-          <span>{result.sourceName}</span>
-          <ExternalLink className="w-3 h-3 text-slate-400" />
-        </a>
+      {/* Sumber Rujukan-Rujukan Terverifikasi di Bagian Bawah */}
+      <div className="px-5 sm:px-6 py-4 bg-slate-50 border-t border-slate-200 space-y-2.5">
+        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider">
+          <Globe className="w-3.5 h-3.5 text-emerald-700" />
+          <span>Sumber Rujukan-Rujukan Terverifikasi:</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+          {/* Sumber Utama */}
+          <a
+            href={result.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition group"
+          >
+            <div className="space-y-0.5 truncate pr-2">
+              <span className="font-bold text-slate-800 group-hover:text-emerald-900 block truncate">
+                {result.sourceName}
+              </span>
+              <span className="text-[11px] text-slate-500 block truncate">
+                {result.reference}
+              </span>
+            </div>
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 shrink-0" />
+          </a>
+
+          {/* Rujukan Tambahan jika ada */}
+          {result.rujukanList?.filter(r => r.url !== result.sourceUrl).map((ruj, idx) => (
+            <a
+              key={idx}
+              href={ruj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition group"
+            >
+              <div className="space-y-0.5 truncate pr-2">
+                <span className="font-bold text-slate-800 group-hover:text-emerald-900 block truncate">
+                  {ruj.name}
+                </span>
+                {ruj.detail && (
+                  <span className="text-[11px] text-slate-500 block truncate">
+                    {ruj.detail}
+                  </span>
+                )}
+              </div>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 shrink-0" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Card Action Bar */}
+      <div className="px-5 sm:px-6 py-3 bg-slate-100/80 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <span className="text-slate-500 text-[11px] font-medium">
+          Diverifikasi dengan rujukan kitab otoritatif & literatur ilmiah
+        </span>
 
         <div className="flex items-center gap-2">
           <button
@@ -208,9 +261,9 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({ result }) =>
           </button>
 
           <button
-            onClick={() => handleCopy(`${result.title}\n\n${result.arabicText}\n\nArtinya:\n${result.indonesianTranslation}\n\nEnglish:\n${result.englishTranslation || ''}\n\nSumber: ${result.reference} (${result.sourceName} - ${result.sourceUrl})`, 'all')}
+            onClick={() => handleCopy(`${result.title}\n\n${result.arabicText}\n\nArtinya:\n${result.indonesianTranslation}\n\nEnglish:\n${result.englishTranslation || ''}\n\nUraian Tafsir/Syarah:\n${result.tafsir || ''}\n\nSumber: ${result.reference} (${result.sourceName} - ${result.sourceUrl})`, 'all')}
             className="px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-700 text-white font-medium transition-colors flex items-center gap-1 shadow-xs"
-            title="Salin Seluruh Dalil, Terjemah & Sumber"
+            title="Salin Seluruh Dalil, Terjemah, Penjelasan & Sumber"
           >
             {copied === 'all' ? <Check className="w-3.5 h-3.5 text-amber-300" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied === 'all' ? 'Tersalin Lengkap' : 'Salin Lengkap'}</span>

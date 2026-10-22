@@ -32,9 +32,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   v2.0
                 </span>
               </div>
-              <p className="text-xs text-emerald-200">
-                Portal Riset Islam 6 Rujukan & Studio Khutbah Jumat
-              </p>
             </div>
           </div>
 
