@@ -61,18 +61,43 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeveloperProfile }) => {
                 </a>
               </li>
               <li>
-                <a href="https://quranweb.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
-                  <ExternalLink className="w-3 h-3" /> QuranWeb Indonesia
+                <a href="https://quran.kemenag.go.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> Qur'an Kemenag RI (LPMQ)
                 </a>
               </li>
               <li>
-                <a href="https://tafsirweb.com/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
-                  <ExternalLink className="w-3 h-3" /> TafsirWeb Lengkap
+                <a href="https://quranweb.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> QuranWeb & TafsirWeb
+                </a>
+              </li>
+              <li>
+                <a href="https://tarjih.or.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> Majelis Tarjih Muhammadiyah
+                </a>
+              </li>
+              <li>
+                <a href="https://hadits.nu.or.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> NU Online Hadits & Amaliah
+                </a>
+              </li>
+              <li>
+                <a href="https://www.alkhoirot.org/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> Pesantren Al-Khoirot (Kitab Kuning)
+                </a>
+              </li>
+              <li>
+                <a href="http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> Perbandingan Mazhab (Aboebakar Aceh)
+                </a>
+              </li>
+              <li>
+                <a href="https://balaghah.net/old/nahj-htm/id/id/01/main.htm" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
+                  <ExternalLink className="w-3 h-3" /> Nahj al-Balaghah (Balaghah.net)
                 </a>
               </li>
               <li>
                 <a href="https://muhamadbasuki.web.id/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 flex items-center gap-1.5">
-                  <ExternalLink className="w-3 h-3" /> Muhamad Basuki Fiqih
+                  <ExternalLink className="w-3 h-3" /> Fiqih Muamalah & Turats
                 </a>
               </li>
             </ul>

@@ -316,7 +316,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
 
         {/* 
           SEKSI 1: MATRIKS BEDAH SITUS & PUSTAKA UTAMA
-          Membedah Tsirwah (/pustaka/), Muhamad Basuki (/hadis/, /kutub-al-turats/), 
+          Membedah Tsirwah (/pustaka/), Kutub At-Turats (/hadis/, /kutub-al-turats/), 
           CariHadits (9 imam, /perawi), QuranWeb/TafsirWeb, Arsip Armansyah, Al-Mawsu'ah 45 Jilid
         */}
         <section className="space-y-4">
@@ -344,11 +344,11 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
                 status: 'verified' as const
               },
               {
-                siteName: "Muhamad Basuki - Indeks Hadis & Kutub At-Turats",
+                siteName: "Indeks Hadits & Kutub At-Turats",
                 siteUrl: "https://muhamadbasuki.web.id",
                 specificPathUrl: "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
                 subTopicsFound: ["Indeks Hadis Tematik", "Digitalisasi Kutub At-Turats"],
-                findingsSummary: `Pembedahan direktori hadis dan naskah kutub at-turats Muhamad Basuki mengenai tema "${topic}".`,
+                findingsSummary: `Pembedahan direktori hadits dan naskah kutub at-turats klasik mengenai tema "${topic}".`,
                 dalilOrQuotes: "Takhrij sanad dan klasifikasi tema hadits.",
                 status: 'verified' as const
               },
@@ -776,7 +776,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
             Mengeksplorasi & Membedah Situs-Situs Utama...
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto leading-relaxed">
-            Sistem sedang menelusuri Pustaka Tsirwah (/pustaka/), Muhamad Basuki (/hadis/, /kutub-al-turats/), CariHadits.id 9 Kitab Imam, QuranWeb, TafsirWeb, Shamela 45 jilid, dan Arsip Armansyah untuk menyusun paparan riset satu layar khusus.
+            Sistem sedang menelusuri Qur'an Kemenag (LPMQ), Pustaka Tsirwah (/pustaka/), Kutub At-Turats (/hadis/, /kutub-al-turats/), Tarjih Muhammadiyah, NU Online Hadits & Amaliah, Al-Khoirot, Perbandingan Mazhab Aboebakar Aceh, Nahj al-Balaghah, CariHadits 9 Imam, Shamela 45 jilid, dan Arsip Armansyah untuk menyusun paparan riset satu layar khusus.
           </p>
         </div>
       )}

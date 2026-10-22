@@ -37,9 +37,44 @@ export function executeComprehensiveSearch(query: string, category: string = 'al
       note: "Ayat Al-Qur'an mushaf rasm Utsmani dan syarah tafsir muktamad (Ibnu Katsir, Thabari)."
     },
     {
-      name: "MuhamadBasuki.web.id",
-      url: "https://muhamadbasuki.web.id/",
-      note: "Kajian fiqih muamalah kontemporer dan adab finansial syariah."
+      name: "Katalog Hadits & Kutub At-Turats",
+      url: "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
+      note: "Katalog tematik hadits nabawi dan digitalisasi naskah turats klasik."
+    },
+    {
+      name: "Majelis Tarjih Muhammadiyah (Fikih Informasi & KHGT)",
+      url: "https://tarjih.or.id/",
+      note: "Manhaj tarjih, Fikih Informasi, Jurnal Tarjih, Sekolah Tarjih & Kalender Hijriah Global Tunggal."
+    },
+    {
+      name: "NU Online (Kutub Hadits Mu'tabarah, Tahlil, Doa & Wirid)",
+      url: "https://hadits.nu.or.id/",
+      note: "Musnad Syafi'i, Bulughul Maram, Syamail, Ibnu Hibban, Daraquthni, Tahlil, Doa & Wirid."
+    },
+    {
+      name: "Pesantren Al-Khoirot (Koleksi Terjemah Kitab Kuning)",
+      url: "https://www.alkhoirot.org/",
+      note: "Terjemah Safinatun Naja, Fathul Mu'in, Tafsir Jalalain, Nurul Yaqin, Aqidatul Awam, Nurudh Dholam, Sullamut Taufiq & At-Tahdzib Matan Taqrib."
+    },
+    {
+      name: "Qur'an Kemenag RI (Lajnah Pentashihan Mushaf Al-Qur'an)",
+      url: "https://quran.kemenag.go.id/",
+      note: "Mushaf Standar Indonesia (MSI), Terjemahan Resmi Kemenag Edisi Penyempurnaan, Tafsir Tahlili, Tafsir Wajiz, dan Asbabun Nuzul."
+    },
+    {
+      name: "Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)",
+      url: "http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf",
+      note: "Karya akademik fiqih muqaran, ushul fiqih, genealogi mazhab Hanafi, Maliki, Syafi'i, Hanbali, Zahiri, Ja'fari & adab ikhtilaf."
+    },
+    {
+      name: "Nahj al-Balaghah (Balaghah.net)",
+      url: "https://balaghah.net/old/nahj-htm/id/id/01/main.htm",
+      note: "Himpunan khutbah tauhid, surat instruksi keadilan/kenegaraan, dan mutiara hikmah Sayyidina Ali bin Abi Thalib r.a."
+    },
+    {
+      name: "Kajian Komparatif Topik Nabi Isa (Ahmadiyah.id)",
+      url: "https://ahmadiyah.id/category/topik/nabi-isa",
+      note: "Studi perbandingan teologis & eskatologis kenabian Isa AS, polemik wafat vs rafa' & riwayat historis Kashmir."
     }
   ];
 
@@ -102,6 +137,11 @@ function attachRujukanList(items: SearchResult[]): SearchResult[] {
 
     if (item.sourceCategory === 'quran') {
       list.push({
+        name: "Qur'an Kemenag RI (LPMQ)",
+        url: "https://quran.kemenag.go.id/",
+        detail: "Mushaf Standar Indonesia (MSI) & Terjemahan Resmi Kemenag"
+      });
+      list.push({
         name: "TafsirWeb (Kajian Tafsir Lengkap)",
         url: "https://tafsirweb.com/",
         detail: "Tafsir Ibnu Katsir, Thabari, Al-Jalalain & Kemenag"
@@ -129,15 +169,40 @@ function attachRujukanList(items: SearchResult[]): SearchResult[] {
         detail: "Maktabah Shamela 45 Jilid Fiqih 4 Mazhab"
       });
       list.push({
-        name: "MuhamadBasuki.web.id",
-        url: "https://muhamadbasuki.web.id/",
-        detail: "Masail Fiqih Muamalah Syariah"
+        name: "Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)",
+        url: "http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf",
+        detail: "Buku Monumental Fiqh Muqaran & Sejarah Mazhab"
+      });
+      list.push({
+        name: "Katalog Hadits & Kutub At-Turats",
+        url: "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
+        detail: "Digitalisasi Naskah Turats & Hadits Tematik"
+      });
+      list.push({
+        name: "Majelis Tarjih Muhammadiyah",
+        url: "https://tarjih.or.id/",
+        detail: "Manhaj Tarjih, Fikih Informasi & KHGT"
+      });
+      list.push({
+        name: "NU Online Hadits & Amaliah",
+        url: "https://hadits.nu.or.id/",
+        detail: "Kutub Hadits Mu'tabarah, Tahlil & Doa"
       });
     } else if (item.sourceCategory === 'artikel') {
       list.push({
         name: "Arsip Armansyah (Blog Riset & Buku)",
         url: "https://arsiparmansyah.wordpress.com/",
         detail: "Katalog Buku & Repositori Pemikiran Armansyah"
+      });
+      list.push({
+        name: "Nahj al-Balaghah (Balaghah.net)",
+        url: "https://balaghah.net/old/nahj-htm/id/id/01/main.htm",
+        detail: "Khutbah Balaghah, Wasiat & Hikmah Sayyidina Ali"
+      });
+      list.push({
+        name: "Kajian Komparatif Topik Nabi Isa (Ahmadiyah.id)",
+        url: "https://ahmadiyah.id/category/topik/nabi-isa",
+        detail: "Studi Komparasi Teologis Wafat vs Rafa' & Eskatologi"
       });
     }
 
@@ -188,12 +253,13 @@ Armansyah dalam buku "Dan Tuhan Ciptakan Anjing" menyoroti bahwa kebencian irasi
       kesimpulanUtama: "Al-Qur'an secara tegas meluruskan sejarah kenabian Isa Al-Masih 'alaihissalam, membebaskan beliau dari klaim pembunuhan kaum penentangnya, serta menempatkan beliau sebagai Nabi dan Rasul Allah pilihan, bukan tuhan dan bukan anak tuhan.",
       benangMerah: "Seluruh ulama Islam, mufassir, dan teks qath'i Al-Qur'an (QS. An-Nisa [4]: 157-158) sepakat secara mutlak bahwa Nabi Isa AS tidak berhasil dibunuh dan tidak pula disalib di tiang salib, serta dimuliakan Allah dengan diangkat kepada-Nya.",
       titikPerbedaan: `Perbedaan Sudut Pandang Tafsir, Teks Historis & Ragam Terjemahan:
-1. Tafsir Mayoritas Bil Ma'tsur (Ibnu Katsir, Thabari, Al-Qurthubi): Memahami lafaz 'syubbiha lahum' sebagai mukjizat substitusi fisik, di mana wajah seseorang (murid pengkhianat atau musuh) diserupakan dengan Isa lalu disalib menggantikannya.
-2. Mufassir Rasionalis & Modern (Muhammad Abduh, Rasyid Ridha dalam Tafsir Al-Manar): Memahami bahwa kekacauan terjadi pada malam penangkapan sehingga para serdadu Romawi salah tangkap, dan orang yang mereka salib bukanlah Isa melainkan sosok lain yang mereka duga sebagai Isa.
-3. Rekonstruksi Kritis Armansyah (Buku 'Rekonstruksi Sejarah Isa Al-Masih'): Membandingkan teks Al-Qur'an dengan manuskrip apokrif Nag Hammadi (Injil Yudas, Wahyu Petrus) serta catatan Tacitus dan Flavius Josephus, membuktikan bahwa doktrin penebusan dosa di salib baru diformulasikan pasca-Konsili Nicea abad ke-4, sedangkan fakta historis mendukung narasi Al-Qur'an bahwa Isa selamat dari maut penyaliban.`,
-      tinjauanDalil: "QS. An-Nisa [4]: 157-158 ('wa ma qataluhu wa ma salabuhu wa lakin syubbiha lahum... bal rafa'ahullahu ilaih').",
+1. Tafsir Mayoritas Bil Ma'tsur (Ibnu Katsir, Thabari, Al-Qurthubi): Memahami lafaz 'syubbiha lahum' sebagai mukjizat substitusi fisik, di mana wajah seseorang (murid pengkhianat atau musuh) diserupakan dengan Isa lalu disalib menggantikannya, dan Nabi Isa AS diangkat hidup-hidup ke langit secara fisik.
+2. Mufassir Rasionalis & Modern (Muhammad Abduh, Rasyid Ridha dalam Tafsir Al-Manar, Prof. Hamka): Memahami bahwa kekacauan terjadi pada malam penangkapan sehingga para serdadu Romawi salah tangkap; lafaz 'mutawaffika' (QS. Ali 'Imran: 55) dipahami sebagai wafat wajar atau tidur lelap, dan 'rafa'ahu' sebagai pengangkatan derajat kemuliaan rohani di sisi Allah.
+3. Rekonstruksi Kritis Armansyah (Buku 'Rekonstruksi Sejarah Isa Al-Masih' & 'Jejak Nabi Palsu'): Membandingkan teks Al-Qur'an dengan manuskrip apokrif Nag Hammadi (Injil Yudas, Wahyu Petrus) serta catatan Tacitus dan Flavius Josephus, membuktikan bahwa doktrin penebusan dosa di salib baru diformulasikan pasca-Konsili Nicea abad ke-4, sedangkan fakta historis mendukung narasi Al-Qur'an bahwa Isa selamat dari maut penyaliban.
+4. Perspektif Teologi Jemaat Ahmadiyah (ahmadiyah.id/category/topik/nabi-isa): Memaknai ayat 'mutawaffika' sebagai wafat wajar setelah selamat dari kayu salib (swoon theory), kemudian berhijrah mencari suku Israel yang hilang ke Kashmir (India), hingga wafat pada usia lanjut di Srinagar (makam Rozabal), serta mengaitkannya dengan doktrin Al-Masih Al-Mau'ud.`,
+      tinjauanDalil: "QS. An-Nisa [4]: 157-158 ('wa ma qataluhu wa ma salabuhu wa lakin syubbiha lahum... bal rafa'ahullahu ilaih') dan QS. Ali 'Imran [3]: 55 ('Idz qālallāhu yā 'Īsā innī mutawaffīka wa rāfi'uka ilayya').",
       tinjauanMazhab: "Ijma' ulama ushuluddin mengenai keotentikan status kenabian Isa AS dan penolakan terhadap konsep trinitas maupun ketuhanan manusia.",
-      catatanKritisArmansyah: "Buku 'Rekonstruksi Sejarah Isa Al-Masih' (Restu Agung) karya Armansyah menyandingkan kajian biblika kritis, penemuan arkeologi, dan Al-Qur'an untuk membantah novel fiksi dan teori distorsi historis.",
+      catatanKritisArmansyah: "Buku 'Rekonstruksi Sejarah Isa Al-Masih' (Restu Agung) dan 'Jejak Nabi Palsu' karya Armansyah menguji secara kritis klaim-klaim historis tersebut dengan naskah apokrif abad pertama, filologi Semitik, dan Al-Qur'an untuk membantah novel fiksi, spekulasi kuburan Kashmir, dan teori distorsi teologis.",
       rujukanPrimer
     };
   }
@@ -409,12 +475,58 @@ function buildDeepSourceAnalyses(query: string, category: string): DeepSourceAna
       status: 'verified'
     },
     {
-      siteName: "Muhamad Basuki - Indeks Hadis & Kutub At-Turats",
+      siteName: "Indeks Hadits & Kutub At-Turats",
       siteUrl: "https://muhamadbasuki.web.id",
       specificPathUrl: "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
-      subTopicsFound: ["Indeks Hadis Tematik", "Kutub Al-Turats Klasik (https://muhamadbasuki.web.id/kutub-al-turats/#gsc.tab=0)"],
-      findingsSummary: `Penelusuran direktori hadits dan katalog kutub at-turats Muhamad Basuki mengenai "${cleanQ}", menyajikan pemetaan sanad, klasifikasi tema hadits nabawi, serta digitalisasi naskah turats ulama terdahulu.`,
+      subTopicsFound: ["Indeks Hadis Tematik", "Digitalisasi Kutub At-Turats Klasik (https://muhamadbasuki.web.id/kutub-al-turats/#gsc.tab=0)"],
+      findingsSummary: `Penelusuran direktori hadits dan katalog digitalisasi naskah kutub at-turats klasik mengenai "${cleanQ}", menyajikan pemetaan sanad, klasifikasi tema hadits nabawi, serta dalil fiqih muamalah.`,
       dalilOrQuotes: "Matan hadits berharakat dari kutub at-turats dengan takhrij sanad dan klasifikasi tema.",
+      status: 'verified'
+    },
+    {
+      siteName: "Pesantren Al-Khoirot (Pustaka Terjemah Kitab Kuning)",
+      siteUrl: "https://www.alkhoirot.org",
+      specificPathUrl: "https://www.alkhoirot.org/2018/11/terjemah-fathul-muin.html",
+      subTopicsFound: [
+        "Fathul Mu'in (/2018/11/terjemah-fathul-muin.html, bab-shalat)",
+        "Safinatun Naja (/2012/12/terjemah-kitab-safinah.html)",
+        "Tafsir Jalalain (/2017/11/terjemah-kitab-tafsir-jalalain.html)",
+        "Nurul Yaqin Sejarah Nabi & Akhlak lil Banin",
+        "At-Tahdzib fi Adillati Matan Taqrib (/2018/01/al-tahdzib-fi-adillat-matan-taqrib.html)",
+        "Aqidatul Awam, Nurudh Dholam, Sullamut Taufiq"
+      ],
+      findingsSummary: `Penelusuran kitab-kitab induk fiqih Syafi'iyah muktamad (Fathul Mu'in, Safinatun Naja, Matan Taqrib dengan dalil syar'i At-Tahdzib Dr. Mustafa Dib Al-Bugha) dan akidah Ahlussunnah (Aqidatul Awam, Nurudh Dholam) dari khazanah Al-Khoirot terkait "${cleanQ}".`,
+      dalilOrQuotes: "Matan kitab turats Syafi'iyah dan dalil nash pendukung: 'Fathul Mu'in bisyarhi Qurratil 'Ain' & 'Al-Tahdzib fi Adillat Matan Al-Ghayah wat-Taqrib'.",
+      status: 'verified'
+    },
+    {
+      siteName: "Majelis Tarjih & Tajdid Muhammadiyah",
+      siteUrl: "https://tarjih.or.id",
+      specificPathUrl: "https://tarjih.or.id/wp-content/uploads/2020/09/52.-Nilai-nilai-dasar-Fikih-Informasi.-converted.pdf",
+      subTopicsFound: [
+        "Nilai Dasar Fikih Informasi",
+        "Sekolah Tarjih UAD (pusattarjih.uad.ac.id)",
+        "Jurnal Tarjih (jurnal.tarjih.or.id)",
+        "Arsip Fatwa Tarjih (arsip.tarjih.or.id/i)",
+        "Kalender Hijriah Global Tunggal / KHGT (khgt.muhammadiyah.or.id, tarjih.or.id/khgt)"
+      ],
+      findingsSummary: `Telaah fatwa resmi Majelis Tarjih, dokumen Nilai Dasar Fikih Informasi, serta hisab astronomi Kalender Hijriah Global Tunggal (KHGT) terkait "${cleanQ}". Mengintegrasikan pendekatan bayani, burhani, dan irfani.`,
+      dalilOrQuotes: "Manhaj Tarjih: Berpegang pada dalil shahih Al-Qur'an dan Sunnah dengan keterbukaan ijtihad rasional-saintifik dan kemaslahatan umum.",
+      status: 'verified'
+    },
+    {
+      siteName: "NU Online - Khazanah Hadits & Amaliah Aswaja",
+      siteUrl: "https://hadits.nu.or.id",
+      specificPathUrl: "https://hadits.nu.or.id/bulugh-al-maram",
+      subTopicsFound: [
+        "Bulughul Maram (/bulugh-al-maram) & Musnad Syafi'i (/musnad-syafii)",
+        "Asy-Syamail Al-Muhammadiyyah (/shamail-muhammadiyah) & Hadits Qudsi (/hadits-qudsi)",
+        "Shahih Ibnu Hibban, Ibnu Khuzaimah & Sunan Daraquthni",
+        "Al-Adab Al-Mufrad & Mustadrak Al-Hakim",
+        "Tahlil (quran.nu.or.id/tahlil), Doa (quran.nu.or.id/doa), Wirid (quran.nu.or.id/wirid)"
+      ],
+      findingsSummary: `Eksplorasi hadits-hadits mu'tabarah (Bulughul Maram, Musnad Syafi'i, Ibnu Hibban, Ibnu Khuzaimah, Daraquthni, Mustadrak Al-Hakim) serta amaliah tahlil, doa ma'tsur, dan wirid harian NU Online mengenai "${cleanQ}".`,
+      dalilOrQuotes: "Matan hadits berharakat, takhrij sanad, dan tuntunan amaliah muktamad ulama Ahlussunnah wal Jama'ah an-Nahdliyyah.",
       status: 'verified'
     },
     {
@@ -456,6 +568,54 @@ function buildDeepSourceAnalyses(query: string, category: string): DeepSourceAna
       subTopicsFound: ["Mushaf Rasm Utsmani (quranweb.id/1 dst)", "Tafsir Ibnu Katsir & Ath-Thabari (tafsirweb.com)", "Asbabun Nuzul"],
       findingsSummary: `Eksplorasi ayat-ayat Al-Qur'an terkait "${cleanQ}" lengkap dengan telaah asbabun nuzul, munasabah ayat, dan rincian penafsiran para imam mufassirin muktamad.`,
       dalilOrQuotes: "Teks suci wahyu Al-Qur'anul Karim dengan harakat dan terjemahan resmi.",
+      status: 'verified'
+    },
+    {
+      siteName: "Qur'an Kemenag RI (Lajnah Pentashihan)",
+      siteUrl: "https://quran.kemenag.go.id/",
+      specificPathUrl: "https://quran.kemenag.go.id/",
+      subTopicsFound: ["Mushaf Standar Indonesia (MSI)", "Terjemahan Kemenag Edisi Penyempurnaan", "Tafsir Tahlili & Wajiz"],
+      findingsSummary: `Penelusuran resmi Mushaf Standar Indonesia, terjemahan resmi Kementerian Agama RI edisi penyempurnaan, serta Tafsir Tahlili dan Wajiz mengenai "${cleanQ}".`,
+      dalilOrQuotes: "Ayat suci Al-Qur'an rasm Utsmani standar Indonesia beserta terjemahan dan catatan makna resmi Kemenag.",
+      status: 'verified'
+    },
+    {
+      siteName: "Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)",
+      siteUrl: "http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf",
+      specificPathUrl: "http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf",
+      subTopicsFound: [
+        "Metodologi Fiqh Muqaran & Ushul Fiqih",
+        "Sebab-Sebab Ikhtilaf Ulama (Asbab al-Ikhtilaf)",
+        "Komparasi Mazhab Hanafi, Maliki, Syafi'i, Hanbali & Ja'fari"
+      ],
+      findingsSummary: `Telaah komparatif fiqih perbandingan madzhab karya Prof. K.H. Aboebakar Aceh mengenai "${cleanQ}". Mengkaji genealogi ijtihad, kaidah ushul fiqih, serta titik temu dan perbedaan hukum secara objektif.`,
+      dalilOrQuotes: "Kaidah fiqh muqaran: 'Al-Ikhtilafu bainal-fuqaha'i rahmatun lil-ummah' dan etika tasamuh dalam masalah furu'iyah.",
+      status: 'verified'
+    },
+    {
+      siteName: "Nahj al-Balaghah (Balaghah.net)",
+      siteUrl: "https://balaghah.net/old/nahj-htm/id/id/01/main.htm",
+      specificPathUrl: "https://balaghah.net/old/nahj-htm/id/id/01/main.htm",
+      subTopicsFound: [
+        "Khutbah Tauhid & Ma'rifatullah",
+        "Risalah Surat Kenegaraan & Keadilan (Malik Al-Ashtar)",
+        "Mutiara Hikmah, Zuhud & Adab Taqwa"
+      ],
+      findingsSummary: `Eksplorasi khazanah khutbah balaghah, risalah keadilan sosial, wasiat kepemimpinan, dan mutiara hikmah Sayyidina Ali bin Abi Thalib Karramallahu Wajhah via Balaghah.net terkait "${cleanQ}".`,
+      dalilOrQuotes: "Kutipan khutbah dan hikmah balaghah: 'Awwalud-dini ma'rifatuh' dan wasiat kemanusiaan 'Imma akhun laka fid-din aw nadzirun laka fil-khalq'.",
+      status: 'verified'
+    },
+    {
+      siteName: "Kajian Komparatif Topik Nabi Isa (Ahmadiyah.id)",
+      siteUrl: "https://ahmadiyah.id/category/topik/nabi-isa",
+      specificPathUrl: "https://ahmadiyah.id/category/topik/nabi-isa",
+      subTopicsFound: [
+        "Tafsir Wafat vs Rafa' (QS. Ali 'Imran: 55)",
+        "Riwayat Historis Kashmir & Makam Rozabal",
+        "Kajian Eskatologis Kenabian Isa AS & Al-Masih Al-Mau'ud"
+      ],
+      findingsSummary: `Penelusuran dokumentasi komparatif artikel topik Nabi Isa pada ahmadiyah.id mengenai "${cleanQ}", mencakup pandangan keselamatan dari salib, perjalanan ke Kashmir, serta pemahaman eskatologi yang disandingkan secara kritis dengan dalil Al-Qur'an, Hadits, dan telaah buku Armansyah.`,
+      dalilOrQuotes: "Telaah perbandingan tafsir lafaz 'mutawaffika' dan 'rafa'ahu' dalam konteks studi kritis teologi Islam.",
       status: 'verified'
     }
   ];

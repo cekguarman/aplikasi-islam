@@ -13,13 +13,19 @@ Aplikasi cerdas untuk studi Islam komprehensif, pencarian dalil, ayat Al-Qur'an,
 ### 1. Pencarian Dalil & Riset Islam Cerdas (Multi-Source Search Engine)
 - **Sumber Rujukan Primer Terintegrasi:**
   1. **[Arsip Armansyah](https://arsiparmansyah.wordpress.com/)** – Riset pemikiran Islam, buku-buku kristologi, fiqih kontemporer, dan perbandingan agama karya Armansyah.
-  2. **[Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah](https://shamela.ws/book/23604)** – Ensiklopedia 45 Jilid Fiqih 4 Mazhab (Hanafi, Maliki, Syafi'i, Hanbali).
-  3. **[Cari Hadits 9 Imam](https://www.carihadits.id/imam)** – Kumpulan 9 kitab hadits induk (Bukhari, Muslim, Tirmidzi, Abu Daud, Nasa'i, Ibnu Majah, Ahmad, Malik, Darimi).
-  4. **[Hadits Tazkia](https://hadits.tazkia.ac.id/)** – Database hadits aqidah, ibadah, dan muamalah syariah.
-  5. **[QuranWeb.id](https://quranweb.id/)** – Al-Qur'an digital berharakat tajwid dan terjemahan resmi Kemenag RI.
-  6. **[TafsirWeb.com](https://tafsirweb.com/)** – Tafsir lengkap Al-Muyassar, Jalalain, Kemenag, dan Ibnu Katsir.
-  7. **[MuhamadBasuki.web.id](https://muhamadbasuki.web.id/)** – Kajian praktis fiqih ibadah dan fatwa amaliyah.
-  8. **Jurnal & Literatur Global** – Rujukan fatwa dunia Islam dan literatur ilmiah terindeks.
+  2. **[Qur'an Kemenag RI (LPMQ)](https://quran.kemenag.go.id/)** – Mushaf Standar Indonesia (MSI), Terjemahan Resmi Kemenag RI Edisi Penyempurnaan, Tafsir Tahlili, Tafsir Wajiz, dan Asbabun Nuzul.
+  3. **[Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah](https://shamela.ws/book/23604)** – Ensiklopedia 45 Jilid Fiqih 4 Mazhab (Hanafi, Maliki, Syafi'i, Hanbali).
+  4. **[Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)](http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf)** – Karya monumental fiqih perbandingan (fiqh muqaran), ushul fiqih, genealogi mazhab Islam, dan adab ikhtilaf.
+  5. **[Nahj al-Balaghah (Balaghah.net)](https://balaghah.net/old/nahj-htm/id/id/01/main.htm)** – Himpunan khutbah tauhid, risalah instruksi kenegaraan kepada Malik Al-Ashtar, dan hikmah balaghah Sayyidina Ali bin Abi Thalib r.a.
+  6. **[Cari Hadits 9 Imam](https://www.carihadits.id/imam)** – Kumpulan 9 kitab hadits induk (Bukhari, Muslim, Tirmidzi, Abu Daud, Nasa'i, Ibnu Majah, Ahmad, Malik, Darimi) & statistik biografi perawi.
+  7. **[Hadits Tazkia](https://hadits.tazkia.ac.id/)** – Database hadits aqidah, ibadah, dan muamalah syariah.
+  8. **[QuranWeb.id & TafsirWeb](https://quranweb.id/)** – Al-Qur'an digital rasm Utsmani dan kajian tafsir Ibnu Katsir, Thabari, Al-Qurthubi, As-Sa'di.
+  9. **[Pusat Studi Islam Tsirwah](https://tsirwah.com/pustaka/)** – Pustaka kutub at-turats klasik, ushul fiqih, dan kajian Islam tematik.
+  10. **[Katalog Hadits & Kutub At-Turats](https://muhamadbasuki.web.id/hadis/#gsc.tab=0)** – Direktori hadits tematik dan digitalisasi naskah turats klasik.
+  11. **[Pesantren Al-Khoirot](https://www.alkhoirot.org/)** – Koleksi terjemahan kitab kuning muktamad (Fathul Mu'in, Safinah, At-Tahdzib Matan Taqrib, Tafsir Jalalain).
+  12. **[Majelis Tarjih Muhammadiyah](https://tarjih.or.id/)** – Fikih Informasi, Jurnal Tarjih, Sekolah Tarjih & Kalender Hijriah Global Tunggal (KHGT).
+  13. **[NU Online](https://hadits.nu.or.id/)** – Khazanah hadits mu'tabarah (Bulughul Maram, Musnad Syafi'i, Syamail) serta panduan Tahlil, Doa & Wirid.
+  14. **[Kajian Komparatif Topik Nabi Isa (Ahmadiyah.id)](https://ahmadiyah.id/category/topik/nabi-isa)** – Studi perbandingan teologis & eskatologis kenabian Isa AS (wafat vs rafa') disandingkan secara kritis dengan buku Armansyah.
 - **Tipografi Arab Berkualitas Tinggi:** Huruf besar berharakat jelas menggunakan font *Amiri* dan *Scheherazade New* dengan kontrol pembesar teks (A- / A+).
 - **Dwi-Bahasa (Indonesia & English):** Dilengkapi terjemahan Bahasa Indonesia fasih serta tombol toggle terjemahan Bahasa Inggris (English Translation).
 - **Tautan Sumber Langsung:** Setiap rujukan memiliki tombol tautan resmi menuju situs aslinya.

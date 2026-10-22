@@ -365,21 +365,21 @@ Sebagai alternatif keadilan ekonomi, Islam membuka pintu seluas-luasnya bagi per
     authenticity: "Ijma' Ulama Salaf & Khalaf"
   },
 
-  // --- KAJIAN MUHAMAD BASUKI (muhamadbasuki.web.id) ---
+  // --- KATALOG HADITS & KUTUB AT-TURATS (muhamadbasuki.web.id/hadis/) ---
   {
-    id: "basuki-adab-berhutang",
+    id: "hadis-turats-adab-berhutang",
     title: "Tanggung Jawab Moral dan Fiqih Berhutang",
     sourceCategory: "artikel",
-    sourceName: "MuhamadBasuki.web.id",
-    sourceUrl: "https://muhamadbasuki.web.id/",
-    reference: "Kajian Fiqih Muamalah Ustadz Muhamad Basuki",
+    sourceName: "Katalog Hadits & Kutub At-Turats",
+    sourceUrl: "https://muhamadbasuki.web.id/hadis/#gsc.tab=0",
+    reference: "Kajian Fiqih Muamalah & Digitalisasi Kutub At-Turats",
     topicTag: "Muamalah & Akhlak Finansial",
     arabicText: "قَالَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «مَنْ أَخَذَ أَمْوَالَ النَّاسِ يُرِيدُ أَدَاءَهَا أَدَّى اللَّهُ عَنْهُ، وَمَنْ أَخَذَ يُرِيدُ إِتْلَافَهَا أَتْلَفَهُ اللَّهُ»",
     latinTransliteration: "Qalan-Nabiyyu: 'Man akhadza amwaalan-naasi yuriidu adaa'aha addallahu 'anhu, wa man akhadza yuriidu itlaafaha atlafahullaah.'",
     indonesianTranslation: "Rasulullah shallallahu 'alaihi wasallam bersabda: 'Barang siapa meminjam harta orang lain dengan niat tulus hendak melunasinya, niscaya Allah akan menolongnya melunasi hutang tersebut. Dan barang siapa yang meminjamnya dengan niat melenyapkannya (tidak membayar), niscaya Allah akan membinasakannya.' (HR. Bukhari No. 2387)",
     englishTranslation: "The Prophet (ﷺ) said: 'Whoever takes the wealth of people with the intention of repaying it, Allah will pay it on his behalf; and whoever takes it desiring to destroy it, Allah will destroy him.'",
     tafsir: `Uraian Fiqih & Etika Finansial:
-Dalam kajian Ustadz Muhamad Basuki, hukum dasar berhutang (al-qardh) dalam syariat Islam adalah mubah bagi peminjam dan mustahab (sangat dianjurkan) bagi pemberi pinjaman karena termasuk menolong sesama yang sedang kesusahan. Namun, hutang membawa konsekuensi hukum akhirat yang amat berat apabila disepelekan.
+Dalam kajian fiqih muamalah dan naskah kutub at-turats, hukum dasar berhutang (al-qardh) dalam syariat Islam adalah mubah bagi peminjam dan mustahab (sangat dianjurkan) bagi pemberi pinjaman karena termasuk menolong sesama yang sedang kesusahan. Namun, hutang membawa konsekuensi hukum akhirat yang amat berat apabila disepelekan.
 
 1. Bahaya Mengabaikan Hutang:
 Nabi Muhammad ﷺ pernah menolak menshalatkan jenazah seorang sahabat yang masih memiliki tanggungan hutang dua dinar hingga ada sahabat lain (Abu Qatadah) yang bersedia menanggungnya. Bahkan orang yang mati syahid di medan perang diampuni seluruh dosanya kecuali hutang.
@@ -389,5 +389,248 @@ Nabi Muhammad ﷺ pernah menolak menshalatkan jenazah seorang sahabat yang masih
 - Segera melunasi hutang begitu memiliki kelapangan dan dilarang keras menunda-nunda ("Mathlul ghaniyyi zhulmun" - Menunda pembayaran hutang bagi orang yang mampu adalah kezaliman).
 - Mendoakan kebaikan dan keberkahan bagi orang yang telah memberikan pinjaman.`,
     authenticity: "Shahih Bukhari"
+  },
+
+  // --- MAJELIS TARJIH & TAJDID MUHAMMADIYAH (tarjih.or.id & khgt.muhammadiyah.or.id) ---
+  {
+    id: "tarjih-fikih-informasi",
+    title: "Nilai Dasar Fikih Informasi & Etika Komunikasi Digital Islami",
+    sourceCategory: "artikel",
+    sourceName: "Majelis Tarjih & Tajdid Muhammadiyah",
+    sourceUrl: "https://tarjih.or.id/wp-content/uploads/2020/09/52.-Nilai-nilai-dasar-Fikih-Informasi.-converted.pdf",
+    reference: "Panduan Nilai Dasar Fikih Informasi (Majelis Tarjih Muhammadiyah) & QS. Al-Hujurat [49]: 6",
+    topicTag: "Fikih Informasi, Etika Digital & Manhaj Tarjih",
+    arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِنْ جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَنْ تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ",
+    latinTransliteration: "Yā ayyuhalladzīna āmanū in jā'akum fāsiqun binaba'in fa tabayyanū an tushībū qawman bijahālatin fa tuṣbiḥū 'alā mā fa'altum nādimīn.",
+    indonesianTranslation: "Wahai orang-orang yang beriman! Jika seseorang yang fasik datang kepadamu membawa suatu berita, maka telitilah kebenarannya (tabayyun), agar kamu tidak mencelakakan suatu kaum karena kebodohan (kecerobohan), yang akhirnya kamu menyesali perbuatanmu itu. (QS. Al-Hujurat: 6)",
+    englishTranslation: "O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful.",
+    tafsir: `Uraian Fikih Informasi Majelis Tarjih Muhammadiyah:
+Dalam dokumen resmi Nilai-Nilai Dasar Fikih Informasi yang diterbitkan Majelis Tarjih dan Tajdid PP Muhammadiyah, komunikasi dan pertukaran informasi di ruang digital diikat oleh nilai-nilai transendental:
+
+1. Prinsip Tauhid & Tanggung Jawab Akhirat:
+Segala bentuk interaksi, postingan, dan komentar di media sosial diawasi oleh Allah SWT. Kebebasan berekspresi dibatasi oleh keharusan menjaga kehormatan sesama manusia.
+2. Kaidah Tabayyun (Verifikasi Data):
+Mewajibkan verifikasi dan cek silang (cross-check) sebelum membagikan informasi. Dilarang keras memproduksi dan menyebarkan hoaks, ghibah digital, tajassus (mengintai privasi orang), dan fitnah.
+3. Pendekatan Manhaj Tarjih (Bayani, Burhani, Irfani):
+Memadukan nash wahyu (bayani), nalar kritis sains dan literasi digital (burhani), serta kepekaan hati nurani (irfani) untuk mewujudkan peradaban informasi yang mencerahkan.`,
+    benangMerah: "Konsensus seluruh ulama tentang kewajiban moral tabayyun, menjaga integritas lisan dan jemari, serta larangan menyebarkan fitnah dan kepalsuan.",
+    perbedaanPandangan: `Dialektika Fiqih Informasi:
+Peta perdebatan mengenai batas keterbukaan data publik vs hak privasi pribadi, serta penggunaan kecerdasan buatan dalam memproduksi konten dakwah.`,
+    authenticity: "Kalamullah & Dokumen Resmi Majelis Tarjih"
+  },
+  {
+    id: "tarjih-khgt-astronomi",
+    title: "Kalender Hijriah Global Tunggal (KHGT) & Unifikasi Penanggalan Islam",
+    sourceCategory: "fiqh",
+    sourceName: "Majelis Tarjih Muhammadiyah (KHGT)",
+    sourceUrl: "https://khgt.muhammadiyah.or.id/",
+    reference: "Keputusan Muktamar Muhammadiyah & Riset KHGT (khgt.muhammadiyah.or.id & tarjih.or.id/khgt)",
+    topicTag: "Astronomi Islam, Hisab KHGT & Kalender Hijriah Global",
+    arabicText: "هُوَ الَّذِي جَعَلَ الشَّمْسَ ضِيَاءً وَالْقَمَرَ نُورًا وَقَدَّرَهُ مَنَازِلَ لِتَعْلَمُوا عَدَدَ السِّنِينَ وَالْحِسَابَ ۚ مَا خَلَقَ اللَّهُ ذَٰلِكَ إِلَّا بِالْحَقِّ",
+    latinTransliteration: "Huwallażī ja'alasy-syamsa ḍiyā'an wal-qamara nūran wa qaddarahū manāzila lita'lamū 'adadas-sinīna wal-ḥisāb...",
+    indonesianTranslation: "Dialah yang menjadikan matahari bersinar dan bulan bercahaya, dan Dialah yang menetapkan tempat-tempat orbitnya, agar kamu mengetahui bilangan tahun, dan perhitungan (waktu). (QS. Yunus: 5)",
+    englishTranslation: "It is He who made the sun a shining light and the moon a derived light and determined for it phases - that you may know the number of years and account [of time].",
+    tafsir: `Uraian Fiqih Hisab & Kalender Hijriah Global Tunggal (KHGT):
+Majelis Tarjih Muhammadiyah memelopori Kalender Hijriah Global Tunggal (KHGT) berdasarkan keputusan Muktamar ke-48 dan Kongres Internasional Istanbul 2016:
+
+1. Prinsip Satu Hari Satu Tanggal di Seluruh Dunia:
+Mengakhiri disparitas penanggalan ibadah umat Islam antar-negara agar puasa Arafah dan hari raya dapat dirayakan secara serentak dan tertib.
+2. Integrasi Fiqih dan Sains Astronomi:
+Memanfaatkan hisab hakiki dengan ketelitian astronomi modern untuk menentukan masuknya awal bulan kamariah tanpa terkendala keterbatasan pengamatan cuaca fisik lokal.`,
+    benangMerah: "Kesepakatan ulama bahwa perhitungan bulan qamariyah berlandaskan peredaran falak bulan mengelilingi bumi.",
+    perbedaanPandangan: `Ikhtilaf Rukyatul Hilal Fisik vs Hisab Hakiki Global:
+Perbedaan metode antara mazhab rukyat lokal (penglihatan mata telanjang) dengan mazhab hisab astronomi global yang diperjuangkan Muhammadiyah.`,
+    authenticity: "Kalamullah & Keputusan Muktamar Muhammadiyah"
+  },
+
+  // --- NU ONLINE (hadits.nu.or.id & quran.nu.or.id) ---
+  {
+    id: "nu-online-tahlil-amaliah",
+    title: "Panduan Tahlil, Doa Arwah & Khazanah Dzikir Ahlussunnah",
+    sourceCategory: "quran",
+    sourceName: "NU Online (Quran & Doa)",
+    sourceUrl: "https://quran.nu.or.id/tahlil",
+    reference: "Panduan Tahlil & Doa NU Online (quran.nu.or.id/tahlil & quran.nu.or.id/doa)",
+    topicTag: "Tahlil, Doa Arwah, Wirid & Amaliah Aswaja",
+    arabicText: "أَفْضَلُ الذِّكْرِ فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ ۝ اللَّهُمَّ أَوْصِلْ ثَوَابَ مَا قَرَأْنَاهُ إِلَى رُوحِ فُلَانٍ",
+    latinTransliteration: "Afdhaludz-dzikri fa'lam annahu laa ilaha illallah... Allahumma awshil tsawaba ma qara'nahu ila ruhi...",
+    indonesianTranslation: "Ketahuilah bahwa sebaik-baik dzikir adalah Laa ilaha illallah... Ya Allah, sampaikanlah pahala bacaan kami kepada arwah...",
+    englishTranslation: "Know that the best of remembrance is 'There is no deity except Allah'... O Allah, convey the reward of our recitation to the soul of...",
+    tafsir: `Uraian Tahlil & Dzikir Aswaja NU Online:
+Tradisi pembacaan tahlil yang dirawat di kalangan Nahdlatul Ulama adalah amalan menghidupkan majelis dzikir, tilawah Al-Qur'an (Surah Al-Ikhlas, Al-Falaq, An-Nas, Al-Baqarah, Ayat Kursi), istighfar, dan shalawat nabi untuk dihadiahkan pahalanya kepada kaum beriman yang telah mendahului.
+
+Landasan Fiqih Ihdaduts Tsawab:
+Mayoritas ulama 4 mazhab (Syafi'i, Maliki, Hanafi, Hanbali) menegaskan sampainya manfaat doa permohonan ampun dan sedekah bagi arwah orang beriman.`,
+    benangMerah: "Konsensus ulama tentang keutamaan berdzikir berjamaah dan mendoakan ampunan bagi sesama muslim.",
+    perbedaanPandangan: "Ikhtilaf mengenai sampainya pahala bacaan Al-Qur'an (ihdaduts tsawab) kepada mayit antara jumhur fuqaha dengan sebagian ulama yang membatasi pada sedekah harta.",
+    authenticity: "Kalamullah & Tradisi Ulama Salaf"
+  },
+  {
+    id: "nu-online-bulughul-maram",
+    title: "Hadits Hukum Fiqih Bulughul Maram & Musnad Syafi'i",
+    sourceCategory: "hadith",
+    sourceName: "Hadits NU Online (Bulughul Maram & Musnad Syafi'i)",
+    sourceUrl: "https://hadits.nu.or.id/bulugh-al-maram",
+    reference: "Bulughul Maram karya Al-Hafizh Ibnu Hajar Al-Asqalani & Musnad Al-Imam Asy-Syafi'i",
+    topicTag: "Hadits Hukum Fiqih, Bulughul Maram & Musnad Syafi'i",
+    arabicText: "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فِي الْبَحْرِ: «هُوَ الطَّهُورُ مَاؤُهُ الْحِلُّ مَيْتَتُهُ»",
+    latinTransliteration: "'An Abi Hurairata: Qala Rasulullahi shallallahu 'alaihi wasallama fil-bahri: 'Huwat-thahuru ma'uhu al-hillu maitatuhu.'",
+    indonesianTranslation: "Rasulullah shallallahu 'alaihi wasallam bersabda mengenai laut: 'Laut itu suci airnya dan halal bangkainya.' (HR. Empat Imam Hadits & Ibnu Khuzaimah, Bulughul Maram No. 1)",
+    englishTranslation: "The Messenger of Allah (ﷺ) said regarding the sea: 'Its water is purifying and its dead (animals) are lawful to eat.'",
+    tafsir: `Uraian Dalil Hadits Fiqih Bulughul Maram:
+Bulughul Maram min Adillatil Ahkam karya Al-Hafizh Ibnu Hajar Al-Asqalani yang dihimpun pada portal Hadits NU Online merupakan rujukan dalil hukum fiqih:
+1. Thaharah Air Laut: Menegaskan bahwa air laut berstatus thahur (suci lagi menyucikan).
+2. Binatang Laut: Seluruh hewan yang habitat hidupnya di air halal dimakan tanpa perlu disembelih lehernya.`,
+    benangMerah: "Konsensus 4 mazhab bahwa air laut adalah suci menyucikan dan binatang laut halal dikonsumsi.",
+    perbedaanPandangan: "Mazhab Syafi'i dan Maliki menghalalkan seluruh satwa laut; Mazhab Hanafi membatasi kehalalan hanya pada jenis ikan (as-samak).",
+    authenticity: "Shahih Ibnu Khuzaimah & Takhrij Bulughul Maram"
+  },
+
+  // --- PESANTREN AL-KHOIROT (alkhoirot.org) ---
+  {
+    id: "alkhoirot-fathul-muin-safinah",
+    title: "Kajian Fiqih Syafi'iyah: Fathul Mu'in, Safinatun Naja & At-Tahdzib",
+    sourceCategory: "fiqh",
+    sourceName: "Pesantren Al-Khoirot (Koleksi Terjemah Kitab Kuning)",
+    sourceUrl: "https://www.alkhoirot.org/2018/11/terjemah-fathul-muin.html",
+    reference: "Kitab Fathul Mu'in (Syaikh Zainuddin Al-Malibari), Safinatun Naja & At-Tahdzib fi Adillati Matan Taqrib",
+    topicTag: "Fiqih Syafi'iyah, Fathul Mu'in & Safinatun Naja",
+    arabicText: "أَرْكَانُ الصَّلَاةِ سَبْعَةَ عَشَرَ: الْأَوَّلُ النِّيَّةُ، الثَّانِي تَكْبِيرَةُ الْإِحْرَامِ، الثَّالِثُ الْقِيَامُ عَلَى الْقَادِرِ، الرَّابِعُ قِرَاءَةُ الْفَاتِحَةِ...",
+    latinTransliteration: "Arkaanus-shalaati sab'ata 'asyara: al-awwalu an-niyyatu, ats-tsaani takbiiratul-ihraami, ats-tsaalitsu al-qiyaamu 'alal-qaadiri, ar-raabi'u qiraa'atul-Faatihah...",
+    indonesianTranslation: "Rukun shalat ada tujuh belas: Pertama niat, kedua takbiratul ihram, ketiga berdiri bagi yang mampu, keempat membaca Surah Al-Fatihah... (Safinatun Naja & Fathul Mu'in Bab Shalat)",
+    englishTranslation: "The pillars of prayer are seventeen: First is the intention, second is Takbirat al-Ihram, third is standing for whoever is able, fourth is reciting Surah Al-Fatihah...",
+    tafsir: `Uraian Fiqih Syafi'iyah dari Khazanah Pesantren Al-Khoirot:
+Koleksi terjemahan kitab kuning di alkhoirot.org menyajikan bimbingan fiqih mazhab Syafi'i secara bertingkat:
+
+1. Tingkat Dasar (Safinatun Naja):
+Memetakan rukun-rukun thaharah dan shalat, syarat sah, serta pembatal ibadah secara ringkas dan mudah dihafal oleh para pemula.
+2. Tingkat Menengah & Lanjutan (Fathul Mu'in karya Syaikh Zainuddin Al-Malibari):
+Kitab syarah legendaris dari Qurratul 'Ain yang membahas tuntas seluk-beluk ibadah shalat, zakat, puasa, muamalah, nikah, dan jinayat dengan ketelitian fatwa ulama muta'akhkhirin Syafi'iyah (seperti Ibnu Hajar Al-Haitami dan Imam Ramli).
+3. Landasan Dalil Syar'i (At-Tahdzib Dr. Mustafa Dib Al-Bugha):
+Menyandingkan setiap cabang hukum fiqih dalam Matan Taqrib dengan nash Al-Qur'an dan Sunnah yang shahih, membuktikan bahwa fiqih mazhab Syafi'i berpijak kokoh pada dalil wahyu.`,
+    benangMerah: "Konsensus 4 mazhab mengenai rukun-rukun pokok shalat (niat, takbiratul ihram, Fatihah, ruku', sujud, tasyahhud akhir, dan salam).",
+    perbedaanPandangan: `Perbedaan Rincian Mazhab dalam Pelaksanaan Shalat:
+1. Membaca Basmalah dalam Fatihah: Mazhab Syafi'i menetapkan basmalah sebagai ayat pertama Al-Fatihah yang wajib dibaca jahr/sirr; Mazhab Maliki tidak membacanya dalam shalat fardhu; Mazhab Hanafi dan Hanbali membacanya sirr (pelan).
+2. Doa Qunut Shubuh: Mazhab Syafi'i dan Maliki mensunnahkan qunut shubuh; Mazhab Hanafi dan Hanbali menilainya tidak disunnahkan kecuali saat nazilah.`,
+    authenticity: "Kutubul Fiqh Syafi'iyah Muktamad"
+  },
+
+  // --- QUR'AN KEMENAG RI (quran.kemenag.go.id) ---
+  {
+    id: "kemenag-mushaf-tafsir-wajiz",
+    title: "Mushaf Standar Indonesia & Terjemah Kemenag RI (Tafsir Tahlili & Wajiz)",
+    sourceCategory: "quran",
+    sourceName: "Qur'an Kemenag RI (LPMQ)",
+    sourceUrl: "https://quran.kemenag.go.id/",
+    reference: "Lajnah Pentashihan Mushaf Al-Qur'an (LPMQ) Kementerian Agama RI (QS. Al-Hujurat [49]: 13)",
+    topicTag: "Mushaf Standar Indonesia, Ukhuwah Insaniyah & Tafsir Kemenag",
+    arabicText: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا ۚ إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ ۚ إِنَّ اللَّهَ عَلِيمٌ خَبِيرٌ",
+    latinTransliteration: "Yā ayyuhan-nāsu innā khalaqnākum min dzakarin wa untsā wa ja'alnākum syu'ūbaw wa qabā'ila lita'ārafū, inna akramakum 'indallāhi atqākum, innallāha 'alīmun khabīr.",
+    indonesianTranslation: "Wahai manusia! Sungguh, Kami telah menciptakan kamu dari seorang laki-laki dan seorang perempuan, kemudian Kami jadikan kamu berbangsa-bangsa dan bersuku-suku agar kamu saling mengenal. Sesungguhnya yang paling mulia di antara kamu di sisi Allah ialah orang yang paling bertakwa. Sungguh, Allah Maha Mengetahui, Maha Teliti. (Terjemahan Resmi Kemenag Edisi Penyempurnaan)",
+    englishTranslation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you. Indeed, Allah is Knowing and Acquainted.",
+    tafsir: `Uraian Tafsir Kemenag RI (Lajnah Pentashihan Mushaf Al-Qur'an):
+Surah Al-Hujurat ayat 13 dalam kajian Tafsir Tahlili dan Tafsir Wajiz Kementerian Agama RI menegaskan prinsip universal kemanusiaan:
+1. Kesetaraan Asal Usul Kemanusiaan: Seluruh umat manusia berasal dari satu pasang orang tua, yakni Adam dan Hawa. Oleh karena itu, tidak ada dasar biologis maupun rasial untuk merasa lebih unggul atas kelompok lain.
+2. Pluralitas sebagai Sunnatullah (Lita'arafu): Pembagian manusia ke dalam beraneka suku bangsa, ras, bahasa, dan tradisi bukan dimaksudkan untuk memicu konflik, hegemoni, atau diskriminasi, melainkan sebagai instrumen saling mengenal, bersinergi, dan memperkaya peradaban dunia.
+3. Standar Tunggal Kemuliaan: Kemuliaan sejati di sisi Allah tidak diukur dari keturunan bangsawan, kekayaan harta, maupun hegemoni kekuasaan, melainkan semata-mata diukur dari ketaqwaan (inna akramakum 'indallahi atqakum).
+4. Fiqih Kebangsaan & Moderasi: Ayat ini menjadi landasan teologis konstitusional bagi kerukunan umat beragama dan konsep persaudaraan kemanusiaan (ukhuwah insaniyah) di Indonesia.`,
+    benangMerah: "Konsensus seluruh mufassir bahwa kemanusiaan berdiri di atas prinsip kesetaraan fitrah dan taqwa adalah parameter tunggal kemuliaan di hadapan Allah SWT.",
+    perbedaanPandangan: "Pendekatan tafsir klasik menekankan konteks asbabun nuzul pembebasan Makkah (penegasan kesetaraan derajat Bilal bin Rabah), sedangkan tafsir kontemporer Kemenag memperluas maknanya pada prinsip penguatan integrasi bangsa dan moderasi beragama.",
+    authenticity: "Mushaf Standar Indonesia & Terjemah Resmi Kemenag RI"
+  },
+
+  // --- PERBANDINGAN MAZHAB (PROF. K.H. ABOEBAKAR ACEH) ---
+  {
+    id: "aboebakar-aceh-perbandingan-mazhab",
+    title: "Metodologi Fiqih Muqaran & Peta Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)",
+    sourceCategory: "fiqh",
+    sourceName: "Perbandingan Mazhab (Prof. K.H. Aboebakar Aceh)",
+    sourceUrl: "http://103.44.149.34/elib/assets/buku/Aboebokar_Aceh_-_Perbandingan_Mazhab.pdf",
+    reference: "Buku Monumental: Perbandingan Mazhab (Prof. H. Aboebakar Aceh) & Ushul Fiqih",
+    topicTag: "Perbandingan Mazhab, Fiqh Muqaran & Adab Ikhtilaf",
+    arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنكُمْ ۖ فَإِن تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ إِن كُنتُمْ تُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۚ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا",
+    latinTransliteration: "Yā ayyuhalladzīna āmanū athī'ullāha wa athī'ur-rasūla wa ulil-amri minkum, fa-in tanāza'tum fī syai'in faruddūhu ilallāhi war-rasūli in kuntum tu'minūna billāhi wal-yawmil-ākhiri, dzālika khairuw wa aḥsanu ta'wīlā.",
+    indonesianTranslation: "Wahai orang-orang yang beriman! Taatilah Allah dan taatilah Rasul (Muhammad), dan Ulil Amri (pemegang kekuasaan) di antara kamu. Kemudian jika kamu berbeda pendapat tentang sesuatu, maka kembalikanlah ia kepada Allah (Al-Qur'an) dan Rasul (sunnahnya), jika kamu beriman kepada Allah dan hari kemudian. Yang demikian itu lebih utama (bagimu) dan lebih baik akibatnya. (QS. An-Nisa [4]: 59)",
+    englishTranslation: "O you who have believed, obey Allah and obey the Messenger and those in authority among you. And if you disagree over anything, refer it to Allah and the Messenger, if you should believe in Allah and the Last Day. That is the best [way] and best in result.",
+    tafsir: `Telaah Kritis Metodologi Perbandingan Mazhab Prof. K.H. Aboebakar Aceh:
+Buku monumental "Perbandingan Mazhab" karya cendekiawan besar Indonesia Prof. K.H. Aboebakar Aceh meletakkan landasan epistemologi fiqih komparatif (fiqh muqaran):
+1. Genealogi Mazhab Fiqih:
+   - Mazhab Ahlur Ra'yi (Hanafi di Irak): Menekankan peran nalar, istihsan, dan qiyas dalam menjawab problem sosiokultural kosmopolit Kufah.
+   - Mazhab Ahlul Hadits (Maliki di Madinah): Menjadikan 'Amal Ahli Madinah sebagai rujukan living sunnah yang mendahului khabar wahid.
+   - Sintesis Syafi'i (Al-Umm & Ar-Risalah): Mengkodifikasikan ushul fiqih sistematis dengan menyeimbangkan nash dan qiyas.
+   - Mazhab Tekstual Hanbali & Zahiri: Menegakkan keutamaan atsar dan nash eksplisit di atas analogi akal.
+2. Sebab Terjadinya Ikhtilaf (Asbab al-Ikhtilaf):
+   Prof. Aboebakar Aceh membedah bahwa perbedaan pendapat fuqaha bukan lahir dari hawa nafsu, melainkan akibat:
+   a. Belum sampainya teks hadits tertentu kepada seorang mujtahid.
+   b. Perbedaan penilaian derajat ketsiqahan seorang perawi dalam sanad.
+   c. Perbedaan kaidah semantik kebahasaan (lafaz musytarak, hakikat vs majaz, 'am vs khash, mutlaq vs muqayyad).
+   d. Perbedaan pengakuan terhadap dalil sekunder (istihsan, mashlahah mursalah, 'urf, saddudz-dzarai').
+3. Etika Tasamuh (Toleransi Ilmiah):
+   Ikhtilaf dalam wilayah furu'iyah (cabang hukum) adalah kekayaan intelektual peradaban Islam yang memberikan kelenturan hukum bagi kemaslahatan manusia di segala zaman, bukan sarana perpecahan.`,
+    benangMerah: "Seluruh mazhab fiqih sepakat pada rukun aqidah dan dalil-dalil hukum yang berstatus qath'iyuts-tsubut wa qath'iyud-dalalah.",
+    perbedaanPandangan: "Perbedaan hierarki dalil ushul: Hanafi mengutamakan istihsan; Maliki memprioritaskan tradisi Madinah; Syafi'i mewajibkan sanad shahih tanpa istihsan; Hanbali mendahulukan hadits dhaif daripada akal qiyas.",
+    authenticity: "Karya Klasik Fiqih Muqaran Otoritatif Indonesia"
+  },
+
+  // --- NAHJ AL-BALAGHAH (BALAGHAH.NET) ---
+  {
+    id: "nahjul-balaghah-khutbah-hikmah",
+    title: "Nahj al-Balaghah: Khutbah Tauhid, Keadilan & Wasiat Sayyidina Ali bin Abi Thalib",
+    sourceCategory: "artikel",
+    sourceName: "Nahj al-Balaghah (Balaghah.net)",
+    sourceUrl: "https://balaghah.net/old/nahj-htm/id/id/01/main.htm",
+    reference: "Nahj al-Balaghah (Puncak Kefasihan) Himpunan Asy-Syarif Ar-Radhi via Balaghah.net (Khutbah 1 & Risalah Malik al-Ashtar)",
+    topicTag: "Nahjul Balaghah, Khutbah Balaghah, Tauhid & Keadilan Pemimpin",
+    arabicText: "أَوَّلُ الدِّينِ مَعْرِفَتُهُ، وَكَمَالُ مَعْرِفَتِهِ التَّصْدِيقُ بِهِ، وَكَمَالُ التَّصْدِيقِ بِهِ تَوْحِيدُهُ، وَكَمَالُ تَوْحِيدِهِ الْإِخْلَاصُ لَهُ ۝ وَأَشْعِرْ قَلْبَكَ الرَّحْمَةَ لِلرَّعِيَّةِ، وَالْمَحَبَّةَ لَهُمْ، وَاللُّطْفَ بِهِمْ، فَإِنَّهُمْ صِنْفَانِ: إِمَّا أَخٌ لَكَ فِي الدِّينِ، أَوْ نَظِيرٌ لَكَ فِي الْخَلْقِ",
+    latinTransliteration: "Awwalud-dīni ma'rifatuh, wa kamālu ma'rifatihit-tashdīqu bih, wa kamālut-tashdīqi bihī tawḥīduh, wa kamālu tawḥīdihil-ikhlāṣu lah... Wa asy'ir qalbakar-raḥmata lir-ra'iyyah, wal-maḥabbata lahum, wal-luthfa bihim, fa-innahum shinfāni: immā akhun laka fid-dīn, aw nadzīrun laka fil-khalq.",
+    indonesianTranslation: "Awal agama adalah mengenal-Nya (ma'rifatullah), kesempurnaan mengenal-Nya adalah membenarkan-Nya, kesempurnaan membenarkan-Nya adalah mentauhidkan-Nya, dan kesempurnaan mentauhidkan-Nya adalah mengikhlaskan ketaatan bagi-Nya... Dan penuhilah hatimu dengan kasih sayang terhadap rakyatmu, kecintaan kepada mereka, dan kelembutan kepada mereka. Karena manusia itu ada dua golongan: saudaramu seagama, atau sesamamu sebagai sesama makhluk ciptaan Allah. (Nahjul Balaghah: Khutbah 1 & Surat Instruksi Kenegaraan kepada Malik Al-Ashtar)",
+    englishTranslation: "The foremost in religion is the acknowledgment of Him, the perfection of acknowledging Him is to testify Him, the perfection of testifying Him is to believe in His Oneness, and the perfection of believing in His Oneness is to be sincere towards Him... Infuse your heart with mercy, love, and kindness for your subjects. For they are of two kinds: either they are your brothers in faith, or your equals in creation.",
+    tafsir: `Kajian Puncak Kefasihan Nahj al-Balaghah (Balaghah.net):
+Koleksi khutbah, surat, dan kata mutiara hikmah Sayyidina Ali bin Abi Thalib karramallahu wajhah yang dihimpun oleh Asy-Syarif Ar-Radhi merupakan salah satu puncak sastra dan etika kepemimpinan dalam peradaban Islam:
+1. Dimensi Ketuhanan & Teologi Rasional (Khutbah 1):
+   Menjelaskan konsep tauhid murni yang menolak segala bentuk tasybih (antropomorfisme) dan takyif (pembatasan bentuk), menegaskan bahwa Allah ada tanpa permulaan dan kekal tanpa akhir.
+2. Risalah Kenegaraan kepada Malik Al-Ashtar (Gubernur Mesir):
+   Dokumen konstitusional etika pemerintahan yang diakui secara global (termasuk dipuji lembaga PBB); menetapkan bahwa kekuasaan adalah amanah pelayanan publik, bukan instrumen privilese. Memerintahkan perlindungan kaum dhu'afa, perlakuan adil kepada warga non-muslim, dan pembasmian korupsi birokrasi.
+3. Retorika Balaghah & Nasihat Taqwa:
+   Menjadi acuan tinggi bagi para da'i, khatib, dan orator dalam menyusun khutbah yang memukau nalar dan menggetarkan sanubari.`,
+    benangMerah: "Konsensus ulama bahasa dan sejarawan Islam bahwa Nahj al-Balaghah memuat kalam terindah dan nasehat kepemimpinan paling komprehensif setelah Al-Qur'an dan Hadits Nabi.",
+    perbedaanPandangan: "Kritik takhrij sanad dari para muhadditsin terhadap sebagian riwayat dalam kompilasi Asy-Syarif Ar-Radhi yang tidak mencantumkan sanad lengkap, versus penerimaan luas terhadap kandungan makna filosofis dan etisnya.",
+    authenticity: "Khazanah Sastra Balaghah & Retorika Hikmah Klasik"
+  },
+
+  // --- KAJIAN KOMPARATIF TOPIK NABI ISA (AHMADIYAH.ID & REKONSTRUKSI BUKU ARMANSYAH) ---
+  {
+    id: "ahmadiyah-kajian-nabi-isa",
+    title: "Kajian Komparatif Teologi: Riwayat Kematian Nabi Isa AS & Eskatologi Masih Mau'ud",
+    sourceCategory: "artikel",
+    sourceName: "Kajian Komparatif Topik Nabi Isa (Ahmadiyah.id)",
+    sourceUrl: "https://ahmadiyah.id/category/topik/nabi-isa",
+    reference: "Kajian Komparatif: Repositori Topik Nabi Isa (ahmadiyah.id) & Buku Rekonstruksi Sejarah Isa Al-Masih (Armansyah)",
+    topicTag: "Kristologi, Studi Komparatif Nabi Isa, Wafat vs Rafa' & Eskatologi",
+    arabicText: "إِذْ قَالَ اللَّهُ يَا عِيسَىٰ إِنِّي مُتَوَفِّيكَ وَرَافِعُكَ إِلَيَّ وَمُطَهِّرُكَ مِنَ الَّذِينَ كَفَرُوا وَجَاعِلُ الَّذِينَ اتَّبَعُوكَ فَوْقَ الَّذِينَ كَفَرُوا إِلَىٰ يَوْمِ الْقِيَامَةِ",
+    latinTransliteration: "Idz qālallāhu yā 'Īsā innī mutawaffīka wa rāfi'uka ilayya wa muṭahhiruka minalladzīna kafarū wa jā'ilulladzīnat-taba'ūka fawqalladzīna kafarū ilā yawmil-qiyāmah.",
+    indonesianTranslation: "(Ingatlah), ketika Allah berfirman: 'Wahai Isa! Aku mengambilmu dan mengangkatmu kepada-Ku, serta menyucikanmu dari orang-orang yang kafir, dan menjadikan orang-orang yang mengikutimu di atas orang-orang yang kafir hingga hari Kiamat.' (QS. Ali 'Imran [3]: 55)",
+    englishTranslation: "[Mention] when Allah said, 'O Jesus, indeed I will take you and raise you to Myself and purify you from those who disbelieve and make those who follow you [in submission to Allah alone] superior to those who disbelieve until the Day of Resurrection.'",
+    tafsir: `Studi Komparatif Objektif & Telaah Kritis Multiperspektif:
+Polemik seputar akhir hayat Nabi Isa AS dan doktrin kedatangannya kembali merupakan salah satu tema paling dinamis dalam studi Islam komparatif:
+
+1. Doktrin Jemaat Ahmadiyah (ahmadiyah.id/category/topik/nabi-isa):
+   - Menafsirkan kata "mutawaffika" (QS. Ali 'Imran: 55) sebagai wafat secara jasmani yang wajar pada usia lanjut.
+   - Mengemukakan teori bahwa Isa AS disalib tetapi tidak mati di salib (pingsan / swoon theory), lalu dirawat murid-muridnya dengan ramuan Marham-e-Isa.
+   - Meyakini Isa AS kemudian berhijrah ke arah timur menuju Kashmir (India) untuk mencari "domba-domba Israel yang hilang", berdakwah, dan wafat di Srinagar di sebuah makam yang dikenal sebagai Rozabal (Nabi Yuz Asaf).
+   - Menolak turunnya kembali Isa AS bani Israel secara fisik di akhir zaman, dan menginterpretasikannya secara metaforis telah terwujud pada sosok Hazrat Mirza Ghulam Ahmad sebagai Al-Masih Al-Mau'ud dan Imam Mahdi.
+
+2. Pandangan Jumhur Ulama Ahlussunnah wal Jama'ah:
+   - Menegaskan bahwa "rafa'ahu" adalah pengangkatan ruh dan jasad Nabi Isa AS hidup-hidup ke langit (QS. An-Nisa: 158).
+   - Menafsirkan "mutawaffika" sebagai peniduran (al-ināmah) atau pengambilan hakiki sebelum diangkat, dan menolak tegas teori kematian di Kashmir.
+   - Mengimani hadits-hadits mutawatir mengenai turunnya Nabi Isa AS yang asli di menara putih Damaskus menjelang hari kiamat untuk mematahkan salib, membunuh Dajjal, dan menegakkan syariat Nabi Muhammad ﷺ.
+
+3. Rekonstruksi Kritis & Riset Armansyah (Buku "Rekonstruksi Sejarah Isa Al-Masih" & "Jejak Nabi Palsu"):
+   - Armansyah menguji klaim-klaim historis tersebut dengan membandingkan teks Al-Qur'an, naskah apokrif Nag Hammadi abad pertama, serta prasasti arkeologis.
+   - Menunjukkan bahwa spekulasi makam Rozabal di Kashmir tidak didukung oleh filologi Semitik otentik, melainkan legenda lokal yang direinterpretasikan pada abad ke-19.
+   - Mengkritisi klaim-klaim nabi palsu atau jelmaan Al-Masih di dunia Islam, seraya menegaskan bahwa Al-Qur'an secara elegan membebaskan Isa AS dari kutukan penyaliban tanpa harus mengorbankan status kenabian akhir Muhammad ﷺ sebagai Khatamun Nabiyyin.`,
+    benangMerah: "Seluruh aliran dan mazhab Islam sepakat bahwa Nabi Isa AS tidak mati terbunuh di tiang salib dan ajaran penebusan dosa via darah salib adalah penyimpangan.",
+    perbedaanPandangan: "Perbedaan tajam antara doktrin Ahmadiyah (Isa wafat di Kashmir dan kedatangan kembali terwujud pada Mirza Ghulam Ahmad) dengan konsensus Jumhur Sunni (Isa diangkat hidup-hidup ke langit dan akan turun kembali secara fisik di akhir zaman).",
+    authenticity: "Kajian Komparatif Teologi & Eskatologi Islam"
   }
 ];

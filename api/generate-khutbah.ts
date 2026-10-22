@@ -3,7 +3,7 @@ import { PEMBUKAAN_OPTIONS } from '../src/data/pembukaanData';
 import { generateLocalKhutbah } from '../src/data/khutbahGeneratorLogic';
 
 async function generateWithGeminiFast(aiClient: GoogleGenAI, prompt: string, timeoutMs: number = 12000): Promise<string> {
-  const models = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash'];
+  const models = ['gemini-2.5-flash', 'gemini-3.8-flash', 'gemini-1.5-flash'];
   let lastErr: any = null;
 
   const runModels = async () => {
@@ -65,11 +65,12 @@ SPESIFIKASI NASKAH:
   Terjemah: ${opening.indonesianTranslation}
 
 RUJUKAN ILMIAH & FIQIH:
-- Al-Qur'anul Karim (tafsirweb.com & quranweb.id)
+- Al-Qur'anul Karim & Mushaf Standar Indonesia Kemenag (quran.kemenag.go.id, tafsirweb.com & quranweb.id)
 - Hadits Nabawi 9 Imam (carihadits.id/imam & hadits.tazkia.ac.id)
-- Fiqih 4 Mazhab (shamela.ws/book/23604 - Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah)
+- Fiqih 4 Mazhab (shamela.ws/book/23604 - Al-Mawsu'ah al-Kuwaitiyyah) & Fiqh Muqaran Perbandingan Mazhab Aboebakar Aceh
+- Nahj al-Balaghah (balaghah.net - balaghah, etika keadilan & wasiat kepemimpinan Sayyidina Ali bin Abi Thalib)
 - Repositori dan riset Arsip Armansyah (arsiparmansyah.wordpress.com) bila relevan
-- Panduan praktis Ustadz Muhamad Basuki (muhamadbasuki.web.id)
+- Fiqih Muamalah, Amaliah & Kutub At-Turats (muhamadbasuki.web.id/hadis/, alkhoirot.org, tarjih.or.id, hadits.nu.or.id)
 
 KETENTUAN KHUTBAH JUMAT (5 RUKUN FIQIH LENGKAP):
 1. KHUTBAH PERTAMA:
