@@ -2,7 +2,7 @@ import { GoogleGenAI } from '@google/genai';
 import { executeComprehensiveSearch } from '../src/data/islamicSearchEngine';
 import { SearchResult, ResearchSynthesis } from '../src/types';
 
-async function generateWithGeminiFast(aiClient: GoogleGenAI, prompt: string, timeoutMs: number = 7500): Promise<string> {
+async function generateWithGeminiFast(aiClient: GoogleGenAI, prompt: string, timeoutMs: number = 10000): Promise<string> {
   const models = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash'];
   let lastErr: any = null;
 
@@ -28,7 +28,7 @@ async function generateWithGeminiFast(aiClient: GoogleGenAI, prompt: string, tim
   };
 
   const timer = new Promise<never>((_, reject) =>
-    setTimeout(() => reject(new Error('Gemini API timeout (7.5s)')), timeoutMs)
+    setTimeout(() => reject(new Error('Gemini API timeout (10s)')), timeoutMs)
   );
 
   return Promise.race([runModels(), timer]);
@@ -50,70 +50,82 @@ export default async function handler(req: any, res: any) {
       try {
         const aiClient = new GoogleGenAI({ apiKey: key });
 
-        let focusInstruction = "EKSPLORASI LINTAS SELURUH SUMBER ISLAM";
+        let focusInstruction = "EKSPLORASI KOMPREHENSIF LINTAS SELURUH SUMBER ISLAM";
         if (category === 'quran') {
-          focusInstruction = "FOKUS KHUSUS: AYAT AL-QUR'AN, ASBABUN NUZUL & TAFSIR MUKTAMAD (Ibnu Katsir, Thabari). Tampilkan ayat-ayat yang presisi dan ulasan tafsir yang SANGAT PADAT & DETIL.";
+          focusInstruction = "FOKUS KHUSUS: AYAT AL-QUR'AN, ASBABUN NUZUL, RAGAM MAKNA LEKSIKAL & TAFSIR MUKTAMAD (Ibnu Katsir, Ath-Thabari, Al-Qurthubi).";
         } else if (category === 'hadith') {
-          focusInstruction = "FOKUS KHUSUS: HADITS 9 IMAM & TAKHRIJ SANAD. Tampilkan matan hadits berharakat lengkap, nomor hadits, derajat kesahihan (Shahih/Hasan), dan syarah hadits mendalam (Fathul Bari & Syarah Muslim Imam Nawawi) yang SANGAT PADAT & DETIL.";
+          focusInstruction = "FOKUS KHUSUS: HADITS 9 IMAM, TAKHRIJ SANAD, DERAJAT KESAHIHAN & SYARAH ULAMA (Fathul Bari & Syarah Shahih Muslim).";
         } else if (category === 'fiqh') {
-          focusInstruction = "FOKUS KHUSUS: FIQIH 4 MAZHAB (AL-MAWSU'AH AL-FIQHIYYAH AL-KUWAITIYYAH 45 JILID). Tampilkan rincian hukum, dalil, syarat, rukun, dan komparasi mazhab Hanafi, Maliki, Syafi'i, Hanbali yang SANGAT PADAT & DETIL.";
+          focusInstruction = "FOKUS KHUSUS: ENSIKLOPEDIA FIQIH 4 MAZHAB (AL-MAWSU'AH AL-FIQHIYYAH AL-KUWAITIYYAH 45 JILID: HANAFI, MALIKI, SYAFI'I, HANBALI).";
         } else if (category === 'artikel') {
-          focusInstruction = "FOKUS KHUSUS: REPOSITORI RISET & BUKU ARSIP ARMANSYAH (arsiparmansyah.wordpress.com). Tampilkan analisis kritis, kristologi, sejarah Isa Al-Masih, eskatologi, sains Israk Mikraj, atau hukum anjing secara SANGAT PADAT & DETIL.";
+          focusInstruction = "FOKUS KHUSUS: REPOSITORI RISET BUKU ARSIP ARMANSYAH (arsiparmansyah.wordpress.com: kristologi Isa Al-Masih, kecerdasan syahadat, eskatologi, sains Israk Mikraj, hukum anjing).";
         }
 
-        const prompt = `Anda adalah asisten pakar studi Islam multidisipliner, tafsir Al-Qur'an, hadits 9 imam, fiqih 4 mazhab, dan perbandingan agama.
+        const prompt = `Anda adalah seorang ilmuwan dan pakar riset studi Islam multidisipliner tingkat tinggi (spesialisasi komparasi tafsir Al-Qur'an, takhrij hadits 9 imam, fiqih 4 mazhab, dan perbandingan agama/kristologi).
+
 Kueri pencarian pengguna: "${query}".
-Petunjuk Fokus: ${focusInstruction}.
+Fokus Pencarian: ${focusInstruction}.
 
-SUMBER RUJUKAN UTAMA:
-1. https://arsiparmansyah.wordpress.com/ (Blog pribadi Armansyah - riset buku: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk Mikraj Tinjauan Sains, Hukum Anjing dalam Islam).
+SUMBER RUJUKAN RESMI YANG DIJELAJAHI:
+1. https://arsiparmansyah.wordpress.com/ (Blog pribadi Armansyah - riset buku & kajian kritis: Rekonstruksi Sejarah Isa Al-Masih, Misteri Kecerdasan Syahadat, Jejak Nabi Palsu, Ramalan Imam Mahdi, Israk Mikraj Tinjauan Sains, Dan Tuhan Ciptakan Anjing, kristologi & dialektika teologis).
 2. https://shamela.ws/book/23604 (Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah - 45 jilid ensiklopedia fiqih 4 mazhab).
-3. https://hadits.tazkia.ac.id/
-4. https://www.carihadits.id/imam (Hadits 9 Imam)
-5. https://quranweb.id/
-6. https://tafsirweb.com/
-7. https://muhamadbasuki.web.id/
-8. Literatur jurnal ilmiah & fatwa otoritatif.
+3. https://hadits.tazkia.ac.id/ & https://www.carihadits.id/imam (Hadits 9 Imam: Shahih Bukhari, Muslim, Abu Daud, Tirmidzi, Nasa'i, Ibnu Majah, Musnad Ahmad, dll).
+4. https://quranweb.id/ & https://tafsirweb.com/ (Tafsir Ibnu Katsir, Thabari, Al-Qurthubi, As-Sa'di, Kemenag).
+5. Jurnal ilmiah studi Islam kredibel & fatwa ulama otoritatif.
 
-ATURAN KRUSIAL (PENJELASAN PADAT & DETIL):
-- Penjelasan pada kolom 'tafsir' WAJIB SANGAT UTUH, PADAT, DAN DETIL (multi-paragraf mendalam), bukan sekadar ringkasan singkat satu kalimat dan BUKAN hanya menampilkan link saja!
-- Teks Arab WAJIB BERHARAKAT LENGKAP & SEMPURNA.
-- Cantumkan 'rujukanList' pada tiap entri dengan nama kitab/surah dan tautan URL asli yang bisa diklik.
-- Sertakan 'synthesis' berisi kesimpulan padat dari seluruh dalil.
+MANDAT UTAMA PENELITIAN ILMIAH SECARA JUJUR, PANJANG & KOMPREHENSIF:
+Pengguna menuntut kajian ilmiah berkualitas tinggi yang BUKAN sekadar retorika normatif/positif saja, melainkan:
+1. BENANG MERAH ILMIAH (Titik Temu Konsensus):
+   - Rangkum secara jelas prinsip pokok, ijma', atau substansi fundamental yang disepakati oleh seluruh pihak, mufassir, dan fuqaha tanpa silang pendapat.
+2. PETA PERBEDAAN PANDANGAN & IKHTILAF SECARA JUJUR & TRANSPARAN:
+   - Paparkan secara objektif, jujur, dan berimbang titik-titik perselisihan (ikhtilaf).
+   - Perbedaan penafsiran ayat/hadits (misalnya penafsiran tekstual vs rasional/kontekstual/alegoris; bil ma'tsur vs bir ra'yi).
+   - Perbedaan ragam terjemahan atau leksikal bahasa Arab (perbedaan makna mufradat kata).
+   - Perbedaan hukum dan metodologi istinbath antara 4 mazhab (Hanafi, Maliki, Syafi'i, Hanbali) hingga pandangan ulama kontemporer.
+   - Dialektika kritis (khususnya kritik dari buku-buku dan artikel Arsip Armansyah terkait fakta sejarah, rekonstruksi Isa Al-Masih, isu sains, takhrij hadits polemik, dan hukum anjing).
+   - Jangan menyensor atau menyembunyikan perbedaan atau pandangan kontra; hadirkan argumen masing-masing kubu dengan dalil pendukungnya.
+3. STANDAR AKADEMIS TINGGI:
+   - Teks Arab WAJIB BERHARAKAT LENGKAP & SEMPURNA.
+   - Uraian 'tafsir', 'benangMerah', dan 'perbedaanPandangan' wajib panjang, detil, kaya rujukan literatur, dan berformat multi-paragraf yang mendalam.
+   - Tautkan 'rujukanList' yang presisi dengan URL aktif.
 
-KEMBALIKAN FORMAT JSON VALID:
+KEMBALIKAN HANYA FORMAT JSON VALID BERIKUT:
 {
   "synthesis": {
     "topic": "${query}",
-    "kesimpulanUtama": "Kesimpulan padat dan mendalam dari seluruh sumber",
-    "tinjauanDalil": "Intisari dalil Al-Qur'an dan Sunnah",
-    "tinjauanMazhab": "Peta fatwa dan komparasi 4 mazhab",
-    "catatanKritisArmansyah": "Telaah kontekstual dan riset Arsip Armansyah jika relevan",
+    "kesimpulanUtama": "Kesimpulan komprehensif berstandar ilmiah...",
+    "benangMerah": "Uraian titik temu konsensus ilmiah yang disepakati bersama...",
+    "titikPerbedaan": "Peta jujur dan objektif tentang perbedaan tafsir, terjemahan, mazhab fiqih, dan polemik akademis...",
+    "tinjauanDalil": "Intisari landasan dalil Al-Qur'an dan Sunnah...",
+    "tinjauanMazhab": "Komparasi fiqih 4 mazhab dari Al-Mawsu'ah al-Kuwaitiyyah...",
+    "catatanKritisArmansyah": "Telaah kritis dan kontekstual dari repositori buku Arsip Armansyah...",
     "rujukanPrimer": [
-      { "name": "Arsip Armansyah", "url": "https://arsiparmansyah.wordpress.com/", "note": "Riset Buku & Kajian Kritis" },
-      { "name": "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah", "url": "https://shamela.ws/book/23604", "note": "Ensiklopedia Fiqih 4 Mazhab" },
-      { "name": "Hadits 9 Imam", "url": "https://www.carihadits.id/imam", "note": "Kutubus Sittah & 9 Imam" },
-      { "name": "QuranWeb & TafsirWeb", "url": "https://quranweb.id/", "note": "Tafsir Muktamad" }
+      { "name": "Arsip Armansyah", "url": "https://arsiparmansyah.wordpress.com/", "note": "Kajian Kritis & Komparasi Agama" },
+      { "name": "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah", "url": "https://shamela.ws/book/23604", "note": "Ensiklopedia 45 Jilid Fiqih 4 Mazhab" },
+      { "name": "Hadits 9 Imam & CariHadits.id", "url": "https://www.carihadits.id/imam", "note": "Kutubus Sittah & Musnad Ahmad" },
+      { "name": "QuranWeb & TafsirWeb", "url": "https://quranweb.id/", "note": "Mushaf Utsmani & Tafsir Muktamad" }
     ]
   },
   "results": [
     {
       "id": "ai-res-1",
-      "title": "Judul Pembahasan Lengkap",
+      "title": "Judul Kajian Akademis",
       "sourceCategory": "${category === 'all' ? 'quran' : category}",
-      "sourceName": "Nama Sumber Rujukan",
-      "sourceUrl": "URL Sumber Asli",
-      "reference": "Referensi Kitab/Surah/Buku",
-      "topicTag": "Topik",
+      "sourceName": "Nama Sumber Kitab / Rujukan",
+      "sourceUrl": "URL Rujukan Terkait",
+      "reference": "Referensi Bab, Juz, No. Hadits / Surah",
+      "topicTag": "Topik Kajian",
       "arabicText": "Teks Arab Lengkap Berharakat Sempurna",
       "latinTransliteration": "Transliterasi Latin",
-      "indonesianTranslation": "Terjemahan Bahasa Indonesia yang Utuh",
-      "englishTranslation": "Complete English Translation",
-      "tafsir": "Uraian Penjelasan SANGAT PADAT & DETIL (Multi-paragraf)",
-      "authenticity": "Derajat Dalil / Mazhab / Validitas Ilmiah",
+      "indonesianTranslation": "Terjemahan Bahasa Indonesia",
+      "englishTranslation": "English Translation",
+      "benangMerah": "Titik temu dan konsensus pokok dalil ini...",
+      "perbedaanPandangan": "Uraian jujur perbedaan tafsir, variasi terjemahan leksikal, serta ikhtilaf mazhab/kritik ilmiah...",
+      "tafsir": "Uraian ilmiah panjang, detil, komprehensif (multi-paragraf)...",
+      "authenticity": "Derajat Keabsahan Dalil / Metodologi Mazhab",
       "madzhab": "Keterangan Mazhab Fiqih jika ada",
       "rujukanList": [
-        { "name": "Nama Sumber Rujukan", "url": "URL Rujukan", "detail": "Detail Rujukan" }
+        { "name": "Nama Kitab / Sumber", "url": "URL Rujukan", "detail": "Keterangan Rujukan" }
       ]
     }
   ]

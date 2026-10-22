@@ -179,6 +179,32 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({ result }) =>
           </div>
         )}
 
+        {/* Benang Merah & Konsensus Dalil */}
+        {result.benangMerah && (
+          <div className="bg-emerald-50/80 border border-emerald-300 rounded-2xl p-4 sm:p-5 space-y-2">
+            <div className="flex items-center gap-2 text-emerald-900 font-bold text-xs sm:text-sm uppercase tracking-wider">
+              <span className="text-base">🧵</span>
+              <span>Benang Merah & Konsensus Dalil (Titik Temu):</span>
+            </div>
+            <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed text-justify-custom font-normal">
+              {result.benangMerah}
+            </p>
+          </div>
+        )}
+
+        {/* Perbedaan Pandangan & Ikhtilaf Objektif */}
+        {result.perbedaanPandangan && (
+          <div className="bg-amber-50/80 border border-amber-300 rounded-2xl p-4 sm:p-5 space-y-2">
+            <div className="flex items-center gap-2 text-amber-950 font-bold text-xs sm:text-sm uppercase tracking-wider">
+              <span className="text-base">⚖️</span>
+              <span>Peta Perbedaan Pandangan, Tafsir & Ragam Terjemahan (Ikhtilaf Objektif):</span>
+            </div>
+            <div className="text-xs sm:text-sm text-slate-800 leading-relaxed text-justify-custom font-normal whitespace-pre-line">
+              {result.perbedaanPandangan}
+            </div>
+          </div>
+        )}
+
         {/* Uraian & Penjelasan Lengkap (Tafsir / Syarah / Fiqih) */}
         {result.tafsir && (
           <div className="bg-emerald-50/40 border border-emerald-200/90 rounded-2xl p-5 sm:p-6 space-y-3 shadow-2xs">

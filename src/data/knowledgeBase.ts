@@ -22,6 +22,11 @@ Secara etimologi dan teologis, kalimat "Laa Ilaha Illallah" memuat dua rukun kru
 2. Al-Itsbat (Penetapan): Menetapkan hak ibadah, ketundukan total, dan rasa takut serta harap hanya kepada Allah Yang Maha Esa semata.
 
 Armansyah menekankan bahwa ketika seorang mukmin meresapi makna syahadat secara cerdas dan mendalam, kalimat ini bekerja sebagai "benteng pertahanan psikis dan spiritual". Syahadat membendung kecenderungan berbuat maksiat, memulihkan kegelisahan eksistensial, melepaskan ketergantungan dari ketakutan duniawi, dan menyelaraskan frekuensi kehendak hamba dengan kehendak takdir Ilahi. Sebagaimana ditegaskan para ulama salaf, sahnya syahadat menuntut 7 syarat hakiki: Al-'Ilmu (mengetahui lawan dari kebodohan), Al-Yaqin (yakin lawan dari keraguan), Al-Qabul (menerima konsekuensinya), Al-Inqiyad (tunduk patuh mengamalkan), Ash-Shidqu (jujur bukan munafik), Al-Ikhlas (murni tanpa riya), dan Al-Mahabbah (mencintai kalimat tauhid beserta ahlinya).`,
+    benangMerah: "Konsensus mutlak seluruh ulama dan mazhab bahwa dua kalimah syahadat merupakan gerbang tunggal pengesahan iman dan rukun pertama Islam yang membedakan mukmin dan kafir.",
+    perbedaanPandangan: `Titik Silang Pendapat (Ikhtilaf) Teologis & Rekonstruksi Ilmiah:
+1. Status Amal Lahiriyah: Perdebatan ulama kalam mengenai status orang yang melafalkan syahadat namun meninggalkan seluruh rukun amal (polemik Murji'ah vs Mu'tazilah vs Ahlus Sunnah).
+2. Status Iman Orang Taklid: Polemik apakah syahadat orang awam sah jika tanpa memahami argumentasi akal burhani (Asy'ariyah mewajibkan ma'rifat berdalil, sedangkan ulama salaf mencukupkan penerimaan fitrah).
+3. Rekonstruksi Armansyah: Membedah syahadat bukan sekadar dogma verbal, melainkan algoritma kecerdasan spiritual yang memprogram bawah sadar dan membebaskan nalar dari belenggu materialisme kontemporer.`,
     authenticity: "Rukun Islam Pertama & Asas Tauhid"
   },
   {
@@ -36,6 +41,11 @@ Armansyah menekankan bahwa ketika seorang mukmin meresapi makna syahadat secara 
     latinTransliteration: "Wa qawlihim innā qatalnal-masīḥa 'Īsabna Maryama rasūlallāhi wa mā qatalūhu wa mā ṣalabūhu wa lākin syubbiha lahum...",
     indonesianTranslation: "Dan karena ucapan mereka: 'Sesungguhnya kami telah membunuh Al-Masih, Isa putra Maryam, Rasul Allah', padahal mereka tidak membunuhnya dan tidak (pula) menyalibnya, tetapi (yang mereka bunuh ialah) orang yang diserupakan dengan Isa bagi mereka. Sesungguhnya mereka yang berselisih pendapat tentang (pembunuhan) Isa, benar-benar dalam keragu-raguan tentang yang dibunuh itu. Mereka tidak mempunyai keyakinan tentang siapa yang dibunuh itu, kecuali mengikuti persangkaan belaka, mereka tidak (pula) yakin telah membunuhnya. Tetapi Allah telah mengangkat Isa kepada-Nya. Dan Allah Maha Perkasa lagi Maha Bijaksana.",
     englishTranslation: "And for their saying, 'Indeed, we have killed the Messiah, Jesus, the son of Mary, the messenger of Allah.' And they did not kill him, nor did they crucify him; but [another] was made to resemble him to them. And indeed, those who differ over it are in doubt about it. They have no knowledge of it except the following of assumption. And they did not kill him, for certain. Rather, Allah raised him to Himself. And ever is Allah Exalted in Might and Wise.",
+    benangMerah: "Seluruh ulama Islam dan teks tegas Al-Qur'an (QS. An-Nisa: 157-158) sepakat secara mutlak bahwa Nabi Isa AS tidak berhasil dibunuh dan tidak disalib oleh musuh-musuhnya, serta dimuliakan Allah dengan diangkat kepada-Nya.",
+    perbedaanPandangan: `Perbedaan Sudut Pandang Tafsir, Teks Historis & Ragam Terjemahan:
+1. Tafsir Substitusi Fisik (Mayoritas Klasik): Ibnu Katsir dan Thabari berpendapat ada seseorang yang diserupakan wajahnya oleh Allah lalu disalib menggantikan Isa.
+2. Mufassir Rasionalis Kontemporer: Muhammad Abduh dan Rasyid Ridha (Tafsir Al-Manar) menafsirkan kekeliruan identifikasi terjadi pada serdadu Romawi di tengah kegelapan malam penangkapan.
+3. Telaah Kristologi Kritis Armansyah: Memadukan naskah apokrif Nag Hammadi (Injil Yudas & Wahyu Petrus) serta catatan Tacitus, membuktikan doktrin kematian salib adalah formulasi gereja pasca-Nicea 325 M, sementara fakta sejarah mendukung pernyataan Al-Qur'an.`,
     tafsir: `Analisis Kritis & Rekonstruksi Sejarah oleh Armansyah:
 Ayat dalam Surat An-Nisa [4]: 157-158 merupakan dalil teks wahyu paling tegas dan mendasar yang meluruskan polemik teologis berabad-abad mengenai kematian dan penyaliban Nabi Isa Al-Masih 'alaihissalam. Dalam bukunya "Rekonstruksi Sejarah Isa Al-Masih", Armansyah melakukan riset komparatif mendalam yang menyandingkan teks-teks Al-Qur'an dengan literatur kanonik Biblika, teks apokrif Nag Hammadi (seperti Injil Yudas dan Wahyu Petrus), serta penemuan arkeologis kontemporer.
 
@@ -60,6 +70,12 @@ Riset ini menjadi rujukan berharga dalam dialog lintas iman dan perbandingan aga
     latinTransliteration: "Yas'alūnaka mādzā uḥilla lahum, qul uḥilla lakumuṭ-ṭayyibātu wa mā 'allamtum minal-jawāriḥi mukallibīna tu'allimūnahunna mimmā 'allamakumullāh...",
     indonesianTranslation: "Mereka menanyakan kepadamu: 'Apakah yang dihalalkan bagi mereka?' Katakanlah: 'Dihalalkan bagimu yang baik-baik dan (buruan yang ditangkap) oleh binatang pemburu yang telah kamu ajar dengan melatihnya untuk berburu; kamu mengajarnya menurut apa yang telah diajarkan Allah kepadamu. Maka makanlah dari apa yang ditangkapnya untukmu dan sebutlah nama Allah atasnya.'",
     englishTranslation: "They ask you, [O Muhammad], what has been made lawful for them. Say, 'Lawful for you are [all] good foods and [game caught by] what you have trained of hunting animals which you train as Allah has taught you. So eat of what they catch for you, and mention the name of Allah over it.'",
+    benangMerah: "Seluruh 4 mazhab sepakat haramnya menyiksa atau meracun anjing, serta sepakat halalnya hewan hasil buruan anjing terlatih (mukallibin) berlandaskan QS. Al-Ma'idah [5]: 4.",
+    perbedaanPandangan: `Peta Ikhtilaf 4 Mazhab & Takhrij Hadits Secara Jujur:
+1. Mazhab Maliki: Menegaskan seluruh tubuh anjing hidup adalah SUCI secara zatiah. Perintah mencuci bejana 7 kali dipahami sebagai ibadah ritual murni (ta'abbudi), bukan karena najis.
+2. Mazhab Hanafi: Zat tubuh dan bulunya suci; yang dihukumi najis hanyalah air liur, keringat, dan kotorannya.
+3. Mazhab Syafi'i & Hanbali: Seluruh tubuh, bulu basah, dan liurnya dihukumi najis berat (mughalladhah) wajib dibasuh 7 kali salah satunya dengan tanah.
+4. Kritik Kritis Armansyah: Menolak sikap phobia berlebihan yang menjustifikasi kezaliman terhadap satwa, serta mengingatkan hadits Shahih Bukhari tentang wanita pendosa yang diampuni Allah karena memberi minum anjing kehausan.`,
     tafsir: `Uraian Fiqih Komparatif & Tinjauan Buku Armansyah:
 Isu kedudukan hewan anjing dalam khazanah fiqih Islam seringkali dipahami secara kaku dan sepihak oleh sebagian masyarakat awam, hingga melahirkan kekejaman atau kebencian tak beralasan kepada binatang. Dalam buku "Dan Tuhan Ciptakan Anjing", Armansyah membedah persoalan ini secara komparatif berlandaskan Al-Qur'an, takhrij hadits, serta kitab-kitab induk empat mazhab (seperti Al-Mudawwanah Al-Kubra, Al-Umm, Al-Mabsuth, dan Al-Mughni).
 
@@ -83,6 +99,10 @@ Armansyah menekankan bahwa perbedaan pendapat para imam mujtahid ini menunjukkan
     latinTransliteration: "Subḥānalladzī asrā bi'abdihī laylam minal-masjidil-ḥarāmi ilal-masjidil-aqṣalladzī bāraknā ḥawlahū linuriyahū min āyātinā, innahū huwas-samī'ul-baṣīr.",
     indonesianTranslation: "Maha Suci Allah, yang telah memperjalankan hamba-Nya pada suatu malam dari Masjidil Haram ke Masjidil Aqsha yang telah Kami berkahi sekelilingnya agar Kami perlihatkan kepadanya sebagian dari tanda-tanda (kebesaran) Kami. Sesungguhnya Dia adalah Maha Mendengar lagi Maha Mengetahui.",
     englishTranslation: "Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing.",
+    benangMerah: "Seluruh umat Islam sepakat peristiwa Israk dan Mikraj adalah mukjizat agung Rasulullah ﷺ dan menjadi momentum diterimanya kewajiban shalat 5 waktu secara langsung.",
+    perbedaanPandangan: `Perbedaan Sudut Pandang Teologis & Analisis Saintifik:
+1. Jasad vs Ruh: Jumhur Ahlus Sunnah (Ibnu Katsir, Thabari) menetapkan perjalanan Israk Mikraj dengan jasad dan ruh dalam keadaan terjaga penuh (yaqazhatan). Pendapat minoritas (sebagian sahabat seperti Sayyidah Aisyah) memandang peristiwa ini sebagai ru'ya shadiqah (penyingkapan ruhani hakiki).
+2. Tinjauan Fisika Modern Armansyah: Menganalisis fenomena pelipatan ruang-waktu dengan teori relativitas Einstein, konsep lubang cacing (wormhole), dan partikel tachyon yang melampaui batas kecepatan cahaya material di bawah kekuasaan Allah.`,
     tafsir: `Uraian Saintifik & Akidah oleh Armansyah:
 Peristiwa Israk dan Mikraj Nabi Muhammad ﷺ merupakan peristiwa agung yang mengguncang akal manusia pada masanya, sekaligus menjadi mukjizat luar biasa yang menegaskan status kenabian beliau. Dalam buku "Israk & Mikraj Tinjauan Saintifik", Armansyah menghadirkan elaborasi ilmiah kontemporer untuk menjawab keraguan kaum rasionalis dan orientalis yang berusaha mendowngrade peristiwa ini sekadar sebagai mimpi spiritual belaka.
 
@@ -104,6 +124,11 @@ Poin-poin Pembahasan Ilmiah & Akidah:
     latinTransliteration: "'An 'Abdillahi bin Mas'ud: 'La tadzhabud-dunya hatta yamlikal-'araba rajulun min ahli bayti, yuwaathi'usmuhusmi, wasmu abihi isma abi...'",
     indonesianTranslation: "Dari Abdullah bin Mas'ud radhiyallahu 'anhu, Nabi shallallahu 'alaihi wasallam bersabda: 'Dunia ini tidak akan lenyap hingga bangsa Arab dipimpin oleh seorang laki-laki dari keturunan ahli baitku, namanya serupa dengan namaku, dan nama ayahnya serupa dengan nama ayahku. Ia akan memenuhi bumi dengan keadilan sebagaimana sebelumnya dipenuhi oleh kezaliman dan kesewenang-wenangan.'",
     englishTranslation: "The Prophet (ﷺ) said: 'The world will not pass away until the Arabs are ruled by a man from the people of my house, whose name will agree with my name and his father's name with my father's name. He will fill the earth with equity and justice as it was filled with oppression and tyranny.'",
+    benangMerah: "Ahlus Sunnah wal Jama'ah sepakat akan hadirnya sosok pemimpin adil di akhir zaman dari keturunan Nabi Muhammad ﷺ yang menegakkan keadilan dan kemakmuran di muka bumi.",
+    perbedaanPandangan: `Peta Ikhtilaf Riwayat Hadits & Doktrin Sekte:
+1. Kritik Sanad & Keberadaan Riwayat: Shahih Al-Bukhari tidak memuat nama 'Al-Mahdi' secara eksplisit; sejumlah cendekiawan (seperti Ibnu Khaldun) bersikap kritis terhadap hadits-hadits eskatologi ini, meski jumhur muhadditsin menilai haditsnya mutawatir ma'nawi.
+2. Dikotomi Sunni vs Syi'ah: Sunni meyakini Mahdi adalah manusia biasa yang lahir di akhir zaman dan dibimbing Allah dalam semalam; Syi'ah meyakini Mahdi adalah Imam ke-12 yang gaib di gua sejak abad ke-3 H.
+3. Kritik Tajam Armansyah: Mengkritik keras kelompok-kelompok yang suka meramal tahun eksak kemunculan Mahdi dan mencocok-cocokkannya dengan konstelasi perang politik modern.`,
     tafsir: `Uraian Kritis Eskatologi oleh Armansyah:
 Kajian mengenai Al-Mahdi di akhir zaman merupakan salah satu topik yang paling sering dimanipulasi oleh berbagai sekte, tokoh fanatik, dan para penafsir teori konspirasi kontemporer. Dalam buku "Ramalan Imam Mahdi", Armansyah melakukan kritik hadits dan bedah eskatologi secara objektif dan berimbang.
 
@@ -128,6 +153,10 @@ Kaidah & Kritik Kritis yang Disampaikan:
     latinTransliteration: "Yā ayyuhalladzīna āmanuttaqullāha ḥaqqa tuqātihī walā tamūtunna illā wa antum muslimūn.",
     indonesianTranslation: "Wahai orang-orang yang beriman! Bertakwalah kepada Allah dengan sebenar-benar takwa kepada-Nya dan janganlah kamu mati kecuali dalam keadaan muslim.",
     englishTranslation: "O you who have believed, fear Allah as He should be feared and do not die except as Muslims [in submission to Him].",
+    benangMerah: "Sepakat seluruh fuqaha dan mufassir bahwa ketakwaan adalah bekal utama setiap muslim dan wasiat takwa adalah inti risalah Al-Qur'an serta rukun Khutbah Jumat.",
+    perbedaanPandangan: `Perbedaan Makna Tuntunan & Nasakh:
+1. Hubungan dengan QS. At-Taghabun [64]: 16: Sebagian ulama salaf memandang kewajiban berat 'haqqa tuqatih' telah diringankan (mansukh) oleh firman Allah 'fattaqullaha mastatha'tum' (bertakwalah semampumu). Namun Ibnu Katsir menegaskan tidak ada nasakh, melainkan ayat At-Taghabun adalah penjelas operasional (tafsir bayan).
+2. Perbedaan Standar Fiqih: Mazhab Syafi'i dan Hanbali merukunkan pembacaan wasiat takwa dalam dua khutbah; Mazhab Hanafi dan Maliki tidak mensyaratkan lafadz khusus asalkan mengandung peringatan kebaikan.`,
     tafsir: `Uraian Tafsir Mendalam:
 Ayat ini merupakan salah satu ayat paling fundamental dalam Al-Qur'an dan menjadi ayat wasiat takwa yang disunnahkan bahkan dirukunkan oleh para ulama untuk dibaca dalam setiap Khutbah Jumat.
 

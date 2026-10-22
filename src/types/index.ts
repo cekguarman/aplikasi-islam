@@ -17,6 +17,8 @@ export interface SearchResult {
   indonesianTranslation: string;
   englishTranslation?: string;
   tafsir?: string;
+  benangMerah?: string; // Titik temu konsensus / benang merah ilmiah
+  perbedaanPandangan?: string; // Peta perbedaan pandangan (ikhtilaf), nuansa tafsir, variasi terjemahan & kritik objektif
   reference: string;
   authenticity?: string;
   madzhab?: string;
@@ -27,6 +29,8 @@ export interface SearchResult {
 export interface ResearchSynthesis {
   topic: string;
   kesimpulanUtama: string;
+  benangMerah?: string; // Benang merah ilmiah / titik temu konsensus dalil lintas sumber
+  titikPerbedaan?: string; // Peta perbedaan pandangan (ikhtilaf), nuansa terjemahan/tafsir & perdebatan ilmiah secara jujur
   tinjauanDalil: string;
   tinjauanMazhab: string;
   catatanKritisArmansyah?: string;

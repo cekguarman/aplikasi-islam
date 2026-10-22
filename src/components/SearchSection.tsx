@@ -277,7 +277,36 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
             </span>
           </div>
 
-          {/* Grid Kesimpulan */}
+          {/* Highlights: Benang Merah (Titik Temu) & Peta Perbedaan (Ikhtilaf Objektif) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Benang Merah Ilmiah */}
+            {synthesis.benangMerah && (
+              <div className="bg-emerald-950/80 p-5 rounded-2xl border border-emerald-500/70 space-y-2.5 shadow-md">
+                <span className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-sm">🧵</span>
+                  <span>Benang Merah & Konsensus Ilmiah (Titik Temu):</span>
+                </span>
+                <p className="text-emerald-100 leading-relaxed text-justify-custom text-xs sm:text-sm font-normal">
+                  {synthesis.benangMerah}
+                </p>
+              </div>
+            )}
+
+            {/* Peta Perbedaan Pandangan & Ikhtilaf Objektif */}
+            {synthesis.titikPerbedaan && (
+              <div className="bg-slate-950/80 p-5 rounded-2xl border border-amber-500/70 space-y-2.5 shadow-md">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-sm">⚖️</span>
+                  <span>Peta Perbedaan Pandangan & Ikhtilaf Objektif (Tafsir/Terjemahan/Mazhab):</span>
+                </span>
+                <p className="text-slate-200 leading-relaxed text-justify-custom text-xs sm:text-sm font-normal whitespace-pre-line">
+                  {synthesis.titikPerbedaan}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Grid Analisis Rinci */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
             {/* Kesimpulan Utama */}
             <div className="bg-emerald-950/60 p-4 sm:p-5 rounded-2xl border border-emerald-800/60 space-y-2">
