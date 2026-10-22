@@ -1,0 +1,207 @@
+import { SearchResult } from '../types';
+
+export const INITIAL_KNOWLEDGE_BASE: SearchResult[] = [
+  // --- KARYA & ARSIP ARMANSYAH (arsiparmansyah.wordpress.com) ---
+  {
+    id: "armansyah-syahadat",
+    title: "Misteri Kecerdasan Syahadat & Benteng Spiritual Mukmin",
+    sourceCategory: "artikel",
+    sourceName: "Arsip Armansyah (Buku: Misteri Kecerdasan Syahadat)",
+    sourceUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+    reference: "Buku: Misteri Kecerdasan Syahadat (Ufuq Press, ISBN: 978-602-8224-73-4) & Arsip Armansyah",
+    topicTag: "Akidah, Tauhid & Rahasia Syahadat",
+    arabicText: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+    latinTransliteration: "Asyhadu allā ilāha illallāh, wa asyhadu anna Muḥammadan rasūlullāh.",
+    indonesianTranslation: "Aku bersaksi bahwa tidak ada Tuhan yang berhak disembah selain Allah, dan aku bersaksi bahwa Muhammad adalah utusan Allah.",
+    englishTranslation: "I bear witness that there is no deity worthy of worship except Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+    tafsir: "Kajian Armansyah: Syahadat bukan sekadar ikrar lisan, melainkan benteng pertahanan pertama pencegah perbuatan negatif, penyembuh kegelisahan hati, dan kunci keselamatan dunia dan akhirat yang menghubungkan takdir manusia dengan kehendak Sang Pencipta.",
+    authenticity: "Rukun Islam Pertama & Asas Tauhid"
+  },
+  {
+    id: "armansyah-isa-almasih",
+    title: "Pelurusan Sejarah Isa Al-Masih & Kristologi Al-Qur'an",
+    sourceCategory: "quran",
+    sourceName: "Arsip Armansyah (Buku: Rekonstruksi Sejarah Isa Al-Masih)",
+    sourceUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+    reference: "QS. An-Nisa [4]: 157-158 & Buku Rekonstruksi Sejarah Isa Al-Masih (Restu Agung, ISBN: 979-007-048-9)",
+    topicTag: "Perbandingan Agama & Sejarah Nabi Isa AS",
+    arabicText: "وَقَوْلِهِمْ إِنَّا قَتَلْنَا الْمَسِيحَ عِيسَى ابْنَ مَرْيَمَ رَسُولَ اللَّهِ وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِنْ شُبِّهَ لَهُمْ ۚ وَإِنَّ الَّذِينَ اخْتَلَفُوا فِيهِ لَفِي شَكٍّ مِنْهُ ۚ مَا لَهُمْ بِهِ مِنْ عِلْمٍ إِلَّا اتِّبَاعَ الظَّنِّ ۚ وَمَا قَتَلُوهُ يَقِينًا ۝ بَلْ رَفَعَهُ اللَّهُ إِلَيْهِ ۚ وَكَانَ اللَّهُ عَزِيزًا حَكِيمًا",
+    latinTransliteration: "Wa qawlihim innā qatalnal-masīḥa 'Īsabna Maryama rasūlallāhi wa mā qatalūhu wa mā ṣalabūhu wa lākin syubbiha lahum...",
+    indonesianTranslation: "Dan karena ucapan mereka: 'Sesungguhnya kami telah membunuh Al-Masih, Isa putra Maryam, Rasul Allah', padahal mereka tidak membunuhnya dan tidak (pula) menyalibnya, tetapi (yang mereka bunuh ialah) orang yang diserupakan dengan Isa bagi mereka. Sesungguhnya mereka yang berselisih pendapat tentang (pembunuhan) Isa, benar-benar dalam keragu-raguan... Tetapi Allah telah mengangkat Isa kepada-Nya. Dan Allah Maha Perkasa lagi Maha Bijaksana.",
+    englishTranslation: "And for their saying, 'Indeed, we have killed the Messiah, Jesus, the son of Mary, the messenger of Allah.' And they did not kill him, nor did they crucify him; but [another] was made to resemble him to them. And indeed, those who differ over it are in doubt about it...",
+    tafsir: "Analisis Kritis Armansyah: Membantah spekulasi Dinasti Yesus karya James Tabor dan doktrin penyaliban dengan mengkomparasikan teks biblikal kuno, naskah Nag Hammadi, dan ketegasan wahyu Al-Qur'an yang memuliakan kedudukan Nabi Isa AS.",
+    authenticity: "Kalamullah (Al-Qur'anul Karim)"
+  },
+  {
+    id: "armansyah-hukum-anjing",
+    title: "Kajian Fiqih Komparatif Hukum Hewan & Anjing dalam Islam",
+    sourceCategory: "fiqh",
+    sourceName: "Arsip Armansyah (Buku: Dan Tuhan Ciptakan Anjing)",
+    sourceUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+    reference: "QS. Al-Ma'idah [5]: 4 & Buku 'Dan Tuhan Ciptakan Anjing' (Dubook Press, ISBN: 978-967-2108-18-4)",
+    topicTag: "Fiqih Perbandingan Mazhab & Hadits",
+    madzhab: "Komparasi Mazhab Maliki, Syafi'i, Hanafi & Hanbali",
+    arabicText: "يَسْأَلُونَكَ مَاذَا أُحِلَّ لَهُمْ ۖ قُلْ أُحِلَّ لَكُمُ الطَّيِّبَاتُ ۠ وَمَا عَلَّمْتُمْ مِنَ الْجَوَارِحِ مُكَلِّبِينَ تُعَلِّمُونَهُنَّ مِمَّا عَلَّمَكُمُ اللَّهُ ۖ فَكُلُوا مِمَّا أَمْسَكْنَ عَلَيْكُمْ وَاذْكُرُوا اسْمَ اللَّهِ عَلَيْهِ",
+    latinTransliteration: "Yas'alūnaka mādzā uḥilla lahum, qul uḥilla lakumuṭ-ṭayyibātu wa mā 'allamtum minal-jawāriḥi mukallibīna tu'allimūnahunna mimmā 'allamakumullāh...",
+    indonesianTranslation: "Mereka menanyakan kepadamu: 'Apakah yang dihalalkan bagi mereka?' Katakanlah: 'Dihalalkan bagimu yang baik-baik dan (buruan yang ditangkap) oleh binatang pemburu yang telah kamu ajar dengan melatihnya untuk berburu; kamu mengajarnya menurut apa yang telah diajarkan Allah kepadamu. Maka makanlah dari apa yang ditangkapnya untukmu dan sebutlah nama Allah atasnya.'",
+    englishTranslation: "They ask you, [O Muhammad], what has been made lawful for them. Say, 'Lawful for you are [all] good foods and [game caught by] what you have trained of hunting animals which you train as Allah has taught you. So eat of what they catch for you, and mention the name of Allah over it.'",
+    tafsir: "Kajian Armansyah: Mengulas keragaman pandangan fuqaha. Imam Malik berpendapat anjing dan seluruh bagian tubuhnya adalah suci secara zatiah, dan air liurnya dibasuh 7 kali semata-mata bersifat ta'abbudi. Pemahaman parsial masyarakat seringkali menimbulkan kezaliman pada hewan ciptaan Allah.",
+    authenticity: "Al-Qur'an & Kitab Fiqih Al-Mudawwanah Al-Kubra"
+  },
+  {
+    id: "armansyah-israk-mikraj",
+    title: "Israk & Mikraj: Tinjauan Saintifik di Balik Kontroversi",
+    sourceCategory: "artikel",
+    sourceName: "Arsip Armansyah (Buku: Israk & Mikraj Tinjauan Saintifik)",
+    sourceUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+    reference: "QS. Al-Isra [17]: 1 & Buku Israk & Mikraj (PTS Islamika Malaysia, ISBN: 978-967-5137-91-5)",
+    topicTag: "Mukjizat Kenabian, Sains & Akidah",
+    arabicText: "سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ آيَاتِنَا ۚ إِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ",
+    latinTransliteration: "Subḥānalladzī asrā bi'abdihī laylam minal-masjidil-ḥarāmi ilal-masjidil-aqṣalladzī bāraknā ḥawlahū linuriyahū min āyātinā, innahū huwas-samī'ul-baṣīr.",
+    indonesianTranslation: "Maha Suci Allah, yang telah memperjalankan hamba-Nya pada suatu malam dari Masjidil Haram ke Masjidil Aqsha yang telah Kami berkahi sekelilingnya agar Kami perlihatkan kepadanya sebagian dari tanda-tanda (kebesaran) Kami. Sesungguhnya Dia adalah Maha Mendengar lagi Maha Mengetahui.",
+    englishTranslation: "Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing.",
+    tafsir: "Kajian Armansyah: Menganalisis fenomena perjalanan lintas ruang dan waktu berkecepatan supra-cahaya dengan pendekatan fisika relativitas, membantah pandangan orientalis yang mereduksinya sebatas mimpi belaka.",
+    authenticity: "Kalamullah (Al-Qur'anul Karim)"
+  },
+  {
+    id: "armansyah-imam-mahdi",
+    title: "Kritik & Pelurusan Ramalan Kedatangan Imam Mahdi",
+    sourceCategory: "hadith",
+    sourceName: "Arsip Armansyah (Buku: Ramalan Imam Mahdi)",
+    sourceUrl: "https://arsiparmansyah.wordpress.com/daftar-buku-arman/",
+    reference: "Sunan Abu Daud No. 4282 & Buku Ramalan Imam Mahdi (Serambi, ISBN: 978-979-024-081-0)",
+    topicTag: "Eskatologi Islam & Takhrij Hadits Akhir Zaman",
+    arabicText: "عَنْ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ، عَنِ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: «لَا تَذْهَبُ الدُّنْيَا حَتَّى يَمْلِكَ الْعَرَبَ رَجُلٌ مِنْ أَهْلِ بَيْتِي، يُوَاطِئُ اسْمُهُ اسْمِي، وَاسْمُ أَبِيهِ اسْمَ أَبِي، يَمْلَأُ الْأَرْضَ قِسْطًا وَعَدْلًا كَمَا مُلِئَتْ ظُلْمًا وَجَوْرًا»",
+    latinTransliteration: "'An 'Abdillahi bin Mas'ud: 'La tadzhabud-dunya hatta yamlikal-'araba rajulun min ahli bayti, yuwaathi'usmuhusmi, wasmu abihi isma abi...'",
+    indonesianTranslation: "Dari Abdullah bin Mas'ud radhiyallahu 'anhu, Nabi shallallahu 'alaihi wasallam bersabda: 'Dunia ini tidak akan lenyap hingga bangsa Arab dipimpin oleh seorang laki-laki dari keturunan ahli baitku, namanya serupa dengan namaku, dan nama ayahnya serupa dengan nama ayahku. Ia akan memenuhi bumi dengan keadilan sebagaimana sebelumnya dipenuhi oleh kezaliman dan kesewenang-wenangan.'",
+    englishTranslation: "The Prophet (ﷺ) said: 'The world will not pass away until the Arabs are ruled by a man from the people of my house, whose name will agree with my name and his father's name with my father's name. He will fill the earth with equity and justice as it was filled with oppression and tyranny.'",
+    tafsir: "Kajian Kritis Armansyah: Menepis penetapan tanggal atau tahun tertentu dari para penulis kontemporer yang mengklaim kedatangan Imam Mahdi secara spekulatif. Sikap Ahlussunnah adalah meyakini kemunculannya sebagai ketetapan takdir tanpa terjebak kepalsuan klaim.",
+    authenticity: "Hadits Shahih (HR. Abu Daud & Tirmidzi)"
+  },
+
+  // --- AL-QUR'AN & TAFSIR (quranweb.id & tafsirweb.com) ---
+  {
+    id: "quran-ali-imran-102",
+    title: "Perintah Bertaqwa dengan Sebenar-Benar Taqwa",
+    sourceCategory: "quran",
+    sourceName: "QuranWeb.id & TafsirWeb.com",
+    sourceUrl: "https://quranweb.id/3/102",
+    reference: "QS. Ali 'Imran [3]: 102",
+    topicTag: "Taqwa & Rukun Khutbah",
+    arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ",
+    latinTransliteration: "Yā ayyuhalladzīna āmanuttaqullāha ḥaqqa tuqātihī walā tamūtunna illā wa antum muslimūn.",
+    indonesianTranslation: "Wahai orang-orang yang beriman! Bertakwalah kepada Allah dengan sebenar-benar takwa kepada-Nya dan janganlah kamu mati kecuali dalam keadaan muslim.",
+    englishTranslation: "O you who have believed, fear Allah as He should be feared and do not die except as Muslims [in submission to Him].",
+    tafsir: "Tafsir Al-Muyassar (TafsirWeb): Wahai orang-orang yang beriman, taatilah Allah dengan tidak bermaksiat, ingatlah Dia dan jangan lupakan nikmat-Nya, pertahankan keimanan hingga ajal menjemput.",
+    authenticity: "Kalamullah (Al-Qur'anul Karim)"
+  },
+  {
+    id: "quran-al-ahzab-70-71",
+    title: "Menjaga Lisan dan Berkata Benar (Qawlan Sadida)",
+    sourceCategory: "quran",
+    sourceName: "QuranWeb.id & TafsirWeb.com",
+    sourceUrl: "https://quranweb.id/33/70-71",
+    reference: "QS. Al-Ahzab [33]: 70-71",
+    topicTag: "Adab Lisan & Akhlak",
+    arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ ۗ وَمَنْ يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا",
+    latinTransliteration: "Yā ayyuhalladzīna āmanuttaqullāha wa qūlū qawlan sadīdā. Yuṣliḥ lakum a'mālakum wa yaghfir lakum dzunūbakum, wa may yuṭi'illāha wa rasūlahū faqad fāza fawzan 'aẓīmā.",
+    indonesianTranslation: "Wahai orang-orang yang beriman! Bertakwalah kamu kepada Allah dan ucapkanlah perkataan yang benar, niscaya Allah akan memperbaiki amal-amalmu dan mengampuni dosa-dosamu. Dan barang siapa menaati Allah dan Rasul-Nya, maka sungguh ia telah menang dengan kemenangan yang agung.",
+    englishTranslation: "O you who have believed, fear Allah and speak words of appropriate justice. He will [then] amend for you your deeds and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great attainment.",
+    tafsir: "Tafsir Kemenag (TafsirWeb): Perintah menjaga lisan agar senantiasa jujur, adil, dan bernilai kebajikan, sehingga Allah membersihkan amal perbuatan dan memaafkan segala khilaf.",
+    authenticity: "Kalamullah (Al-Qur'anul Karim)"
+  },
+  {
+    id: "quran-al-jumuah-9-10",
+    title: "Seruan Sholat Jumat dan Menghentikan Jual Beli",
+    sourceCategory: "quran",
+    sourceName: "QuranWeb.id & TafsirWeb.com",
+    sourceUrl: "https://quranweb.id/62/9-10",
+    reference: "QS. Al-Jumu'ah [62]: 9-10",
+    topicTag: "Khutbah & Ibadah Jumat",
+    arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَكُمْ إِنْ كُنْتُمْ تَعْلَمُونَ ۝ فَإِذَا قُضِيَتِ الصَّلَاةُ فَانْتَشِرُوا فِي الْأَرْضِ وَابْتَغُوا مِنْ فَضْلِ اللَّهِ وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ",
+    latinTransliteration: "Yā ayyuhalladzīna āmanū idzā nūdiya liṣ-ṣalāti miy yawmil-jumu'ati fas'aw ilā dzikrillāhi wa dzarul-bay'...",
+    indonesianTranslation: "Wahai orang-orang yang beriman! Apabila telah diseru untuk melaksanakan salat pada hari Jumat, maka segeralah kamu mengingat Allah dan tinggalkanlah jual beli. Yang demikian itu lebih baik bagimu jika kamu mengetahui...",
+    englishTranslation: "O you who have believed, when [the adhan] is called for the prayer on the day of Jumu'ah [Friday], then proceed to the remembrance of Allah and leave trade. That is better for you, if you only knew.",
+    tafsir: "Tafsir Ibnu Katsir: Kewajiban menghadiri khutbah dan shalat Jumat begitu adzan berkumandang, serta keharusan menghentikan aktivitas perniagaan.",
+    authenticity: "Kalamullah (Al-Qur'anul Karim)"
+  },
+
+  // --- HADITS (hadits.tazkia.ac.id & carihadits.id/imam) ---
+  {
+    id: "hadits-bukhari-1",
+    title: "Niat sebagai Penentu Nilai Segala Amal Ibadah",
+    sourceCategory: "hadith",
+    sourceName: "CariHadits.id (Imam Bukhari) & Hadits Tazkia",
+    sourceUrl: "https://www.carihadits.id/imam/bukhari/1",
+    reference: "Shahih Bukhari No. 1 & Shahih Muslim No. 1907",
+    topicTag: "Ikhlas & Niat",
+    arabicText: "عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: «إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ»",
+    latinTransliteration: "'An 'Umar bin al-Khattab radiyallahu 'anhu: 'Innamal a'maalu bin-niyyaat, wa innama likullimri'in maa nawaa...'",
+    indonesianTranslation: "Dari Umar bin Khaththab radhiyallahu 'anhu, Rasulullah shallallahu 'alaihi wasallam bersabda: 'Sesungguhnya segala amalan tergantung pada niatnya, dan sesungguhnya setiap orang akan mendapatkan apa yang ia niatkan. Barangsiapa hijrahnya karena Allah dan Rasul-Nya maka hijrahnya kepada Allah dan Rasul-Nya, dan barangsiapa hijrahnya karena dunia atau wanita yang ingin dinikahinya, maka hijrahnya kepada apa yang ia tuju.'",
+    englishTranslation: "Narrated 'Umar bin Al-Khattab: The Prophet (ﷺ) said: 'The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended...'",
+    authenticity: "Muttafaqun 'Alaih (Shahih Bukhari & Shahih Muslim)"
+  },
+  {
+    id: "hadits-muslim-2564",
+    title: "Kehormatan Jiwa, Harta, dan Darah Sesama Muslim",
+    sourceCategory: "hadith",
+    sourceName: "CariHadits.id (Imam Muslim) & Hadits Tazkia",
+    sourceUrl: "https://www.carihadits.id/imam/muslim/2564",
+    reference: "Shahih Muslim No. 2564",
+    topicTag: "Ukhuwah & Larangan Kezaliman",
+    arabicText: "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «الْمُسْلِمُ أَخُو الْمُسْلِمِ؛ لَا يَظْلِمُهُ، وَلَا يَخْذُلُهُ، وَلَا يَحْقِرُهُ. التَّقْوَى هَاهُنَا - وَيُشِيرُ إِلَى صَدْرِهِ ثَلَاثَ مَرَّاتٍ - بِحَسْبِ امْرِئٍ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُسْلِمَ، كُلُّ الْمُسْلِمِ عَلَى الْمُسْلِمِ حَرَامٌ: دَمُهُ، وَمَالُهُ، وَعِرْضُهُ»",
+    latinTransliteration: "'An Abi Hurairah radiyallahu 'anhu: 'Al-muslimu akhul muslim; la yazhlimuhu, wala yakhdzuluhu, wala yahqiruhu...'",
+    indonesianTranslation: "Dari Abu Hurairah radhiyallahu 'anhu, Rasulullah shallallahu 'alaihi wasallam bersabda: 'Seorang muslim adalah saudara bagi muslim lainnya; tidak boleh menzhaliminya, tidak boleh menelantarkannya, dan tidak boleh merendahkannya. Taqwa itu letaknya di sini (beliau menunjuk dadanya tiga kali). Cukuplah seseorang dianggap berbuat keburukan apabila ia merendahkan saudaranya sesama muslim. Setiap muslim atas muslim lainnya haram darahnya, hartanya, dan kehormatannya.'",
+    englishTranslation: "Abu Hurairah reported Allah's Messenger (ﷺ) as saying: 'A Muslim is the brother of a Muslim. He neither oppresses him nor humiliates him nor looks down upon him... All of a Muslim is sacred to a Muslim: his blood, his property, and his honour.'",
+    authenticity: "Shahih Muslim"
+  },
+
+  // --- FIQIH (shamela.ws/book/23604 - Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah) ---
+  {
+    id: "fiqh-shamela-khutbah-arkan",
+    title: "Rukun Khutbah Jumat Menurut 4 Mazhab Fiqih",
+    sourceCategory: "fiqh",
+    sourceName: "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah (shamela.ws/book/23604)",
+    sourceUrl: "https://shamela.ws/book/23604",
+    reference: "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah, Jilid 19, Hal. 176-180",
+    topicTag: "Fiqih Khutbah Jumat & Rukun Khutbah",
+    madzhab: "4 Mazhab (Hanafi, Maliki, Syafi'i, Hanbali)",
+    arabicText: "ذَهَبَ الشَّافِعِيَّةُ وَالْحَنَابِلَةُ إِلَى أَنَّ أَرْكَانَ خُطْبَةِ الْجُمُعَةِ خَمْسَةٌ: حَمْدُ اللَّهِ تَعَالَى فِيهِمَا، وَالصَّلَاةُ عَلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فِيهِمَا، وَالْوَصِيَّةُ بِالتَّقْوَى فِيهِمَا، وَقِرَاءَةُ آيَةٍ مِنَ الْقُرْآنِ فِي إِحْدَاهُمَا، وَالدُّعَاءُ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ فِي الثَّانِيَةِ. وَعِنْدَ الْحَنَفِيَّةِ: الرُّكْنُ مُطْلَقُ ذِكْرِ اللَّهِ تَعَالَى كَالتَّحْمِيدِ أَوِ التَّسْبِيحِ، وَعِنْدَ الْمَالِكِيَّةِ: مَا يُسَمَّى خُطْبَةً عُرْفًا وَلَوْ كَلِمَاتٍ يَسِيرَةٍ تَحْوِي وَعْظًا وَتَحْذِيرًا.",
+    latinTransliteration: "Dzahaba asy-Syafi'iyyatu wal-Hanabilatu ila anna arkaana khutbatil-jumu'ati khamsatun...",
+    indonesianTranslation: "Ulama Mazhab Syafi'i dan Hanbali menegaskan bahwa rukun Khutbah Jumat ada lima: (1) Memuji Allah (Hamdalah) pada kedua khutbah, (2) Bershalawat kepada Nabi ﷺ pada kedua khutbah, (3) Wasiat taqwa pada kedua khutbah, (4) Membaca satu ayat Al-Qur'an yang dapat dipahami maknanya pada salah satu khutbah, dan (5) Berdoa untuk kaum mukminin dan mukminat pada khutbah kedua. Menurut Hanafiyyah: Rukunnya dzikir mutlak. Menurut Malikiyyah: Apa saja yang secara tradisi ('urf) disebut khutbah berisi nasihat.",
+    englishTranslation: "According to the Shafi'i and Hanbali schools of Islamic jurisprudence, the essential pillars (arkan) of the Friday sermon (Khutbah) are five: (1) Praising Allah in both sermons, (2) Invoking blessings upon the Prophet (PBUH) in both, (3) Exhorting the congregation to piety (Taqwa) in both, (4) Reciting at least one complete understandable verse of the Qur'an in either sermon, and (5) Supplicating for the believing men and women in the second sermon.",
+    authenticity: "Ketetapan Fiqih 4 Mazhab Sunni"
+  },
+  {
+    id: "fiqh-shamela-muamalah-riba",
+    title: "Larangan Riba & Kehalalan Perniagaan Syariah",
+    sourceCategory: "fiqh",
+    sourceName: "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah (shamela.ws/book/23604)",
+    sourceUrl: "https://shamela.ws/book/23604",
+    reference: "Al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah, Jilid 22, Hal. 50-55",
+    topicTag: "Ekonomi Syariah & Fiqih Muamalah",
+    madzhab: "Konsensus Seluruh Mazhab Islam (Ijma')",
+    arabicText: "الرِّبَا مُحَرَّمٌ بِالْكِتَابِ وَالسُّنَّةِ وَإِجْمَاعِ الْأُمَّةِ، وَهُوَ مِنْ كَبَائِرِ الذُّنُوبِ. وَالْأَصْلُ فِي الْبُيُوعِ الْحِلُّ وَالْإِبَاحَةُ إِلَّا مَا دَلَّ الدَّلِيلُ عَلَى تَحْرِيمِهِ كَالْغَرَرِ وَالْقِمَارِ وَالظُّلْمِ. وَيُشْتَرَطُ فِي عَقْدِ الْبَيْعِ صِحَّةُ الرِّضَا وَمَعْلُومِيَّةُ الثَّمَنِ وَالْمُثَمَّنِ وَالْقُدْرَةُ عَلَى التَّسْلِيمِ.",
+    latinTransliteration: "Ar-ribaa muharramun bil-kitaabi was-sunnati wa ijmaa'il-ummah, wa huwa min kabaa'irid-dzunuub...",
+    indonesianTranslation: "Riba diharamkan berdasarkan Al-Qur'an, As-Sunnah, dan Ijma' umat, serta termasuk dalam dosa-dosa besar. Sedangkan hukum asal perniagaan adalah halal dan mubah, kecuali ada dalil pengharaman seperti gharar (ketidakjelasan/spekulasi), judi, atau kezaliman. Disyaratkan adanya keridhaan sukarela dan kejelasan harga serta barang.",
+    englishTranslation: "Usury (Riba) is strictly prohibited by the Quran, Sunnah, and scholar consensus, and is among the major sins. Commercial trade is inherently lawful, unless tainted with gharar (excessive ambiguity), gambling, or extortion.",
+    authenticity: "Ijma' Ulama Salaf & Khalaf"
+  },
+
+  // --- KAJIAN MUHAMAD BASUKI (muhamadbasuki.web.id) ---
+  {
+    id: "basuki-adab-berhutang",
+    title: "Tanggung Jawab Moral dan Fiqih Berhutang",
+    sourceCategory: "artikel",
+    sourceName: "MuhamadBasuki.web.id",
+    sourceUrl: "https://muhamadbasuki.web.id/",
+    reference: "Kajian Fiqih Muamalah Ustadz Muhamad Basuki",
+    topicTag: "Muamalah & Akhlak Finansial",
+    arabicText: "قَالَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «مَنْ أَخَذَ أَمْوَالَ النَّاسِ يُرِيدُ أَدَاءَهَا أَدَّى اللَّهُ عَنْهُ، وَمَنْ أَخَذَ يُرِيدُ إِتْلَافَهَا أَتْلَفَهُ اللَّهُ»",
+    latinTransliteration: "Qalan-Nabiyyu: 'Man akhadza amwaalan-naasi yuriidu adaa'aha addallahu 'anhu, wa man akhadza yuriidu itlaafaha atlafahullaah.'",
+    indonesianTranslation: "Rasulullah shallallahu 'alaihi wasallam bersabda: 'Barang siapa meminjam harta orang lain dengan niat tulus hendak melunasinya, niscaya Allah akan menolongnya melunasi hutang tersebut. Dan barang siapa yang meminjamnya dengan niat melenyapkannya (tidak membayar), niscaya Allah akan membinasakannya.' (HR. Bukhari No. 2387)",
+    englishTranslation: "The Prophet (ﷺ) said: 'Whoever takes the wealth of people with the intention of repaying it, Allah will pay it on his behalf; and whoever takes it desiring to destroy it, Allah will destroy him.'",
+    tafsir: "Ulasan Ustadz Muhamad Basuki: Berhutang diperbolehkan dalam kondisi darurat, namun wajib dicatat secara tertulis (QS. Al-Baqarah: 282), diiringi saksi, dan disertai tekad kuat untuk segera melunasinya begitu ada kelapangan.",
+    authenticity: "Shahih Bukhari"
+  }
+];

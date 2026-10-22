@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-arabic {
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+}
+
+.font-scheherazade {
+  font-family: 'Scheherazade New', 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.3;
+}
+
+/* Custom scrollbars for screen view */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Text Justify utility */
+.text-justify-custom {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  hyphens: auto;
+}
+
+/* 
+  ======================================================
+  FLAWLESS A4 PRINT STYLES - ZERO FRAMES, ZERO SCROLLBARS
+  ======================================================
+*/
+@page {
+  size: A4 portrait;
+  margin: 20mm 18mm 20mm 18mm;
+}
+
+@media print {
+  /* Hide all screen chrome */
+  header, nav, footer, .no-print, button, input, .teleprompter-overlay, .screen-only {
+    display: none !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.75 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Isolate printable container */
+  #printable-a4-document {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  #printable-a4-document * {
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+
+  /* Force justified paragraphs in print */
+  #printable-a4-document p, 
+  #printable-a4-document .sermon-p,
+  .print-justify {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    margin-bottom: 12pt !important;
+  }
+
+  /* Arabic typography in print */
+  #printable-a4-document .font-arabic,
+  .print-arabic {
+    font-family: 'Amiri', 'Scheherazade New', serif !important;
+    font-size: 17pt !important;
+    line-height: 2.3 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    color: #064e3b !important;
+    margin: 10pt 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Section cards and breaks */
+  .print-card {
+    border: 1px solid #e5e7eb !important;
+    padding: 12pt !important;
+    margin-bottom: 14pt !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
